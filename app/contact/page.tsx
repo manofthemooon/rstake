@@ -1,5 +1,5 @@
 "use client";
-import { Github, Mail, Twitter,Telegram, Discord } from "lucide-react";
+import { Github, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
@@ -24,19 +24,19 @@ const socials = [
 		handle: "manofthemooon",
 	},
 	{
-		icon: <Telegram size={20} />,
+		icon: <Github size={20} />,
 		href: "https://t.me/manofthemoon",
 		label: "Telegram",
 		handle: "manofthemoon",
 	},
 	{
-		icon: <Medium size={20} />,
+		icon: <Github size={20} />,
 		href: "https://manofthemooon.medium.com/",
 		label: "Medium",
 		handle: "manofthemooon",
 	},
 	{
-		icon: <Discord size={20} />,
+		icon: <Github size={20} />,
 		href: "https://discordapp.com/users/542318439633780736",
 		label: "Discord",
 		handle: "manofthemooon",
