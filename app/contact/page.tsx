@@ -14,8 +14,8 @@ const socials = [
       />
     ),
     href: "https://x.com/manoofthemooon",
-    label: "Twitter",
-    handle: "@manoofthemooon",
+    label: "@manoofthemooon",
+    handle: "Twitter",
   },
   {
     icon: (
@@ -27,8 +27,8 @@ const socials = [
       />
     ),
     href: "https://t.me/manofthemoon",
-    label: "Telegram",
-    handle: "@manoofthemooon",
+    label: "@manoofthemooon",
+    handle: "Telegram",
   },
   {
     icon: (
@@ -40,8 +40,8 @@ const socials = [
       />
     ),
     href: "https://github.com/manofthemooon",
-    label: "GitHub",
-    handle: "manofthemooon",
+    label: "manofthemooon",
+    handle: "GitHub",
   },
   {
     icon: (
@@ -53,8 +53,8 @@ const socials = [
       />
     ),
     href: "https://manofthemooon.medium.com/",
-    label: "Medium",
-    handle: "manofthemooon",
+    label: "manofthemooon",
+    handle: "Medium",
   },
   {
     icon: (
@@ -66,8 +66,8 @@ const socials = [
       />
     ),
     href: "https://discordapp.com/users/542318439633780736",
-    label: "Discord",
-    handle: "manofthemooon",
+    label: "manofthemooon",
+    handle: "Discord",
   },
   {
     icon: (
@@ -79,14 +79,14 @@ const socials = [
       />
     ),
     href: "mailto:manofthemoonwork@gmail.com",
-    label: "Email",
-    handle: (
-      <div className="text-center">
-        manofthemoonwork
-        <br />
-        @gmail.com
-      </div>
-    ),
+    label: (
+		<div className="text-center">
+		  manofthemoonwork
+		  <br />
+		  @gmail.com
+		</div>
+	  ),
+    handle: "Email",
   },
 ];
 
