@@ -8,14 +8,14 @@ const socials = [
 	{
 		icon: <Twitter size={20} />,
 		href: "https://twitter.com/chronark_",
-		label: "Twitter",
-		handle: "@chronark_",
+		label: "123123",
+		handle: "andrey",
 	},
 	{
 		icon: <Mail size={20} />,
 		href: "mailto:dev@chronark.com",
-		label: "Email",
-		handle: "dev@chronark.com",
+		label: "andreyyyy",
+		handle: "123321",
 	},
 	{
 		icon: <Github size={20} />,
