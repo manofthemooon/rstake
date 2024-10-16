@@ -1,12 +1,6 @@
 "use client";
-import {
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  useSpring,
-} from "framer-motion";
-
-import { MouseEventHandler, PropsWithChildren } from "react";
+import { motion, useMotionTemplate, useSpring } from "framer-motion";
+import { PropsWithChildren } from "react";
 
 interface CardProps extends PropsWithChildren {
   className?: string;
@@ -21,6 +15,7 @@ export const Card: React.FC<CardProps> = ({ children, className }) => {
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
   }
+
   const maskImage = useMotionTemplate`radial-gradient(240px at ${mouseX}px ${mouseY}px, white, transparent)`;
   const style = { maskImage, WebkitMaskImage: maskImage };
 
@@ -41,7 +36,7 @@ export const Card: React.FC<CardProps> = ({ children, className }) => {
         />
       </div>
 
-      <div className="flex flex-col h-64 justify-center items-center p-4"> 
+      <div className="flex flex-col h-64 justify-center items-center p-4">
         {children}
       </div>
     </div>
