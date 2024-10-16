@@ -9,6 +9,7 @@ const logoUrl = "https://i.ibb.co/f0kTqbx/web3ali3n.png";
 const navigation = [
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
+  { name: "About Me", href: "/about" },
 ];
 
 const skills = [
