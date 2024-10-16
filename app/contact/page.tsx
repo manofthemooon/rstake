@@ -8,13 +8,13 @@ const socials = [
 	{
 		icon: <Twitter size={20} />,
 		href: "123.com/chronark_",
-		label: "1243444423",
+		label: "12234444423",
 		handle: "andrey",
 	},
 	{
 		icon: <Mail size={20} />,
 		href: "123onark.com",
-		label: "andreyyyy",
+		label: "andrdsfsdfsdfsdfyy",
 		handle: "123321",
 	},
 	{
