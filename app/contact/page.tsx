@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
-import { Card } from "../components/card"; 
+import { Card } from "../components/card";
 
 const socials = [
   {
@@ -28,7 +28,7 @@ const socials = [
     ),
     href: "https://t.me/manofthemoon",
     label: "Telegram",
-    handle: "@manofthemooon",
+    handle: "@manoofthemooon",
   },
   {
     icon: (
@@ -54,7 +54,7 @@ const socials = [
     ),
     href: "https://manofthemooon.medium.com/",
     label: "Medium",
-    handle: "manofthemooon",
+    handle: "manoofthemooon",
   },
   {
     icon: (
@@ -94,14 +94,14 @@ export default function Example() {
   return (
     <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
-      <div className="container flex items-center justify-center min-h-screen px-4 mx-auto mt-5">
-        <div className="grid w-full grid-cols-2 gap-4 mx-auto sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"> 
+      <div className="container flex items-center justify-center min-h-screen px-4 mx-auto mt-2 mb-2"> 
+        <div className="grid w-full grid-cols-1 gap-2 mx-auto sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"> 
           {socials.map((s) => (
-            <Card key={s.label} className="h-56 sm:h-64 mb-4 mt-4"> 
+            <Card key={s.label} className="h-60"> 
               <Link
                 href={s.href}
                 target="_blank"
-                className="p-4 relative flex flex-col items-center gap-2 duration-700 group md:gap-4 md:py-10 lg:pb-20 md:p-8"
+                className="p-4 relative flex flex-col items-center gap-2 duration-700 group md:gap-3 md:py-8 lg:pb-16 md:p-6"
               >
                 <span
                   className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
