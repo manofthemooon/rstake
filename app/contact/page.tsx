@@ -28,7 +28,7 @@ const socials = [
     ),
     href: "https://t.me/manofthemoon",
     label: "Telegram",
-    handle: "@manoofthemooon",
+    handle: "@manofthemoon",
   },
   {
     icon: (
@@ -81,12 +81,12 @@ const socials = [
     href: "mailto:manoofthemoonwork@gmail.com",
     label: "Email",
     handle: (
-      <div className="text-center">
-        manofthemoonwork
-        <br />
-        @gmail.com
-      </div>
-    ),
+		<div className="text-center">
+		  manofthemoonwork
+		  <br />
+		  @gmail.com
+		</div>
+	  ),
   },
 ];
 
