@@ -11,6 +11,15 @@ const navigation = [
   { name: "Contact", href: "/contact" },
 ];
 
+const skills = [
+  "Moderator",
+  "Community Manager",
+  "Ambassador",
+  "RPA Developer",
+  "QA Engineer",
+  "Prompt Engineer",
+];
+
 const Home: React.FC = () => {
   const [showSkills, setShowSkills] = useState(false);
 
@@ -56,9 +65,17 @@ const Home: React.FC = () => {
       </div>
 
       {showSkills && (
-        <div className="my-8 text-center text-lg text-zinc-500 transition-opacity duration-1000 ease-in opacity-0 animate-fade-in-slow">
-          <p>
-            Moderator &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Community Manager &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Ambassador &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; RPA Developer &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; QA Engineer &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Prompt Engineer
+        <div className="my-8 text-center text-lg text-zinc-500">
+          <p className="flex flex-wrap justify-center space-x-4 space-y-4">
+            {skills.map((skill, index) => (
+              <span
+                key={skill}
+                className={`opacity-0 animate-fade-in-skill`}
+                style={{ animationDelay: `${index * 0.5}s` }}
+              >
+                {skill}
+              </span>
+            ))}
           </p>
         </div>
       )}
