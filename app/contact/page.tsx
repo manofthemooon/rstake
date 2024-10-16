@@ -14,8 +14,8 @@ const socials = [
       />
     ),
     href: "https://x.com/manoofthemooon",
-    label: "@manoofthemooon",
-    handle: "Twitter",
+    label: "Twitter",
+    handle: "@manoofthemooon",
   },
   {
     icon: (
@@ -27,8 +27,8 @@ const socials = [
       />
     ),
     href: "https://t.me/manofthemoon",
-    label: "@manoofthemooon",
-    handle: "Telegram",
+    label: "Telegram",
+    handle: "@manoofthemooon",
   },
   {
     icon: (
@@ -40,8 +40,8 @@ const socials = [
       />
     ),
     href: "https://github.com/manofthemooon",
-    label: "manofthemooon",
-    handle: "GitHub",
+    label: "GitHub",
+    handle: "manofthemooon",
   },
   {
     icon: (
@@ -53,8 +53,8 @@ const socials = [
       />
     ),
     href: "https://manofthemooon.medium.com/",
-    label: "manofthemooon",
-    handle: "Medium",
+    label: "Medium",
+    handle: "manofthemooon",
   },
   {
     icon: (
@@ -66,8 +66,8 @@ const socials = [
       />
     ),
     href: "https://discordapp.com/users/542318439633780736",
-    label: "manofthemooon",
-    handle: "Discord",
+    label: "Discord",
+    handle: "manofthemooon",
   },
   {
     icon: (
@@ -79,14 +79,14 @@ const socials = [
       />
     ),
     href: "mailto:manofthemoonwork@gmail.com",
-    label: (
-		<div className="text-center">
-		  manofthemoonwork
-		  <br />
-		  @gmail.com
-		</div>
-	  ),
-    handle: "Email",
+    label: "Email",
+    handle: (
+      <div className="text-center">
+        manofthemoonwork
+        <br />
+        @gmail.com
+      </div>
+    ),
   },
 ];
 
@@ -94,7 +94,7 @@ export default function Example() {
   return (
     <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
-      <div className="container flex items-center justify-center min-h-screen px-4 mx-auto mt-10 mb-10"> {/* Добавлены отступы сверху и снизу */}
+      <div className="container flex items-center justify-center min-h-screen px-4 mx-auto mt-10 mb-10">
         <div className="grid w-full grid-cols-2 gap-4 mx-auto sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {socials.map((s) => (
             <Card key={s.label} className="h-56 sm:h-64"> 
@@ -111,11 +111,11 @@ export default function Example() {
                   {s.icon}
                 </span>
                 <div className="z-10 flex flex-col items-center">
-                  <span className="lg:text-lg font-medium duration-150 xl:text-2xl text-zinc-200 group-hover:text-white font-display">
-                    {s.handle}
-                  </span>
-                  <span className="mt-2 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
+                  <span className="mt-2 text-lg font-bold text-center duration-1000 text-zinc-200 group-hover:text-white">
                     {s.label}
+                  </span>
+                  <span className="mt-1 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
+                    {s.handle}
                   </span>
                 </div>
               </Link>
