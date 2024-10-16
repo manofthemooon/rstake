@@ -21,7 +21,7 @@ export const Article: React.FC<Props> = ({ project }) => {
 							<span>SOON</span>
 						)}
 					</span>
-					{/* Удален блок с отображением количества просмотров */}
+					
 				</div>
 				<h2 className="z-20 text-xl font-medium duration-1000 lg:text-3xl text-zinc-200 group-hover:text-white font-display">
 					{project.title}
