@@ -14,9 +14,6 @@ const About = () => {
         Hello! I'm a passionate developer with experience in various technologies. 
         I love working on projects that challenge my skills and allow me to learn new things.
       </p>
-      <Link href="/" className="mt-6 text-sm text-zinc-500 hover:text-zinc-300">
-        Back
-      </Link>
     </div>
   );
 };
