@@ -57,7 +57,7 @@ const Home: React.FC = () => {
         Web3 Ali3n
       </h1>
 
-      <div className="my-2 sm:my-4"> 
+      <div className="flex flex-col items-center my-2 sm:my-4">
         <img
           src={logoUrl}
           alt="Web3 Ali3n Logo"
