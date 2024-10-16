@@ -8,6 +8,7 @@ type Props = {
 		url?: string;
 		title: string;
 		description: string;
+		position: string;
 		repository?: string;
 	};
 

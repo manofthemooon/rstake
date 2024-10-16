@@ -10,9 +10,10 @@ export const Article: React.FC<Props> = ({ project }) => {
 		<Link href={`/projects/${project.slug}`}>
 			<article className="relative p-4 md:p-8">
 				<div className="flex justify-between gap-2 items-center">
-				<span className="text-xs duration-1000 text-zinc-200 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange">
+					<span className="text-xs duration-1000 text-zinc-200 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange">
 						{project.date ? (
 							<time dateTime={new Date(project.date).toISOString()}>
+								
 								{new Date(project.date).getFullYear()}
 							</time>
 						) : (
@@ -30,7 +31,7 @@ export const Article: React.FC<Props> = ({ project }) => {
 						<img
 							src={project.logo}
 							alt={`${project.title} logo`}
-							className="ml-2 w-8 h-8 -mt-0.5" 
+							className="ml-2 w-8 h-8 -mt-0.5" // Отрицательный отступ по вертикали
 						/>
 					)}
 				</div>
@@ -38,6 +39,13 @@ export const Article: React.FC<Props> = ({ project }) => {
 				<p className="z-20 mt-4 text-sm duration-1000 text-zinc-400 group-hover:text-zinc-200">
 					{project.description}
 				</p>
+
+				
+				{project.position && (
+					<p className="z-20 mt-2 text-xs duration-1000 text-zinc-400 group-hover:text-zinc-200">
+						{project.position}
+					</p>
+				)}
 			</article>
 		</Link>
 	);
