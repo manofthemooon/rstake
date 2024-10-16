@@ -32,7 +32,7 @@ export const Article: React.FC<Props> = ({ project }) => {
 					<img
 						src={project.logo}
 						alt={`${project.title} logo`}
-						className="absolute bottom-4 right-4 w-8 h-8"
+						className="absolute bottom-1 right-1 w-8 h-8"
 					/>
 				)}
 			</article>
