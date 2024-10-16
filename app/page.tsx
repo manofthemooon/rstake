@@ -2,14 +2,17 @@ import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
 
+// Добавляем ссылку на изображение логотипа
 const logoUrl = "https://i.ibb.co/Vp4CHL1/web3ali3n.jpg";
 
+// Определяем тип для навигационных элементов
 const navigation = [
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
 ];
 
-export default function Home() {
+// Определяем компонент
+const Home: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
       {/* Логотип в левом верхнем углу */}
@@ -34,20 +37,7 @@ export default function Home() {
           ))}
         </ul>
       </nav>
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
-      <nav className="my-16 animate-fade-in">
-        <ul className="flex items-center justify-center gap-4">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm duration-500 text-zinc-500 hover:text-zinc-300"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </ul>
-      </nav>
+
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <Particles
         className="absolute inset-0 -z-10 animate-fade-in"
@@ -66,11 +56,13 @@ export default function Home() {
             href="https://unkey.dev"
             className="underline duration-500 hover:text-zinc-300"
           >
-            unkey.d ev
-          </Link> to solve API authentication and authorization for developers.
+            unkey.dev
+          </Link>{" "}
+          to solve API authentication and authorization for developers.
         </h2>
       </div>
     </div>
   );
+};
 
-}
+export default Home;
