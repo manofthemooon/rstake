@@ -97,7 +97,7 @@ export default function Example() {
       <div className="container flex items-center justify-center min-h-screen px-4 mx-auto mt-5">
         <div className="grid w-full grid-cols-2 gap-4 mx-auto sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"> 
           {socials.map((s) => (
-            <Card key={s.label} className="h-64"> 
+            <Card key={s.label} className="h-56 sm:h-64 mb-4 mt-4"> 
               <Link
                 href={s.href}
                 target="_blank"
