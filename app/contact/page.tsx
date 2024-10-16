@@ -54,7 +54,7 @@ const socials = [
     ),
     href: "https://manofthemooon.medium.com/",
     label: "Medium",
-    handle: "manoofthemooon",
+    handle: "manofthemooon",
   },
   {
     icon: (
@@ -94,14 +94,14 @@ export default function Example() {
   return (
     <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
-      <div className="container flex items-center justify-center min-h-screen px-4 mx-auto mt-2 mb-2"> 
-        <div className="grid w-full grid-cols-1 gap-2 mx-auto sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"> 
+      <div className="container flex items-center justify-center min-h-screen px-4 mx-auto mt-5">
+        <div className="grid w-full grid-cols-1 gap-2 mx-auto mt-4 mb-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {socials.map((s) => (
-            <Card key={s.label} className="h-60"> 
+            <Card key={s.label} className="h-64">
               <Link
                 href={s.href}
                 target="_blank"
-                className="p-4 relative flex flex-col items-center gap-2 duration-700 group md:gap-3 md:py-8 lg:pb-16 md:p-6"
+                className="p-4 relative flex flex-col items-center gap-2 duration-700 group md:gap-4 md:py-10 lg:pb-20 md:p-8"
               >
                 <span
                   className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
@@ -122,7 +122,6 @@ export default function Example() {
             </Card>
           ))}
         </div>
-        <div className="mb-20" /> 
       </div>
     </div>
   );
