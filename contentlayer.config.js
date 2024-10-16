@@ -1,44 +1,106 @@
-import type { Project } from "@/.contentlayer/generated";
-import Link from "next/link";
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import remarkGfm from "remark-gfm";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
-type Props = {
-	project: Project;
+/** @type {import('contentlayer/source-files').ComputedFields} */
+const computedFields = {
+  path: {
+    type: "string",
+    resolve: (doc) => `/${doc._raw.flattenedPath}`,
+  },
+  slug: {
+    type: "string",
+    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+  },
 };
 
-export const Article: React.FC<Props> = ({ project }) => {
-	return (
-		<Link href={`/projects/${project.slug}`}>
-			<article className="relative p-4 md:p-8">
-				<div className="flex justify-between gap-2 items-center">
-					<span className="text-xs duration-1000 text-zinc-200 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange">
-						{project.date ? (
-							<time dateTime={new Date(project.date).toISOString()}>
-								{new Date(project.date).getFullYear()}
-							</time>
-						) : (
-							<span>SOON</span>
-						)}
-					</span>
-				</div>
-				<h2 className="z-20 text-xl font-medium duration-1000 lg:text-3xl text-zinc-200 group-hover:text-white font-display">
-					{project.title}
-				</h2>
-				<p className="z-20 mt-4 text-sm duration-1000 text-zinc-400 group-hover:text-zinc-200">
-					{project.description}
-				</p>
-				{project.position && (
-					<p className="z-20 mt-10 text-2xl duration-1000 text-zinc-400 group-hover:text-zinc-200 text-center">
-						{project.position}
-					</p>
-				)}
-				{project.logo && (
-					<img
-						src={project.logo}
-						alt={`${project.title} logo`}
-						className="absolute top-1 right-1 w-8 h-8"
-					/>
-				)}
-			</article>
-		</Link>
-	);
-};
+export const Project = defineDocumentType(() => ({
+  name: "Project",
+  filePathPattern: "./projects/**/*.mdx",
+  contentType: "mdx",
+
+  fields: {
+    published: {
+      type: "boolean",
+    },
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+      required: true,
+    },
+	position: {
+		type: "string",
+	  },
+    date: {
+      type: "date",
+    },
+    url: {
+      type: "string",
+    },
+    repository: {
+      type: "string",
+    },
+    logo: {  
+      type: "string",
+    },
+  },
+  computedFields,
+}));
+
+export const Page = defineDocumentType(() => ({
+  name: "Page",
+  filePathPattern: "pages/**/*.mdx",
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+    },
+  },
+  computedFields,
+}));
+
+export default makeSource({
+  contentDirPath: "./content",
+  documentTypes: [Page, Project],
+  mdx: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypePrettyCode,
+        {
+          theme: "github-dark",
+          onVisitLine(node) {
+            if (node.children.length === 0) {
+              node.children = [{ type: "text", value: " " }];
+            }
+          },
+          onVisitHighlightedLine(node) {
+            node.properties.className.push("line--highlighted");
+          },
+          onVisitHighlightedWord(node) {
+            node.properties.className = ["word--highlighted"];
+          },
+        },
+      ],
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ["subheading-anchor"],
+            ariaLabel: "Link to section",
+          },
+        },
+      ],
+    ],
+  },
+});
