@@ -2,8 +2,8 @@ import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
 
-// Добавляем ссылку на изображение логотипа
-const logoUrl = "https://i.ibb.co/Vp4CHL1/web3ali3n.jpg";
+
+const logoUrl = "https://i.ibb.co/f0kTqbx/web3ali3n.png";
 
 const navigation = [
   { name: "Projects", href: "/projects" },
@@ -32,18 +32,18 @@ const Home: React.FC = () => {
         className="absolute inset-0 -z-10 animate-fade-in"
         quantity={100}
       />
-      
-      {/* Заголовок */}
+
+  
       <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
         Web3 Ali3n
       </h1>
 
-      {/* Логотип под заголовком */}
-      <div className="my-8">
+     
+      <div className="my-6">
         <img
           src={logoUrl}
           alt="Web3 Ali3n Logo"
-          className="h-32 w-32 object-contain md:h-48 md:w-48 lg:h-64 lg:w-64" // Увеличиваем размер логотипа
+          className="h-16 w-16 object-contain md:h-24 md:w-24 lg:h-32 lg:w-32" // Уменьшенные размеры логотипа
         />
       </div>
 
