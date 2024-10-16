@@ -42,7 +42,7 @@ export const Article: React.FC<Props> = ({ project }) => {
 
 				
 				{project.position && (
-					<p className="z-20 mt-4 text-xs duration-1000 text-zinc-400 group-hover:text-zinc-200 text-center">
+					<p className="z-20 mt-6 text-sm duration-1000 text-zinc-400 group-hover:text-zinc-200 text-center">
 						{project.position}
 					</p>
 				)}
