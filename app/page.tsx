@@ -1,7 +1,7 @@
-'use client';
+'use client';  // Указываем, что это Client Component
 
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Particles from "./components/particles";
 
 // Ссылка на логотип с прозрачным фоном
@@ -13,6 +13,17 @@ const navigation = [
 ];
 
 const Home: React.FC = () => {
+  // Состояние для отображения строки с компетенциями
+  const [showSkills, setShowSkills] = useState(false);
+
+  // Используем эффект для задержки на 3 секунды
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSkills(true);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
       <nav className="my-16 animate-fade-in">
@@ -49,31 +60,8 @@ const Home: React.FC = () => {
         />
       </div>
 
-      {/* Бегущая строка с компетенциями */}
-      <div className="my-8 w-full overflow-hidden whitespace-nowrap">
-        <p className="text-lg text-zinc-500 animate-marquee">
-          Moderator &nbsp; | &nbsp; Ambassador &nbsp; | &nbsp; Community Manager &nbsp; | &nbsp; RPA Developer &nbsp; | &nbsp; QA Engineer &nbsp; | &nbsp; Prompt Engineer
-        </p>
-      </div>
-
-      <style jsx>{`
-        .animate-marquee {
-          display: inline-block;
-          white-space: nowrap;
-          animation: marquee 15s linear infinite;
-        }
-
-        @keyframes marquee {
-          0% {
-            transform: translateX(100%);
-          }
-          100% {
-            transform: translateX(-100%);
-          }
-        }
-      `}</style>
-    </div>
-  );
-};
-
-export default Home;
+      {/* Статический текст с компетенциями, отображаемый через 3 секунды */}
+      {showSkills && (
+        <div className="my-8 text-center text-lg text-zinc-500">
+          <p>
+            Moderator &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Ambassador &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; RPA Developer &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; QA Engineer &nbsp;&nbsp;&nbsp
