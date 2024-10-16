@@ -28,7 +28,7 @@ const socials = [
     ),
     href: "https://t.me/manofthemoon",
     label: "Telegram",
-    handle: "@manofthemoon",
+    handle: "@manoofthemooon",
   },
   {
     icon: (
@@ -39,7 +39,7 @@ const socials = [
         height={20}
       />
     ),
-    href: "https://github.com/manofthemooon/",
+    href: "https://github.com/manofthemooon",
     label: "GitHub",
     handle: "manofthemooon",
   },
@@ -59,19 +59,6 @@ const socials = [
   {
     icon: (
       <img
-        src="https://img.icons8.com/ios-filled/20/ffffff/email.png"
-        alt="Mail"
-        width={20}
-        height={20}
-      />
-    ),
-    href: "mailto:manofthemoonwork@gmail.com",
-    label: "Email",
-    handle: "manofthemoonwork@gmail.com",
-  },
-  {
-    icon: (
-      <img
         src="https://img.icons8.com/ios-filled/20/ffffff/discord.png"
         alt="Discord"
         width={20}
@@ -82,21 +69,39 @@ const socials = [
     label: "Discord",
     handle: "manofthemooon",
   },
+  {
+    icon: (
+      <img
+        src="https://img.icons8.com/ios-filled/20/ffffff/email.png"
+        alt="Email"
+        width={20}
+        height={20}
+      />
+    ),
+    href: "mailto:manoofthemoonwork@gmail.com",
+    label: "Email",
+    handle: (
+      <div className="text-center">
+        manofthemoonwork
+        <br />
+        @gmail.com
+      </div>
+    ),
+  },
 ];
 
 export default function Example() {
   return (
-    <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 pb-16">
+    <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
       <div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
-        {/* Изменена сетка для мобильных устройств */}
-        <div className="grid w-full grid-cols-2 gap-4 mx-auto mt-48 sm:grid-cols-3 lg:gap-16">
+        <div className="grid w-full grid-cols-1 gap-8 mx-auto mt-16 sm:grid-cols-2 lg:gap-16">
           {socials.map((s) => (
             <Card key={s.label}>
               <Link
                 href={s.href}
                 target="_blank"
-                className="p-4 relative flex flex-col items-center gap-4 duration-700 group md:gap-8 md:py-16 lg:pb-24 md:p-16"
+                className="p-4 relative flex flex-col items-center gap-4 duration-700 group md:gap-8 md:py-24 lg:pb-48 md:p-16"
               >
                 <span
                   className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
@@ -106,7 +111,7 @@ export default function Example() {
                   {s.icon}
                 </span>
                 <div className="z-10 flex flex-col items-center">
-                  <span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display text-center break-all">
+                  <span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display">
                     {s.handle}
                   </span>
                   <span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
