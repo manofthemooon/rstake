@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
 
-
+// Ссылка на логотип с прозрачным фоном
 const logoUrl = "https://i.ibb.co/f0kTqbx/web3ali3n.png";
 
 const navigation = [
@@ -33,34 +33,43 @@ const Home: React.FC = () => {
         quantity={100}
       />
 
-  
+      {/* Заголовок */}
       <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
         Web3 Ali3n
       </h1>
 
-     
-      <div className="my-6">
+      {/* Логотип под заголовком и чуть выше */}
+      <div className="my-4">
         <img
           src={logoUrl}
           alt="Web3 Ali3n Logo"
-          className="h-16 w-16 object-contain md:h-24 md:w-24 lg:h-32 lg:w-32" // Уменьшенные размеры логотипа
+          className="h-16 w-16 object-contain md:h-24 md:w-24 lg:h-32 lg:w-32"
         />
       </div>
 
-      <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-zinc-500 ">
-          I'm building{" "}
-          <Link
-            target="_blank"
-            href="https://unkey.dev"
-            className="underline duration-500 hover:text-zinc-300"
-          >
-            unkey.dev
-          </Link>{" "}
-          to solve API authentication and authorization for developers.
-        </h2>
+      {/* Бегущая строка с компетенциями */}
+      <div className="my-8 w-full overflow-hidden whitespace-nowrap">
+        <p className="text-lg text-zinc-500 animate-marquee">
+          Moderator &nbsp; | &nbsp; Ambassador &nbsp; | &nbsp; Community Manager &nbsp; | &nbsp; RPA Developer &nbsp; | &nbsp; QA Engineer &nbsp; | &nbsp; Prompt Engineer
+        </p>
       </div>
+
+      <style jsx>{`
+        .animate-marquee {
+          display: inline-block;
+          white-space: nowrap;
+          animation: marquee 15s linear infinite;
+        }
+
+        @keyframes marquee {
+          0% {
+            transform: translateX(100%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+      `}</style>
     </div>
   );
 };
