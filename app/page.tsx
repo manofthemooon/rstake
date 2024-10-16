@@ -1,10 +1,9 @@
-'use client';  // Указываем, что это Client Component
+'use client';
 
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Particles from "./components/particles";
 
-// Ссылка на логотип с прозрачным фоном
 const logoUrl = "https://i.ibb.co/f0kTqbx/web3ali3n.png";
 
 const navigation = [
@@ -13,10 +12,8 @@ const navigation = [
 ];
 
 const Home: React.FC = () => {
-  // Состояние для отображения строки с компетенциями
   const [showSkills, setShowSkills] = useState(false);
 
-  // Используем эффект для задержки на 3 секунды
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSkills(true);
@@ -46,12 +43,10 @@ const Home: React.FC = () => {
         quantity={100}
       />
 
-      {/* Заголовок */}
       <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
         Web3 Ali3n
       </h1>
 
-      {/* Логотип под заголовком и чуть выше */}
       <div className="my-4">
         <img
           src={logoUrl}
@@ -60,8 +55,15 @@ const Home: React.FC = () => {
         />
       </div>
 
-      {/* Статический текст с компетенциями, отображаемый через 3 секунды */}
       {showSkills && (
         <div className="my-8 text-center text-lg text-zinc-500">
           <p>
-            Moderator &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Ambassador &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; RPA Developer &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; QA Engineer &nbsp;&nbsp;&nbsp
+            Moderator &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Ambassador &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; RPA Developer &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; QA Engineer &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Prompt Engineer
+          </p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Home;
