@@ -22,19 +22,24 @@ export const Article: React.FC<Props> = ({ project }) => {
 						)}
 					</span>
 				</div>
-				<h2 className="z-20 text-xl font-medium duration-1000 lg:text-3xl text-zinc-200 group-hover:text-white font-display">
-					{project.title}
-				</h2>
+
+				
+				<div className="flex items-center justify-between mt-2">
+					<h2 className="z-20 text-xl font-medium duration-1000 lg:text-3xl text-zinc-200 group-hover:text-white font-display">
+						{project.title}
+					</h2>
+					{project.logo && (
+						<img
+							src={project.logo}
+							alt={`${project.title} logo`}
+							className="ml-2 w-8 h-8" 
+						/>
+					)}
+				</div>
+
 				<p className="z-20 mt-4 text-sm duration-1000 text-zinc-400 group-hover:text-zinc-200">
 					{project.description}
 				</p>
-				{project.logo && (
-					<img
-						src={project.logo}
-						alt={`${project.title} logo`}
-						className="absolute bottom-1 right-1 w-8 h-8"
-					/>
-				)}
 			</article>
 		</Link>
 	);
