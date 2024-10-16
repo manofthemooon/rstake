@@ -28,7 +28,7 @@ const socials = [
     ),
     href: "https://t.me/manofthemoon",
     label: "Telegram",
-    handle: "@manofthemoon",
+    handle: "@manoofthemooon",
   },
   {
     icon: (
@@ -78,15 +78,15 @@ const socials = [
         height={20}
       />
     ),
-    href: "mailto:manoofthemoonwork@gmail.com",
+    href: "mailto:manofthemoonwork@gmail.com",
     label: "Email",
     handle: (
-		<div className="text-center">
-		  manofthemoonwork
-		  <br />
-		  @gmail.com
-		</div>
-	  ),
+      <div className="text-center">
+        manofthemoonwork
+        <br />
+        @gmail.com
+      </div>
+    ),
   },
 ];
 
@@ -95,7 +95,7 @@ export default function Example() {
     <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
       <div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
-        <div className="grid w-full grid-cols-1 gap-8 mx-auto mt-16 sm:grid-cols-2 lg:gap-16">
+        <div className="grid w-full grid-cols-1 gap-8 mx-auto mt-20 sm:grid-cols-2 lg:grid-cols-3 lg:gap-16">
           {socials.map((s) => (
             <Card key={s.label}>
               <Link
