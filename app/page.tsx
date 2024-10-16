@@ -56,9 +56,9 @@ const Home: React.FC = () => {
       </div>
 
       {showSkills && (
-        <div className="my-8 text-center text-lg text-zinc-500">
+        <div className="my-8 text-center text-lg text-zinc-500 transition-opacity duration-1000 ease-in opacity-0 animate-fade-in-slow">
           <p>
-            Moderator &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Ambassador &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; RPA Developer &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; QA Engineer &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Prompt Engineer
+            Moderator &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Community Manager &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Ambassador &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; RPA Developer &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; QA Engineer &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Prompt Engineer
           </p>
         </div>
       )}
