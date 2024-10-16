@@ -65,7 +65,7 @@ const Home: React.FC = () => {
         />
       </div>
 
-      <div className="flex flex-col items-center justify-center mb-8">
+      <div className="flex flex-col items-center justify-center mb-6 min-h-[60px]">
         {showSkills && (
           <div className="text-center text-lg text-zinc-500 transition-opacity duration-1000 ease-in">
             <p className="flex flex-wrap justify-center gap-6">
