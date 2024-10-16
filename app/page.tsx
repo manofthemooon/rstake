@@ -67,7 +67,7 @@ const Home: React.FC = () => {
       <div className="flex flex-col items-center justify-center h-24">
         {showSkills && (
           <div className="text-center text-lg text-zinc-500 transition-opacity duration-1000 ease-in">
-            <p className="flex flex-wrap justify-center space-x-6 max-w-full">
+            <p className="flex flex-wrap justify-center gap-6">
               {skills.map((skill, index) => (
                 <span
                   key={skill}
