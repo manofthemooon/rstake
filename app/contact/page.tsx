@@ -59,19 +59,6 @@ const socials = [
   {
     icon: (
       <img
-        src="https://img.icons8.com/ios-filled/20/ffffff/discord.png"
-        alt="Discord"
-        width={20}
-        height={20}
-      />
-    ),
-    href: "https://discordapp.com/users/542318439633780736",
-    label: "Discord",
-    handle: "manofthemooon",
-  },
-  {
-    icon: (
-      <img
         src="https://img.icons8.com/ios-filled/20/ffffff/email.png"
         alt="Mail"
         width={20}
@@ -82,6 +69,19 @@ const socials = [
     label: "Email",
     handle: "manoofthemoonwork@gmail.com",
   },
+  {
+    icon: (
+      <img
+        src="https://img.icons8.com/ios-filled/20/ffffff/discord.png"
+        alt="Discord"
+        width={20}
+        height={20}
+      />
+    ),
+    href: "https://discordapp.com/users/542318439633780736",
+    label: "Discord",
+    handle: "manofthemooon",
+  },
 ];
 
 export default function Example() {
@@ -89,7 +89,7 @@ export default function Example() {
     <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0 pb-16">
       <Navigation />
       <div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
-        <div className="grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-3 lg:gap-16">
+        <div className="grid w-full grid-cols-1 gap-8 mx-auto mt-48 sm:mt-0 sm:grid-cols-3 lg:gap-16">
           {socials.map((s) => (
             <Card key={s.label}>
               <Link
