@@ -21,4 +21,12 @@
 
 .animate-fade-in-skill {
   animation: fadeInSkill 0.8s ease forwards;
+  margin-right: 20px;
 }
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
