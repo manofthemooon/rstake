@@ -4,7 +4,7 @@ import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
-import { Redis } from "@upstash/redis"; 
+import { Redis } from "@upstash/redis";
 import Particles from "../components/particles";
 
 const redis = Redis.fromEnv();
@@ -59,7 +59,7 @@ export default async function ProjectsPage() {
                   <div className="flex items-center justify-between gap-2">
                     <div className="text-xs text-zinc-100">
                       {featured.date ? (
-                        <time dateTime={new Date(featured.date).toISOString()} className="block mt-32">
+                        <time dateTime={new Date(featured.date).toISOString()} className="block">
                           {new Date(featured.date).getFullYear()}
                         </time>
                       ) : (
@@ -71,10 +71,10 @@ export default async function ProjectsPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-4">
                     <h2
                       id="featured-post"
-                      className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
+                      className="text-2xl font-bold text-zinc-100 group-hover:text-white sm:text-3xl font-display"
                     >
                       {featured.title}
                     </h2>
@@ -88,14 +88,11 @@ export default async function ProjectsPage() {
                     )}
                   </div>
 
-                  <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
-                    {featured.description}
+                  <p className="mt-4 text-sm leading-6 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                    {featured.description.length > 150
+                      ? `${featured.description.slice(0, 150)}...`
+                      : featured.description}
                   </p>
-                  {featured.position && (
-                    <div className="mt-6 text-center">
-                      <span className="text-zinc-400">{featured.position}</span>
-                    </div>
-                  )}
                 </article>
               </Link>
             ) : (
