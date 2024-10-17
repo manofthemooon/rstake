@@ -66,9 +66,6 @@ export default async function ProjectsPage() {
                         <span>SOON</span>
                       )}
                     </div>
-                    <div className="text-xs text-zinc-400">
-                      {featured.position && <span>{featured.position}</span>}
-                    </div>
                   </div>
 
                   <div className="flex items-center justify-between mt-4">
@@ -89,10 +86,19 @@ export default async function ProjectsPage() {
                   </div>
 
                   <p className="mt-4 text-sm leading-6 duration-150 text-zinc-400 group-hover:text-zinc-300">
-                    {featured.description.length > 150
-                      ? `${featured.description.slice(0, 150)}...`
-                      : featured.description}
+                    <span className="block md:hidden">
+                      {featured.description.length > 150
+                        ? `${featured.description.slice(0, 150)}...`
+                        : featured.description}
+                    </span>
+                    <span className="hidden md:block">
+                      {featured.description}
+                    </span>
                   </p>
+
+                  <div className="mt-4 text-center text-xs text-zinc-400">
+                    {featured.position && <span>{featured.position}</span>}
+                  </div>
                 </article>
               </Link>
             ) : (

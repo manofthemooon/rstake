@@ -27,14 +27,24 @@ export const Navigation: React.FC = () => {
 				}`}
 			>
 				<div className="container relative flex items-center justify-between p-6 mx-auto">
-					<Link
-						href="/"
-						className="z-10 duration-200 text-zinc-300 hover:text-zinc-100"
-					>
-						<ArrowLeft className="w-6 h-6" />
-					</Link>
+					<div className="flex items-center gap-4">
+						<Link
+							href="/"
+							className="z-10 duration-200 text-zinc-300 hover:text-zinc-100"
+						>
+							<ArrowLeft className="w-6 h-6" />
+						</Link>
 
-					<div className="absolute left-1/2 transform -translate-x-1/2 z-0">
+						<Link href="https://web3ali3n.vercel.app/">
+							<img
+								src="https://i.ibb.co/f0kTqbx/web3ali3n.png"
+								alt="Web3 Ali3n Logo"
+								className="h-8 w-8 object-contain md:hidden" // логотип скрыт на больших экранах
+							/>
+						</Link>
+					</div>
+
+					<div className="absolute left-1/2 transform -translate-x-1/2 z-0 hidden md:block">
 						<Link href="https://web3ali3n.vercel.app/">
 							<img
 								src="https://i.ibb.co/f0kTqbx/web3ali3n.png"
