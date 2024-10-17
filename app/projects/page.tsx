@@ -4,7 +4,7 @@ import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
-import { Redis } from "@upstash/redis";
+import { Redis } from "@upstash/redis"; 
 
 const redis = Redis.fromEnv();
 
@@ -52,7 +52,7 @@ export default async function ProjectsPage() {
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
           <Card>
             {featured.url ? (
-              <Link href={featured.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+              <Link href={featured.url} target="_blank" rel="noopener noreferrer">
                 <article className="relative w-full h-full p-4 md:p-8">
                   <div className="flex items-center justify-between gap-2">
                     <div className="text-xs text-zinc-100">
@@ -90,7 +90,7 @@ export default async function ProjectsPage() {
             {[top2, top3].map((project) => (
               <Card key={project.slug}>
                 {project.url ? (
-                  <Link href={project.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                  <Link href={project.url} target="_blank" rel="noopener noreferrer">
                     <Article project={project} />
                   </Link>
                 ) : (
@@ -109,7 +109,7 @@ export default async function ProjectsPage() {
               .map((project) => (
                 <Card key={project.slug}>
                   {project.url ? (
-                    <Link href={project.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                    <Link href={project.url} target="_blank" rel="noopener noreferrer">
                       <Article project={project} />
                     </Link>
                   ) : (
@@ -124,7 +124,7 @@ export default async function ProjectsPage() {
               .map((project) => (
                 <Card key={project.slug}>
                   {project.url ? (
-                    <Link href={project.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                    <Link href={project.url} target="_blank" rel="noopener noreferrer">
                       <Article project={project} />
                     </Link>
                   ) : (
@@ -139,7 +139,7 @@ export default async function ProjectsPage() {
               .map((project) => (
                 <Card key={project.slug}>
                   {project.url ? (
-                    <Link href={project.url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                    <Link href={project.url} target="_blank" rel="noopener noreferrer">
                       <Article project={project} />
                     </Link>
                   ) : (
