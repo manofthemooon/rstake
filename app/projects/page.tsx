@@ -4,8 +4,9 @@ import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
-import Particles from "@/app/components/Particles";
-import { Redis } from "@upstash/redis";
+import Particles from "../components/Particles;
+import { Redis } from "@upstash/redis"; 
+
 
 const redis = Redis.fromEnv();
 
