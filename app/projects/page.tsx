@@ -59,7 +59,7 @@ export default async function ProjectsPage() {
                   <div className="flex items-center justify-between gap-2">
                     <div className="text-xs text-zinc-100">
                       {featured.date ? (
-                        <time dateTime={new Date(featured.date).toISOString()}>
+                        <time dateTime={new Date(featured.date).toISOString()} className="block mt-4">
                           {new Date(featured.date).getFullYear()}
                         </time>
                       ) : (
@@ -91,6 +91,11 @@ export default async function ProjectsPage() {
                   <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
                     {featured.description}
                   </p>
+                  {featured.position && (
+                    <div className="mt-6 text-center">
+                      <span className="text-zinc-400">{featured.position}</span>
+                    </div>
+                  )}
                 </article>
               </Link>
             ) : (
