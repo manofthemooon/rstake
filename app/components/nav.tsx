@@ -35,7 +35,7 @@ export const Navigation: React.FC = () => {
 					</Link>
 
 					<div className="absolute left-1/2 transform -translate-x-1/2 z-0">
-						<Link href="https://web3ali3n.vercel.app/" target="_blank" rel="noopener noreferrer">
+						<Link href="https://web3ali3n.vercel.app/">
 							<img
 								src="https://i.ibb.co/f0kTqbx/web3ali3n.png"
 								alt="Web3 Ali3n Logo"
