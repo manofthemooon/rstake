@@ -54,14 +54,14 @@ export default async function ProjectsPage() {
 
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
         <Card>
-    {featured.url ? (
+  {featured.url ? (
     <Link href={featured.url} target="_blank" rel="noopener noreferrer">
       <article className="relative w-full h-full p-4 md:p-8">
         <div className="flex items-center justify-between gap-2">
           <div className="text-xs text-zinc-100">
             {featured.date ? (
               <time dateTime={new Date(featured.date).toISOString()}>
-                {new Date(featured.date).getFullYear()} {/* Показываем только год */}
+                {new Date(featured.date).getFullYear()}
               </time>
             ) : (
               <span>SOON</span>
@@ -69,22 +69,21 @@ export default async function ProjectsPage() {
           </div>
         </div>
 
-        <h2
-          id="featured-post"
-          className="mt-8 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
-        >
-          {featured.title}
-        </h2>
+        <div className="flex items-center mt-6 gap-4"> 
+          {featured.logo && (
+            <img src={featured.logo} alt="Featured project logo" className="w-16 h-16" />
+          )}
+          <h2
+            id="featured-post"
+            className="text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
+          >
+            {featured.title}
+          </h2>
+        </div>
+
         <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
           {featured.description}
         </p>
-
-        {featured.logo && (
-          <img src={featured.logo} alt="Featured project logo" className="w-16 h-16 mt-4" />
-        )}
-        {featured.position && (
-          <p className="mt-2 text-sm text-zinc-400">{featured.position}</p>
-        )}
       </article>
     </Link>
   ) : (
@@ -93,6 +92,7 @@ export default async function ProjectsPage() {
     </article>
   )}
 </Card>
+
 
 
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0">
