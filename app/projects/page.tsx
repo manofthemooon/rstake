@@ -57,7 +57,7 @@ export default async function ProjectsPage() {
               <Link href={featured.url} target="_blank" rel="noopener noreferrer">
                 <article className="relative w-full h-full p-4 md:p-8">
                   <div className="flex items-center justify-between gap-2">
-                    <div className="text-xs text-zinc-100">
+                    <div className="text-xs text-zinc-100 md:mt-6"> 
                       {featured.date ? (
                         <time dateTime={new Date(featured.date).toISOString()} className="block">
                           {new Date(featured.date).getFullYear()}
@@ -96,7 +96,7 @@ export default async function ProjectsPage() {
                     </span>
                   </p>
 
-                  <div className="mt-4 text-center text-xs text-zinc-400">
+                  <div className="mt-4 text-center text-xs md:text-sm text-zinc-400">
                     {featured.position && <span>{featured.position}</span>}
                   </div>
                 </article>
