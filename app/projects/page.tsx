@@ -96,7 +96,7 @@ export default async function ProjectsPage() {
                     </span>
                   </p>
 
-                  <div className="mt-4 text-center text-xs md:text-base text-zinc-400"> 
+                  <div className="mt-4 text-center text-sm md:text-base text-zinc-400"> 
                     {featured.position && <span>{featured.position}</span>}
                   </div>
                 </article>
