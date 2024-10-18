@@ -6,19 +6,19 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "web3ali3n.dev",
+    template: "%s | web3ali3n.dev",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "A web3 developer and community manager",
   openGraph: {
-    title: "chronark.com",
+    title: "web3ali3n.dev",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+      "A web3 developer and community manager",
+    url: "https://web3ali3n.dev",
+    siteName: "web3ali3n.dev",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://i.ibb.co/Lvh4h7b/web3ali3nwide.jpg",
         width: 1920,
         height: 1080,
       },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "web3ali3n.dev",
     card: "summary_large_image",
   },
   icons: {
