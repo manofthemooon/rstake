@@ -12,11 +12,9 @@ const AboutPage: React.FC = () => {
     <div className="relative flex h-screen w-screen bg-black">
       <Navigation />
       <Particles className="absolute inset-0 -z-10" quantity={100} />
-
       <div className="flex flex-row justify-between items-center w-full h-full p-8">
-
-        <div className="text-left text-white">
-          <p className="text-sm text-gray-400">{'<Hello, world>'}</p>
+        <div className="text-left text-white pl-8">
+          <p className="text-sm text-gray-400 typing-effect">{'Hello, world'}</p>
           <h1 className="text-4xl md:text-6xl font-display mt-4">
             My name is Andrey.
           </h1>
@@ -24,7 +22,6 @@ const AboutPage: React.FC = () => {
             I am a Web3 enjoyer from Russia.
           </h2>
         </div>
-
         <div className="w-1/2 h-full">
           <Canvas className="w-full h-full">
             <RotatingPoints />

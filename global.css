@@ -35,3 +35,25 @@
   background-color: white;
   border-radius: 50%;
 }
+
+.typing-effect {
+  overflow: hidden;
+  border-right: .15em solid white;
+  white-space: nowrap;
+  animation: typing 4s steps(12, end), delete 3s steps(5, end) 4s, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 12ch; } 
+}
+
+@keyframes delete {
+  from { width: 12ch; }
+  to { width: 7ch; } 
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
