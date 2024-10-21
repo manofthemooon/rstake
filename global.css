@@ -4,7 +4,7 @@
 
 @layer base {
   .text-edge-outline {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
 } 
 
@@ -27,6 +27,16 @@
   .animate-fade-in-skill {
     font-size: 0.8rem;
   }
+  
+  .text-container {
+    text-align: left;
+    padding-left: 1.5rem; 
+  }
+  
+  .canvas-container {
+    height: 50vh; 
+    display: block; 
+  }
 }
 
 .rotating-element {
@@ -34,29 +44,6 @@
   height: 100px;
   background-color: white;
   border-radius: 50%;
-}
-
-.typing-effect {
-  overflow: hidden;
-  border-right: 0.15em solid white;
-  white-space: nowrap;
-  animation: typing 4s steps(12, end), blink-caret 0.75s step-end infinite;
-}
-
-@keyframes typing {
-  0%, 100% { width: 0; }
-  10%, 90% { width: 12ch; } 
-}
-
-@keyframes delete {
-  0%, 10% { width: 12ch; }
-  20%, 80% { width: 12ch; } 
-  90%, 100% { width: 0; }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: white; }
 }
 
 .typing-effect {
@@ -82,19 +69,13 @@
   50% { border-color: white; }
 }
 
-@media (max-width: 768px) {
-  .text-container {
-    text-align: center; 
-    padding-left: 0; 
-  }
-  
-  .canvas-container {
-    display: none; 
-  }
-}
-
 @media (min-width: 769px) {
   .canvas-container {
     width: 50%; 
+    height: 100%; 
   }
+}
+
+.text-container {
+  z-index: 10; 
 }
