@@ -3,9 +3,8 @@
 import Link from "next/link";
 import Particles from '../components/particles';
 import { Navigation } from "../components/nav";
-import React, { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Points as ThreePoints, SphereGeometry, PointsMaterial } from 'three'; 
+import React from 'react';
+import { motion } from 'framer-motion'; 
 
 const AboutPage: React.FC = () => {
   return (
@@ -26,30 +25,12 @@ const AboutPage: React.FC = () => {
         </button>
       </div>
 
-      <Canvas className="w-full h-full">
-        <RotatingPoints />
-      </Canvas>
+      <motion.div
+        className="rotating-element"
+        animate={{ rotate: 360 }}
+        transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
+      />
     </div>
-  );
-};
-
-const RotatingPoints = () => {
-  const pointsRef = useRef<ThreePoints | null>(null); 
-
-  useFrame(() => {
-    if (pointsRef.current) {
-      pointsRef.current.rotation.y += 0.01;
-    }
-  });
-
-  const pointsGeometry = new SphereGeometry(1.5, 32, 32);
-  const pointsMaterial = new PointsMaterial({
-    color: 'white',
-    size: 0.01,
-  });
-
-  return (
-    <primitive object={new ThreePoints(pointsGeometry, pointsMaterial)} ref={pointsRef} />
   );
 };
 
