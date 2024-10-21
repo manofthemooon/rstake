@@ -6,6 +6,7 @@ import { Navigation } from "../components/nav";
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+import { Points } from 'three';
 
 const AboutPage: React.FC = () => {
   return (
