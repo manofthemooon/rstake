@@ -5,7 +5,7 @@ import Particles from '../components/particles';
 import { Navigation } from "../components/nav";
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
+import { Points as ThreePoints, SphereGeometry, PointsMaterial } from 'three'; 
 
 const AboutPage: React.FC = () => {
   return (
@@ -34,22 +34,22 @@ const AboutPage: React.FC = () => {
 };
 
 const RotatingPoints = () => {
-  const pointsRef = useRef(null);  // Убрали явное указание типа
+  const pointsRef = useRef<ThreePoints | null>(null); 
 
   useFrame(() => {
     if (pointsRef.current) {
-      (pointsRef.current as THREE.Points).rotation.y += 0.01;  // Приведение типа
+      pointsRef.current.rotation.y += 0.01;
     }
   });
 
-  const pointsGeometry = new THREE.SphereGeometry(1.5, 32, 32);
-  const pointsMaterial = new THREE.PointsMaterial({
+  const pointsGeometry = new SphereGeometry(1.5, 32, 32);
+  const pointsMaterial = new PointsMaterial({
     color: 'white',
     size: 0.01,
   });
 
   return (
-    <primitive object={new THREE.Points(pointsGeometry, pointsMaterial)} ref={pointsRef} />
+    <primitive object={new ThreePoints(pointsGeometry, pointsMaterial)} ref={pointsRef} />
   );
 };
 
