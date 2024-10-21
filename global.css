@@ -38,22 +38,63 @@
 
 .typing-effect {
   overflow: hidden;
-  border-right: .15em solid white;
+  border-right: 0.15em solid white;
   white-space: nowrap;
-  animation: typing 4s steps(12, end), delete 3s steps(5, end) 4s infinite, blink-caret 0.75s step-end infinite;
+  animation: typing 4s steps(12, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
-  0%, 25% { width: 0; }
-  25%, 100% { width: 12ch; }
+  0%, 100% { width: 0; }
+  10%, 90% { width: 12ch; } 
 }
 
 @keyframes delete {
-  25%, 75% { width: 12ch; }
-  75%, 100% { width: 7ch; }
+  0%, 10% { width: 12ch; }
+  20%, 80% { width: 12ch; } 
+  90%, 100% { width: 0; }
 }
 
 @keyframes blink-caret {
   from, to { border-color: transparent; }
   50% { border-color: white; }
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 0.15em solid white;
+  white-space: nowrap;
+  animation: typing 4s steps(12, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  0%, 100% { width: 0; }
+  10%, 90% { width: 12ch; }
+}
+
+@keyframes delete {
+  0%, 10% { width: 12ch; }
+  20%, 80% { width: 12ch; }
+  90%, 100% { width: 0; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+@media (max-width: 768px) {
+  .text-container {
+    text-align: center; 
+    padding-left: 0; 
+  }
+  
+  .canvas-container {
+    display: none; 
+  }
+}
+
+@media (min-width: 769px) {
+  .canvas-container {
+    width: 50%; 
+  }
 }
