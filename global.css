@@ -4,8 +4,8 @@
 
 @layer base {
   .text-edge-outline {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
-  }
+    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+  } 
 } 
 
 @keyframes fadeInSkill {
@@ -26,16 +26,6 @@
 @media (max-width: 768px) {
   .animate-fade-in-skill {
     font-size: 0.8rem;
-  }
-  
-  .text-container {
-    text-align: left;
-    padding-left: 1.5rem; 
-  }
-  
-  .canvas-container {
-    height: 50vh; 
-    display: block; 
   }
 }
 
@@ -69,13 +59,21 @@
   50% { border-color: white; }
 }
 
-@media (min-width: 769px) {
+@media (max-width: 768px) {
+  .text-container {
+    text-align: center; 
+    padding-left: 0; 
+  }
+  
   .canvas-container {
-    width: 50%; 
-    height: 100%; 
+    display: flex; 
+    justify-content: center; 
+    margin-top: 20px; 
   }
 }
 
-.text-container {
-  z-index: 10; 
+@media (min-width: 769px) {
+  .canvas-container {
+    width: 50%; 
+  }
 }
