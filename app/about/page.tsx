@@ -3,19 +3,55 @@
 import Link from "next/link";
 import Particles from '../components/particles';
 import { Navigation } from "../components/nav";
+import React, { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
 
-const About = () => {
+const AboutPage: React.FC = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center w-screen h-screen bg-gradient-to-tl from-black via-zinc-600/20 to-black">
-      <Particles className="absolute inset-0 -z-10" quantity={100} />
+    <div className="relative flex items-center justify-center h-screen bg-black">
       <Navigation />
-      <h1 className="text-4xl text-white">About Me</h1>
-      <p className="mt-4 text-lg text-zinc-300 text-center">
-        Hello! I'm a passionate developer with experience in various technologies. 
-        I love working on projects that challenge my skills and allow me to learn new things.
-      </p>
+      <Particles className="absolute inset-0 -z-10" quantity={100} />
+
+      <div className="absolute text-center">
+        <p className="text-sm text-gray-400">{'<Hello, world>'}</p>
+        <h1 className="text-4xl md:text-6xl font-display text-white mt-4">
+          My name is Ivan.
+        </h1>
+        <h2 className="text-2xl md:text-4xl font-sans text-white mt-2">
+          I am a Python backend developer from Ukraine.
+        </h2>
+        <button className="mt-6 px-4 py-2 border border-white text-white hover:bg-gray-700 transition duration-300">
+          Contact Me
+        </button>
+      </div>
+
+      <Canvas className="w-full h-full">
+        <RotatingPoints />
+      </Canvas>
     </div>
   );
 };
 
-export default About;
+
+const RotatingPoints = () => {
+  const pointsRef = useRef<THREE.Points>(null!);
+
+  useFrame(() => {
+    if (pointsRef.current) {
+      pointsRef.current.rotation.y += 0.01;
+    }
+  });
+
+  const pointsGeometry = new THREE.SphereGeometry(1.5, 32, 32);
+  const pointsMaterial = new THREE.PointsMaterial({
+    color: 'white',
+    size: 0.01,
+  });
+
+  return (
+    <points ref={pointsRef} geometry={pointsGeometry} material={pointsMaterial} />
+  );
+};
+
+export default AboutPage;
