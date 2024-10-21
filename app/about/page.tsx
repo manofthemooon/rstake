@@ -34,7 +34,7 @@ const AboutPage: React.FC = () => {
 };
 
 const RotatingPoints = () => {
-  const pointsRef = useRef<THREE.Points>(null!);
+  const pointsRef = useRef<THREE.Points>(null);
 
   useFrame(() => {
     if (pointsRef.current) {
@@ -49,7 +49,7 @@ const RotatingPoints = () => {
   });
 
   return (
-    <points ref={pointsRef} args={[pointsGeometry, pointsMaterial]} />
+    <primitive object={new THREE.Points(pointsGeometry, pointsMaterial)} ref={pointsRef} />
   );
 };
 
