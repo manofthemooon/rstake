@@ -9,26 +9,28 @@ import * as THREE from 'three';
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="relative flex items-center justify-center h-screen bg-black">
+    <div className="relative flex h-screen w-screen bg-black">
       <Navigation />
       <Particles className="absolute inset-0 -z-10" quantity={100} />
 
-      <div className="absolute text-center">
-        <p className="text-sm text-gray-400">{'<Hello, world>'}</p>
-        <h1 className="text-4xl md:text-6xl font-display text-white mt-4">
-          My name is Ivan.
-        </h1>
-        <h2 className="text-2xl md:text-4xl font-sans text-white mt-2">
-          I am a Python backend developer from Ukraine.
-        </h2>
-        <button className="mt-6 px-4 py-2 border border-white text-white hover:bg-gray-700 transition duration-300">
-          Contact Me
-        </button>
-      </div>
+      <div className="flex flex-row justify-between items-center w-full h-full p-8">
 
-      <Canvas className="w-full h-full">
-        <RotatingPoints />
-      </Canvas>
+        <div className="text-left text-white">
+          <p className="text-sm text-gray-400">{'<Hello, world>'}</p>
+          <h1 className="text-4xl md:text-6xl font-display mt-4">
+            My name is Andrey.
+          </h1>
+          <h2 className="text-2xl md:text-4xl font-sans mt-2">
+            I am a Web3 enjoyer from Russia.
+          </h2>
+        </div>
+
+        <div className="w-1/2 h-full">
+          <Canvas className="w-full h-full">
+            <RotatingPoints />
+          </Canvas>
+        </div>
+      </div>
     </div>
   );
 };
