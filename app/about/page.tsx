@@ -6,7 +6,6 @@ import { Navigation } from "../components/nav";
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import { Points } from 'three';
 
 const AboutPage: React.FC = () => {
   return (
@@ -34,7 +33,6 @@ const AboutPage: React.FC = () => {
   );
 };
 
-
 const RotatingPoints = () => {
   const pointsRef = useRef<THREE.Points>(null!);
 
@@ -51,7 +49,7 @@ const RotatingPoints = () => {
   });
 
   return (
-    <points ref={pointsRef} geometry={pointsGeometry} material={pointsMaterial} />
+    <points ref={pointsRef} args={[pointsGeometry, pointsMaterial]} />
   );
 };
 
