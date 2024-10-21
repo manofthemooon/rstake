@@ -13,8 +13,8 @@ const AboutPage: React.FC = () => {
       <Navigation />
       <Particles className="absolute inset-0 -z-10" quantity={100} />
       <div className="flex flex-row justify-between items-center w-full h-full p-8">
-        <div className="text-left text-white pl-8">
-          <p className="text-sm text-gray-400 typing-effect">{'Hello, world'}</p>
+        <div className="text-left text-white pl-24">
+          <p className="text-sm text-gray-400 typing-effect">{'<Hello, world>'}</p>
           <h1 className="text-4xl md:text-6xl font-display mt-4">
             My name is Andrey.
           </h1>
