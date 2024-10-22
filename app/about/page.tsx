@@ -3,12 +3,13 @@
 import Link from "next/link";
 import Particles from '../components/particles';
 import { Navigation } from "../components/nav";
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
+  const [activeBlock, setActiveBlock] = useState(0);
 
   useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
@@ -19,30 +20,60 @@ const AboutPage: React.FC = () => {
           const { top, bottom } = block.getBoundingClientRect();
           return top <= window.innerHeight / 2 && bottom >= window.innerHeight / 2;
         });
-        
-        if (currentBlock === -1) return; 
+
+        if (currentBlock === -1) return;
 
         if (event.deltaY > 0 && currentBlock < blocks.length - 1) {
           blocks[currentBlock + 1].scrollIntoView({ behavior: 'smooth' });
+          setActiveBlock(currentBlock + 1);
         } else if (event.deltaY < 0 && currentBlock > 0) {
           blocks[currentBlock - 1].scrollIntoView({ behavior: 'smooth' });
+          setActiveBlock(currentBlock - 1);
         }
       }
     };
 
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveBlock(Number(entry.target.getAttribute('data-index')));
+        }
+      });
+    };
+
     window.addEventListener('wheel', handleScroll, { passive: false });
-    
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.5,
+    });
+
+    const blocks = pageRef.current?.querySelectorAll('.about-snap-block');
+    blocks?.forEach((block, index) => {
+      block.setAttribute('data-index', index.toString());
+      observer.observe(block);
+    });
+
     return () => {
       window.removeEventListener('wheel', handleScroll);
+      observer.disconnect();
     };
   }, []);
 
   return (
-    <div ref={pageRef} className="about-snap-container overflow-hidden">
+    <div ref={pageRef} className="about-snap-container overflow-hidden relative">
       <Particles className="absolute inset-0 -z-10" quantity={100} />
       <Navigation />
       
-      <div className="about-snap-block flex items-center justify-center h-screen">
+      <div className="absolute top-0 right-4 flex flex-col space-y-2">
+        {[0, 1, 2, 3].map((_, index) => (
+          <div
+            key={index}
+            className={`w-2 h-12 rounded-md transition-all duration-300 ${activeBlock === index ? 'bg-white' : 'bg-gray-600'}`}
+          />
+        ))}
+      </div>
+
+      <div className="about-snap-block flex items-center justify-center bg-blue-500 h-screen">
         <div className="text-container text-left text-white">
           <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
@@ -61,7 +92,6 @@ const AboutPage: React.FC = () => {
       <div className="about-snap-block flex items-center justify-center bg-red-500 h-screen">
         <h1 className="text-4xl text-white">Third Block Content</h1>
       </div>
-
 
       <div className="about-snap-block flex items-center justify-center bg-purple-500 h-screen">
         <h1 className="text-4xl text-white">Fourth Block Content</h1>
