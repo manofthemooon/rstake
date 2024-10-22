@@ -11,7 +11,7 @@ const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
   const [activeBlock, setActiveBlock] = useState(0);
 
-  const blockCount = 4; 
+  const blockCount = 4;
 
   const handleScroll = (event: WheelEvent) => {
     event.preventDefault();
@@ -46,7 +46,7 @@ const AboutPage: React.FC = () => {
       <Navigation />
       <ScrollIndicators activeBlock={activeBlock} onClick={handleClick} blockCount={blockCount} />
 
-      <div className="about-snap-block flex items-center justify-center h-screen">
+      <div className="about-snap-block flex items-center justify-center bg-blue-500 h-screen">
         <div className="text-container text-left text-white">
           <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
@@ -58,15 +58,29 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center h-screen">
-        <h1 className="text-4xl text-white">Second Block Content</h1>
+      <div className="about-snap-block flex flex-col justify-between bg-green-500 h-screen p-8">
+        <div className="education-info text-left text-white">
+          <h3 className="text-2xl font-bold">Education</h3>
+          <ul className="mt-4 space-y-2">
+            <li>Bachelor’s Degree in Infocommunication Technologies, MTUCI (2019-2023)</li>
+            <li>Master’s Degree in Quantum Communications, MTUCI (2023-2025)</li>
+          </ul>
+        </div>
+        <div className="tech-stack text-right text-white">
+          <h3 className="text-2xl font-bold">Tech Stack</h3>
+          <div className="flex flex-wrap justify-end gap-2 mt-4">
+            {['React', 'TypeScript', 'Python', 'C#', 'HTML/CSS', 'DevTools', 'XPath', 'Git', 'Jira', 'ZennoPoster', 'YouGile', 'API'].map((tool) => (
+              <span key={tool} className="bg-gray-800 text-white px-3 py-1 rounded-md">{tool}</span>
+            ))}
+          </div>
+        </div>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center h-screen">
+      <div className="about-snap-block flex items-center justify-center bg-red-500 h-screen">
         <h1 className="text-4xl text-white">Third Block Content</h1>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center h-screen">
+      <div className="about-snap-block flex items-center justify-center bg-purple-500 h-screen">
         <h1 className="text-4xl text-white">Fourth Block Content</h1>
       </div>
     </div>
