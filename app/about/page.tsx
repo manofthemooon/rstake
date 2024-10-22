@@ -74,7 +74,7 @@ const AboutPage: React.FC = () => {
       <Navigation />
       <ScrollIndicators activeBlock={activeBlock} onClick={handleClick} />
 
-      <div className="about-snap-block flex items-center justify-center bg-blue-500 h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen">
         <div className="text-container text-left text-white">
           <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
@@ -86,15 +86,15 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center bg-green-500 h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen">
         <h1 className="text-4xl text-white">Second Block Content</h1>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center bg-red-500 h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen">
         <h1 className="text-4xl text-white">Third Block Content</h1>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center bg-purple-500 h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen">
         <h1 className="text-4xl text-white">Fourth Block Content</h1>
       </div>
     </div>
