@@ -11,7 +11,7 @@ const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
   const [activeBlock, setActiveBlock] = useState(0);
 
-  const blockCount = 4; // Общее количество блоков
+  const blockCount = 4; 
 
   const handleScroll = (event: WheelEvent) => {
     event.preventDefault();

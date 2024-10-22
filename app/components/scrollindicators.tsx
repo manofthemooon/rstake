@@ -13,7 +13,7 @@ const ScrollIndicators: React.FC<ScrollIndicatorsProps> = ({ activeBlock, onClic
         <div
           key={index}
           onClick={() => onClick(index)}
-          className={`w-2 h-10 rounded-md cursor-pointer transition-all duration-300 ${activeBlock === index ? 'bg-blue-500' : 'bg-gray-600'}`}
+          className={`w-1 h-8 rounded-md cursor-pointer transition-all duration-300 ${activeBlock === index ? 'bg-white' : 'bg-gray-600'}`}
         />
       ))}
     </div>
