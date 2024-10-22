@@ -5,8 +5,8 @@ import Particles from '../components/particles';
 import { Navigation } from "../components/nav";
 import React, { useRef, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import RotatingPoints from '../components/RotatingPoints';
-import ScrollIndicators from '../components/ScrollIndicators';
+import RotatingPoints from '../components/rotatingpoints';
+import ScrollIndicators from '../components/scrollindicators';
 
 const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
