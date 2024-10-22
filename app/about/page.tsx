@@ -10,10 +10,10 @@ import * as THREE from 'three';
 const AboutPage: React.FC = () => {
   return (
     <div className="about-snap-container overflow-hidden">
-      <Navigation />
       <Particles className="absolute inset-0 -z-10" quantity={100} />
+      <Navigation />
       
-      {/* Блоки с контентом */}
+      {/* Блок с контентом 1 */}
       <div className="about-snap-block flex items-center justify-center bg-blue-500">
         <div className="text-container text-left text-white">
           <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
@@ -26,12 +26,19 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Новый блок с контентом 2 */}
       <div className="about-snap-block flex items-center justify-center bg-green-500">
         <h1 className="text-4xl text-white">Second Block Content</h1>
       </div>
 
+      {/* Новый блок с контентом 3 */}
       <div className="about-snap-block flex items-center justify-center bg-red-500">
         <h1 className="text-4xl text-white">Third Block Content</h1>
+      </div>
+
+      {/* Новый блок с контентом 4 для проверки прокрутки */}
+      <div className="about-snap-block flex items-center justify-center bg-purple-500">
+        <h1 className="text-4xl text-white">Fourth Block Content</h1>
       </div>
     </div>
   );
