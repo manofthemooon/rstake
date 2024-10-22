@@ -94,15 +94,15 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center bg-green-500 h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen">
         <h1 className="text-4xl text-white">Second Block Content</h1>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center bg-red-500 h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen">
         <h1 className="text-4xl text-white">Third Block Content</h1>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center bg-purple-500 h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen">
         <h1 className="text-4xl text-white">Fourth Block Content</h1>
       </div>
     </div>
