@@ -6,6 +6,7 @@ import { Navigation } from "../components/nav";
 import React, { useRef, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import RotatingPoints from '../components/rotatingpoints';
+import ScrollIndicators from '../components/scrollindicators';
 
 const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -71,16 +72,7 @@ const AboutPage: React.FC = () => {
     <div ref={pageRef} className="about-snap-container overflow-hidden relative">
       <Particles className="absolute inset-0 -z-10" quantity={100} />
       <Navigation />
-      
-      <div className="absolute top-1/2 right-4 flex flex-col space-y-2 transform -translate-y-1/2">
-        {[0, 1, 2, 3].map((_, index) => (
-          <div
-            key={index}
-            onClick={() => handleClick(index)}
-            className={`w-1.5 h-10 rounded-md cursor-pointer transition-all duration-300 ${activeBlock === index ? 'bg-white' : 'bg-gray-600'}`}
-          />
-        ))}
-      </div>
+      <ScrollIndicators activeBlock={activeBlock} onClick={handleClick} />
 
       <div className="about-snap-block flex items-center justify-center bg-blue-500 h-screen">
         <div className="text-container text-left text-white">
