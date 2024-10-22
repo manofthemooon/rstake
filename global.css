@@ -62,18 +62,29 @@
 @media (max-width: 768px) {
   .text-container {
     text-align: center; 
-    padding-left: 0; 
+    padding-left: 0;
+    margin-top: 40px; 
   }
   
   .canvas-container {
-    display: flex; 
-    justify-content: center; 
-    margin-top: 20px; 
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; 
+  }
+
+  canvas {
+    filter: brightness(1.5); 
+    transform: scale(1.1); 
   }
 }
 
 @media (min-width: 769px) {
   .canvas-container {
     width: 50%; 
+    margin-top: 0;
+  }
+
+  canvas {
+    filter: brightness(1.2); 
   }
 }
