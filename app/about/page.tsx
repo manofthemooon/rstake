@@ -5,8 +5,8 @@ import Particles from '../components/particles';
 import { Navigation } from "../components/nav";
 import React, { useRef, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import RotatingPoints from '../components/rotatingpoints';
-import ScrollIndicators from '../components/scrollindicators';
+import RotatingPoints from '../components/RotatingPoints';
+import ScrollIndicators from '../components/ScrollIndicators';
 
 const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -72,7 +72,7 @@ const AboutPage: React.FC = () => {
     <div ref={pageRef} className="about-snap-container overflow-hidden relative">
       <Particles className="absolute inset-0 -z-10" quantity={100} />
       <Navigation />
-      <ScrollIndicators activeBlock={activeBlock} onClick={handleClick} />
+      <ScrollIndicators activeBlock={activeBlock} onClick={handleClick} blockCount={4} />
 
       <div className="about-snap-block flex items-center justify-center h-screen">
         <div className="text-container text-left text-white">

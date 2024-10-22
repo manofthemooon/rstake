@@ -3,12 +3,13 @@ import React from 'react';
 interface ScrollIndicatorsProps {
   activeBlock: number;
   onClick: (index: number) => void;
+  blockCount: number;
 }
 
-const ScrollIndicators: React.FC<ScrollIndicatorsProps> = ({ activeBlock, onClick }) => {
+const ScrollIndicators: React.FC<ScrollIndicatorsProps> = ({ activeBlock, onClick, blockCount }) => {
   return (
     <div className="absolute top-1/2 right-4 flex flex-col space-y-2 transform -translate-y-1/2">
-      {[0, 1, 2, 3].map((_, index) => (
+      {Array.from({ length: blockCount }).map((_, index) => (
         <div
           key={index}
           onClick={() => onClick(index)}
