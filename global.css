@@ -106,43 +106,35 @@
   }
 }
 
-.neon-text {
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(0, 160, 255, 0.6);
+.about-snap-container {
+  scroll-snap-type: y mandatory;
 }
 
-.neon-card {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
-  animation: fadeIn 1s ease-in-out;
+.about-snap-block {
+  scroll-snap-align: start;
+  width: 100vw;
+  height: 100vh;
 }
 
-.holo-badge {
-  background: linear-gradient(135deg, #00f260, #0575e6);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-  animation: flicker 2s infinite alternate;
+.text-container {
+  padding-left: 2rem;
 }
 
-@keyframes flicker {
-  0%, 100% {
-    opacity: 0.9;
-  }
-  50% {
-    opacity: 1;
-  }
+.education-info ul {
+  list-style: none;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.canvas-container {
+  padding-right: 2rem;
 }
+
+.tech-stack {
+  padding-right: 2rem;
+}
+
+.tech-stack span {
+  background-color: #1f1f1f;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
