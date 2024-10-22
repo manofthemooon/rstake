@@ -46,7 +46,7 @@ const AboutPage: React.FC = () => {
       <Navigation />
       <ScrollIndicators activeBlock={activeBlock} onClick={handleClick} blockCount={blockCount} />
 
-      <div className="about-snap-block flex items-center justify-center bg-blue-500 h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen">
         <div className="text-container text-left text-white">
           <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
@@ -58,9 +58,9 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="about-snap-block flex flex-col justify-between bg-green-500 h-screen p-8">
+      <div className="about-snap-block flex flex-col justify-between h-screen p-8">
         <div className="education-info text-left text-white">
-          <h3 className="text-2xl font-bold">Education</h3>
+          <h3 className="text-2xl font-bold mt-12">Education</h3>
           <ul className="mt-4 space-y-2">
             <li>Bachelor’s Degree in Infocommunication Technologies, MTUCI (2019-2023)</li>
             <li>Master’s Degree in Quantum Communications, MTUCI (2023-2025)</li>
@@ -76,11 +76,11 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center bg-red-500 h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen">
         <h1 className="text-4xl text-white">Third Block Content</h1>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center bg-purple-500 h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen">
         <h1 className="text-4xl text-white">Fourth Block Content</h1>
       </div>
     </div>
