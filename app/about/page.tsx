@@ -13,7 +13,7 @@ const AboutPage: React.FC = () => {
       <Navigation />
       <Particles className="absolute inset-0 -z-10" quantity={100} />
       <div className="flex flex-col md:flex-row items-center justify-between w-full h-full p-8">
-        <div className="text-container text-left text-white mt-8 md:mt-0"> 
+        <div className="text-container text-left text-white mt-40 md:mt-0"> 
           <p className="text-sm text-gray-400 typing-effect">{'Hello, world'}</p>
           <h1 className="text-4xl md:text-6xl font-display mt-4">
             My name is Andrey.
@@ -42,16 +42,18 @@ const RotatingPoints = () => {
 	  }
 	});
   
-	const particlesCount = 1000;
+
+	const particlesCount = 10000; 
 	const positions = new Float32Array(particlesCount * 3);
+	
 	for (let i = 0; i < particlesCount; i++) {
-	  const r = 1.5; // Радиус сферы
-	  const theta = 2 * Math.PI * Math.random(); // Угол
-	  const phi = Math.acos(2 * Math.random() - 1); // Высота
+	  const r = 2.5; 
+	  const theta = 2 * Math.PI * Math.random(); 
+	  const phi = Math.PI * Math.random(); 
   
 	  const x = r * Math.sin(phi) * Math.cos(theta);
 	  const y = r * Math.sin(phi) * Math.sin(theta);
-	  const z = r * Math.cos(phi);
+	  const z = r * Math.cos(phi) * Math.sin(theta); 
   
 	  positions[i * 3] = x;
 	  positions[i * 3 + 1] = y;
@@ -67,7 +69,7 @@ const RotatingPoints = () => {
 	const pointsMaterial = new THREE.PointsMaterial({
 	  color: 'white',
 	  size: 0.02, 
-	  opacity: 0.8, 
+	  opacity: 0.7, 
 	  transparent: true,
 	});
   
