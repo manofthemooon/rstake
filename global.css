@@ -60,6 +60,17 @@
 }
 
 
+.about-snap-container {
+  overflow: hidden;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+}
+
+.about-snap-block {
+  scroll-snap-align: start;
+  height: 100vh; 
+}
+
 @media (max-width: 768px) {
   .text-container {
     text-align: center; 
@@ -69,6 +80,7 @@
   
   .canvas-container {
     display: flex;
+    width: 35%;
     justify-content: center;
     margin-top: 10px; 
   }
@@ -78,7 +90,6 @@
     transform: scale(1.1); 
   }
 }
-
 
 @media (min-width: 769px) {
   .text-container {
