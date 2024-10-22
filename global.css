@@ -82,11 +82,11 @@
 
 @media (min-width: 769px) {
   .text-container {
-    padding-left: 16%; 
+    padding-left: 13%; 
   }
 
   .canvas-container {
-    width: 37.5%; 
+    width: 40%; 
     margin-top: 0;
   }
 
