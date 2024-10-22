@@ -14,7 +14,7 @@ const AboutPage: React.FC = () => {
       <Navigation />
       
       {/* Блок с контентом 1 */}
-      <div className="about-snap-block flex items-center justify-center bg-blue-500">
+      <div className="about-snap-block flex items-center justify-center">
         <div className="text-container text-left text-white">
           <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
