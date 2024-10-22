@@ -59,21 +59,30 @@ const AboutPage: React.FC = () => {
     };
   }, []);
 
+  const handleClick = (index: number) => {
+    const blocks = pageRef.current?.querySelectorAll('.about-snap-block');
+    if (blocks) {
+      blocks[index].scrollIntoView({ behavior: 'smooth' });
+      setActiveBlock(index);
+    }
+  };
+
   return (
     <div ref={pageRef} className="about-snap-container overflow-hidden relative">
       <Particles className="absolute inset-0 -z-10" quantity={100} />
       <Navigation />
-      
-      <div className="absolute top-0 right-4 flex flex-col space-y-2">
+
+      <div className="absolute top-1/2 right-4 flex flex-col space-y-2 transform -translate-y-1/2">
         {[0, 1, 2, 3].map((_, index) => (
           <div
             key={index}
-            className={`w-2 h-12 rounded-md transition-all duration-300 ${activeBlock === index ? 'bg-white' : 'bg-gray-600'}`}
+            onClick={() => handleClick(index)}
+            className={`w-1.5 h-10 rounded-md cursor-pointer transition-all duration-300 ${activeBlock === index ? 'bg-white' : 'bg-gray-600'}`}
           />
         ))}
       </div>
 
-      <div className="about-snap-block flex items-center justify-center bg-blue-500 h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen">
         <div className="text-container text-left text-white">
           <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
