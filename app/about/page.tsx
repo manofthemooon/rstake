@@ -24,7 +24,7 @@ const AboutPage: React.FC = () => {
         </div>
         <div className="canvas-container w-full md:w-1/2 h-full mt-4 md:mt-0"> 
           <Canvas className="w-full h-full">
-            <AbstractRotatingShape />
+		  <RotatingPoints />
           </Canvas>
         </div>
       </div>
@@ -51,7 +51,7 @@ const RotatingPoints = () => {
 	  const theta = 2 * Math.PI * Math.random(); 
 	  const phi = Math.PI * Math.random(); 
   
-	  const x = r * Math.sin(phi) * Math.cos(theta);
+	  const x = r * Math.sin(phi) * Math.cos(theta) / Math.cos(phi);
 	  const y = r * Math.sin(phi) * Math.sin(theta);
 	  const z = r * Math.cos(phi) * Math.sin(theta); 
   
