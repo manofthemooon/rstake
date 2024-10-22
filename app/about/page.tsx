@@ -13,7 +13,7 @@ const AboutPage: React.FC = () => {
       <Navigation />
       <Particles className="absolute inset-0 -z-10" quantity={100} />
       <div className="flex flex-col md:flex-row items-center justify-between w-full h-full p-8">
-        <div className="text-container text-left text-white mt-16 md:mt-0"> 
+        <div className="text-container text-left text-white mt-16 md:mt-40"> 
           <p className="text-sm text-gray-400 typing-effect">{'Hello, world'}</p>
           <h1 className="text-4xl md:text-6xl font-display mt-4">
             My name is Andrey.
@@ -51,7 +51,7 @@ const RotatingPoints = () => {
 	  const theta = 2 * Math.PI * Math.random(); 
 	  const phi = Math.PI * Math.random(); 
   
-	  const x = r * Math.sin(phi) * Math.cos(theta) / Math.cos(phi);
+	  const x = r * Math.sin(phi) * Math.cos(theta);
 	  const y = r * Math.sin(phi) * Math.sin(theta);
 	  const z = r * Math.cos(phi) * Math.sin(theta); 
   
