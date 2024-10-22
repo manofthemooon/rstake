@@ -3,18 +3,46 @@
 import Link from "next/link";
 import Particles from '../components/particles';
 import { Navigation } from "../components/nav";
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 const AboutPage: React.FC = () => {
+  const pageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = (event: WheelEvent) => {
+      event.preventDefault();
+      if (pageRef.current) {
+        const blocks = pageRef.current.querySelectorAll('.about-snap-block');
+        const currentBlock = Array.from(blocks).findIndex(block => {
+          const { top, bottom } = block.getBoundingClientRect();
+          return top <= window.innerHeight / 2 && bottom >= window.innerHeight / 2;
+        });
+        
+        if (currentBlock === -1) return; 
+
+        if (event.deltaY > 0 && currentBlock < blocks.length - 1) {
+          blocks[currentBlock + 1].scrollIntoView({ behavior: 'smooth' });
+        } else if (event.deltaY < 0 && currentBlock > 0) {
+          blocks[currentBlock - 1].scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+
+    window.addEventListener('wheel', handleScroll, { passive: false });
+    
+    return () => {
+      window.removeEventListener('wheel', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="about-snap-container overflow-hidden">
+    <div ref={pageRef} className="about-snap-container overflow-hidden">
       <Particles className="absolute inset-0 -z-10" quantity={100} />
       <Navigation />
       
-      {/* Блок с контентом 1 */}
-      <div className="about-snap-block flex items-center justify-center">
+      <div className="about-snap-block flex items-center justify-center h-screen">
         <div className="text-container text-left text-white">
           <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
@@ -26,18 +54,16 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Новый блок с контентом 2 */}
-      <div className="about-snap-block flex items-center justify-center bg-green-500">
+      <div className="about-snap-block flex items-center justify-center bg-green-500 h-screen">
         <h1 className="text-4xl text-white">Second Block Content</h1>
       </div>
 
-      {/* Новый блок с контентом 3 */}
-      <div className="about-snap-block flex items-center justify-center bg-red-500">
+      <div className="about-snap-block flex items-center justify-center bg-red-500 h-screen">
         <h1 className="text-4xl text-white">Third Block Content</h1>
       </div>
 
-      {/* Новый блок с контентом 4 для проверки прокрутки */}
-      <div className="about-snap-block flex items-center justify-center bg-purple-500">
+
+      <div className="about-snap-block flex items-center justify-center bg-purple-500 h-screen">
         <h1 className="text-4xl text-white">Fourth Block Content</h1>
       </div>
     </div>
