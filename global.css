@@ -59,6 +59,7 @@
   50% { border-color: white; }
 }
 
+
 @media (max-width: 768px) {
   .text-container {
     text-align: center; 
@@ -78,9 +79,14 @@
   }
 }
 
+
 @media (min-width: 769px) {
+  .text-container {
+    padding-left: 24%; 
+  }
+
   .canvas-container {
-    width: 50%; 
+    width: 37.5%; 
     margin-top: 0;
   }
 

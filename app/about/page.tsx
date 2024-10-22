@@ -13,8 +13,7 @@ const AboutPage: React.FC = () => {
       <Navigation />
       <Particles className="absolute inset-0 -z-10" quantity={100} />
       <div className="flex flex-col md:flex-row items-center justify-between w-full h-full p-8">
-        <div className="text-container text-left text-white mt-16 md:mt-40"> 
-          <p className="text-sm text-gray-400 typing-effect">{'Hello, world'}</p>
+        <div className="text-container text-left text-white mt-16 md:mt-0">  
           <h1 className="text-4xl md:text-6xl font-display mt-4">
             My name is Andrey.
           </h1>
@@ -22,9 +21,9 @@ const AboutPage: React.FC = () => {
             I am a Web3 enjoyer from Russia.
           </h2>
         </div>
-        <div className="canvas-container w-full md:w-1/2 h-full mt-4 md:mt-0"> 
+        <div className="canvas-container w-full md:w-[37.5%] h-full mt-4 md:mt-0">  
           <Canvas className="w-full h-full">
-		  <RotatingPoints />
+            <RotatingPoints />
           </Canvas>
         </div>
       </div>
@@ -76,6 +75,6 @@ const RotatingPoints = () => {
 	return (
 	  <points ref={pointsRef} geometry={pointsGeometry} material={pointsMaterial} />
 	);
-  };
-  
-  export default AboutPage;
+};
+
+export default AboutPage;
