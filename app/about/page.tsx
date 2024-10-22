@@ -59,7 +59,7 @@ const AboutPage: React.FC = () => {
 
       <div className="about-snap-block flex flex-col justify-between h-screen p-8">
         <div className="education-info text-left text-white">
-          <h3 className="text-2xl font-bold mt-12 neon-text">Education</h3>
+          <h3 className="text-2xl font-bold glow-text">Education</h3>
           <ul className="mt-4 space-y-2">
             <li className="neon-card">Bachelor’s Degree in Infocommunication Technologies, MTUCI (2019-2023)</li>
             <li className="neon-card">Master’s Degree in Quantum Communications, MTUCI (2023-2025)</li>
