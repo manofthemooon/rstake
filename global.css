@@ -138,3 +138,24 @@
   border-radius: 0.25rem;
 }
 
+.glow-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glow-text::before,
+.glow-text::after {
+  content: "<";
+  position: absolute;
+  top: 0;
+  left: -0.5rem;
+  color: #FFFFFF; 
+}
+
+.glow-text::after {
+  content: "/>";
+  position: absolute;
+  top: 0;
+  right: -0.5rem;
+  color: #FFFFFF; 
+}

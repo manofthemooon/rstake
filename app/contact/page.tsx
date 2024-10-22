@@ -63,14 +63,14 @@ const AboutPage: React.FC = () => {
       <motion.div className="about-snap-block flex flex-col justify-between h-screen p-8"
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
         <div className="education-info text-left text-white mt-12">
-          <h3 className="text-3xl font-bold mb-8">Education</h3>
+          <h3 className="text-3xl font-bold glow-text mb-8">Education</h3>
           <ul className="space-y-2 text-lg font-light">
             <li>Bachelor’s Degree in Infocommunication Technologies, MTUCI (2019-2023)</li>
             <li>Master’s Degree in Quantum Communications, MTUCI (2023-2025)</li>
           </ul>
         </div>
         <div className="tech-stack text-right text-white">
-          <h3 className="text-3xl font-bold">Tech Stack</h3>
+          <h3 className="text-3xl font-bold glow-text">Tech Stack</h3>
           <div className="flex flex-wrap justify-end gap-2 mt-4">
             {['React', 'TypeScript', 'Python', 'C#', 'HTML/CSS', 'DevTools', 'XPath', 'Git', 'Jira', 'ZennoPoster', 'YouGile', 'API'].map((tool) => (
               <span key={tool} className="bg-gray-900 text-white px-3 py-1 rounded-md">{tool}</span>
