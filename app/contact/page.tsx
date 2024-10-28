@@ -1,95 +1,131 @@
-'use client';
-
-import Particles from '../components/particles';
+"use client";
+import Link from "next/link";
 import { Navigation } from "../components/nav";
-import { motion } from 'framer-motion';
-import React, { useRef, useEffect, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import RotatingPoints from '../components/rotatingpoints';
-import ScrollIndicators from '../components/scrollindicators';
+import { Card } from "../components/card"; 
+import Particles from "../components/particles";
 
-const AboutPage: React.FC = () => {
-  const pageRef = useRef<HTMLDivElement>(null);
-  const [activeBlock, setActiveBlock] = useState(0);
+const socials = [
+  {
+    icon: (
+      <img
+        src="https://img.icons8.com/ios-filled/20/ffffff/twitter--v1.png"
+        alt="Twitter"
+        width={20}
+        height={20}
+      />
+    ),
+    href: "https://x.com/manoofthemooon",
+    label: "Twitter",
+    handle: "@manoofthemooon",
+  },
+  {
+    icon: (
+      <img
+        src="https://img.icons8.com/ios-filled/20/ffffff/telegram-app.png"
+        alt="Telegram"
+        width={20}
+        height={20}
+      />
+    ),
+    href: "https://t.me/manofthemoon",
+    label: "Telegram",
+    handle: "@manoofthemooon",
+  },
+  {
+    icon: (
+      <img
+        src="https://img.icons8.com/ios-filled/20/ffffff/github.png"
+        alt="GitHub"
+        width={20}
+        height={20}
+      />
+    ),
+    href: "https://github.com/manofthemooon",
+    label: "GitHub",
+    handle: "manofthemooon",
+  },
+  {
+    icon: (
+      <img
+        src="https://img.icons8.com/ios-filled/20/ffffff/medium.png"
+        alt="Medium"
+        width={20}
+        height={20}
+      />
+    ),
+    href: "https://manofthemooon.medium.com/",
+    label: "Medium",
+    handle: "manofthemooon",
+  },
+  {
+    icon: (
+      <img
+        src="https://img.icons8.com/ios-filled/20/ffffff/discord.png"
+        alt="Discord"
+        width={20}
+        height={20}
+      />
+    ),
+    href: "https://discordapp.com/users/542318439633780736",
+    label: "Discord",
+    handle: "manofthemooon",
+  },
+  {
+    icon: (
+      <img
+        src="https://img.icons8.com/ios-filled/20/ffffff/email.png"
+        alt="Email"
+        width={20}
+        height={20}
+      />
+    ),
+    href: "mailto:manofthemoonwork@gmail.com",
+    label: "Email",
+    handle: (
+      <div className="text-center">
+        manofthemoonwork
+        <br />
+        @gmail.com
+      </div>
+    ),
+  },
+];
 
-  const blockCount = 4;
-
-  const handleScroll = (event: WheelEvent) => {
-    event.preventDefault();
-    if (pageRef.current) {
-      const blocks = pageRef.current.querySelectorAll('.about-snap-block');
-      const nextBlock = activeBlock + (event.deltaY > 0 ? 1 : -1);
-      if (nextBlock >= 0 && nextBlock < blocks.length) {
-        blocks[nextBlock].scrollIntoView({ behavior: 'smooth' });
-        setActiveBlock(nextBlock);
-      }
-    }
-  };
-
-  const handleClick = (index: number) => {
-    const blocks = pageRef.current?.querySelectorAll('.about-snap-block');
-    if (blocks) {
-      blocks[index].scrollIntoView({ behavior: 'smooth' });
-      setActiveBlock(index);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('wheel', handleScroll, { passive: false });
-    return () => {
-      window.removeEventListener('wheel', handleScroll);
-    };
-  }, [activeBlock]);
-
+export default function Example() {
   return (
-    <div ref={pageRef} className="about-snap-container overflow-hidden relative">
-      <Particles className="absolute inset-0 -z-10" quantity={100} />
+    <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
-      <ScrollIndicators activeBlock={activeBlock} onClick={handleClick} blockCount={blockCount} />
-
-      <motion.div className="about-snap-block flex items-center justify-center h-screen"
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-        <div className="text-container text-left text-white">
-          <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
-          <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
+	  <Particles className="absolute inset-0 -z-10" quantity={100} />
+      <div className="container flex items-center justify-center min-h-screen px-4 mx-auto mt-10 mb-10">
+        <div className="grid w-full grid-cols-2 gap-4 mx-auto sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {socials.map((s) => (
+            <Card key={s.label} className="h-56 sm:h-64"> 
+              <Link
+                href={s.href}
+                target="_blank"
+                className="p-4 relative flex flex-col items-center gap-2 duration-700 group md:gap-4 md:py-10 lg:pb-20 md:p-8"
+              >
+                <span
+                  className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
+                  aria-hidden="true"
+                />
+                <span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
+                  {s.icon}
+                </span>
+                <div className="z-10 flex flex-col items-center">
+                  <span className="mt-2 text-lg font-bold text-center duration-1000 text-zinc-200 group-hover:text-white">
+                    {s.label}
+                  </span>
+                  <span className="mt-1 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
+                    {s.handle}
+                  </span>
+                </div>
+              </Link>
+            </Card>
+          ))}
         </div>
-        <div className="canvas-container w-full md:w-[37.5%] h-full">
-          <Canvas className="w-full h-full">
-            <RotatingPoints />
-          </Canvas>
-        </div>
-      </motion.div>
-
-      <motion.div className="about-snap-block flex flex-col justify-between h-screen p-8"
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-        <div className="education-info text-left text-white mt-12">
-          <h3 className="text-3xl font-bold glow-text mb-8">Education</h3>
-          <ul className="space-y-2 text-lg font-light">
-            <li>Bachelor’s Degree in Infocommunication Technologies, MTUCI (2019-2023)</li>
-            <li>Master’s Degree in Quantum Communications, MTUCI (2023-2025)</li>
-          </ul>
-        </div>
-        <div className="tech-stack text-right text-white">
-          <h3 className="text-3xl font-bold glow-text">Tech Stack</h3>
-          <div className="flex flex-wrap justify-end gap-2 mt-4">
-            {['React', 'TypeScript', 'Python', 'C#', 'HTML/CSS', 'DevTools', 'XPath', 'Git', 'Jira', 'ZennoPoster', 'YouGile', 'API'].map((tool) => (
-              <span key={tool} className="bg-gray-900 text-white px-3 py-1 rounded-md">{tool}</span>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-
-      <motion.div className="about-snap-block flex items-center justify-center h-screen"
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-        <h1 className="text-4xl text-white">Third Block Content</h1>
-      </motion.div>
-
-      <motion.div className="about-snap-block flex items-center justify-center h-screen"
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-        <h1 className="text-4xl text-white">Fourth Block Content</h1>
-      </motion.div>
+        <div className="mb-20" /> 
+      </div>
     </div>
   );
-};
-
-export default AboutPage;
+}
