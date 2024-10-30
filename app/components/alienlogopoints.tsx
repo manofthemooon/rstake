@@ -1,6 +1,11 @@
 import React, { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, extend } from '@react-three/fiber';
+import { Points, PointMaterial } from '@react-three/drei'; 
 import * as THREE from 'three';
+
+
+import { OrbitControls } from 'three-stdlib'; 
+extend({ OrbitControls });
 
 const AlienLogoPoints: React.FC = () => {
   const pointsRef = useRef<THREE.Points>(null);
@@ -17,7 +22,6 @@ const AlienLogoPoints: React.FC = () => {
 
   const particlesCount = 10000;
   const positions = new Float32Array(particlesCount * 3);
-  const uvs = new Float32Array(particlesCount * 2);
 
   for (let i = 0; i < particlesCount; i++) {
     const r = 2.5;
@@ -31,14 +35,10 @@ const AlienLogoPoints: React.FC = () => {
     positions[i * 3] = x;
     positions[i * 3 + 1] = y;
     positions[i * 3 + 2] = z;
-
-    uvs[i * 2] = (x / r + 1) / 2;
-    uvs[i * 2 + 1] = (y / r + 1) / 2;
   }
 
   const pointsGeometry = new THREE.BufferGeometry();
   pointsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  pointsGeometry.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
 
   const pointsMaterial = new THREE.PointsMaterial({
     map: alienLogoTexture,
@@ -57,6 +57,7 @@ const AlienLogoCanvas: React.FC = () => (
   <Canvas>
     <ambientLight intensity={0.5} />
     <pointLight position={[10, 10, 10]} />
+    <orbitControls /> 
     <AlienLogoPoints />
   </Canvas>
 );

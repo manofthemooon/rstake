@@ -6,7 +6,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Canvas, extend } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei'; 
 import AlienLogoPoints from '../components/alienlogopoints';
-import ScrollIndicators from '../components/scrollindicators'; //
+import ScrollIndicators from '../components/scrollindicators'; 
 
 
 extend({ Points, PointMaterial });
