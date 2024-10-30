@@ -3,9 +3,13 @@
 import Particles from '../components/particles';
 import { Navigation } from "../components/nav";
 import React, { useRef, useEffect, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import AlienLogoPoints from '../components/alienlogopoints'; 
-import ScrollIndicators from '../components/scrollindicators';
+import { Canvas, extend } from '@react-three/fiber';
+import { Points, PointMaterial } from '@react-three/drei'; 
+import AlienLogoPoints from '../components/alienlogopoints';
+import ScrollIndicators from '../components/scrollindicators'; //
+
+
+extend({ Points, PointMaterial });
 
 const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
