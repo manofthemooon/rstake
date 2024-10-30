@@ -4,7 +4,7 @@ import Particles from '../components/particles';
 import { Navigation } from "../components/nav";
 import React, { useRef, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import RotatingPoints from '../components/rotatingpoints';
+import AlienLogoPoints from '../components/alienlogopoints'; 
 import ScrollIndicators from '../components/scrollindicators';
 
 const AboutPage: React.FC = () => {
@@ -52,7 +52,7 @@ const AboutPage: React.FC = () => {
         </div>
         <div className="canvas-container w-full md:w-[37.5%] h-full">
           <Canvas className="w-full h-full">
-            <RotatingPoints />
+            <AlienLogoPoints />
           </Canvas>
         </div>
       </div>
