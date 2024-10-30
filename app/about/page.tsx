@@ -3,13 +3,9 @@
 import Particles from '../components/particles';
 import { Navigation } from "../components/nav";
 import React, { useRef, useEffect, useState } from 'react';
-import { Canvas, extend } from '@react-three/fiber';
-import { Points, PointMaterial } from '@react-three/drei'; 
-import AlienLogoPoints from '../components/alienlogopoints';
-import ScrollIndicators from '../components/scrollindicators'; 
-
-
-extend({ Points, PointMaterial });
+import { Canvas } from '@react-three/fiber';
+import RotatingPoints from '../components/rotatingpoints';
+import ScrollIndicators from '../components/scrollindicators';
 
 const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -56,7 +52,7 @@ const AboutPage: React.FC = () => {
         </div>
         <div className="canvas-container w-full md:w-[37.5%] h-full">
           <Canvas className="w-full h-full">
-            <AlienLogoPoints />
+            <RotatingPoints />
           </Canvas>
         </div>
       </div>
