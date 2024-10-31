@@ -68,7 +68,7 @@ const AboutPage: React.FC = () => {
             </ul>
           </div>
 
-          <div className="languages-info text-left text-white mr-8 mt-16">
+          <div className="languages-info text-left text-white mr-6 mt-16">
             <h3 className="text-2xl font-bold glow-text">Languages</h3>
             <ul className="mt-4 space-y-2">
               <li className="neon-card">English - B2</li>
@@ -77,8 +77,8 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="tech-stack text-center text-white mt-10">
-          <h3 className="text-2xl font-bold glow-text">Tech Stack</h3>
+        <div className="tech-stack text-center text-white mt-8">
+          <h3 className="text-2xl font-bold glow-text text-center">Tech Stack</h3>
           <div className="flex flex-wrap justify-center gap-2 mt-4">
             {['React', 'TypeScript', 'Python', 'Java Core', 'C#', 'HTML/CSS', 'DevTools', 'XPath', 'Git', 'Jira', 'ZennoPoster', 'YouGile', 'API', 'ChatGPT', 'Figma'].map((tool) => (
               <span key={tool} className="holo-badge">{tool}</span>
@@ -86,11 +86,11 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="skills-section text-center text-white mt-10">
+        <div className="skills-section text-center text-white mt-8">
           <h3 className="text-2xl font-bold glow-text">Skills</h3>
         </div>
 
-        <div className="skills-info flex justify-between items-end text-white mt-6 w-full">
+        <div className="skills-info flex justify-between items-end text-white mt-4 w-full">
           {[
             {
               title: 'Coding and Testing',
