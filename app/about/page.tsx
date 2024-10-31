@@ -42,13 +42,11 @@ const AboutPage: React.FC = () => {
 
   return (
     <div ref={pageRef} className="about-snap-container overflow-hidden relative">
-      <div className="fixed inset-0 w-full h-full -z-10 pointer-events-none">
-        <Particles quantity={100} />
-      </div>
       <Navigation />
       <ScrollIndicators activeBlock={activeBlock} onClick={handleClick} blockCount={blockCount} />
 
-      <div className="about-snap-block flex items-center justify-center h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen relative">
+        <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
         <div className="text-container text-left text-white">
           <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
@@ -60,7 +58,8 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="about-snap-block flex flex-col justify-between h-screen p-8">
+      <div className="about-snap-block flex flex-col justify-between h-screen p-8 relative">
+        <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
         <div className="flex justify-between w-full">
           <div className="education-info text-left text-white ml-8 mt-16">
             <h3 className="text-2xl font-bold glow-text">Education</h3>
@@ -123,11 +122,13 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen relative">
+        <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
         <h1 className="text-4xl text-white">Third Block Content</h1>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center h-screen">
+      <div className="about-snap-block flex items-center justify-center h-screen relative">
+        <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
         <h1 className="text-4xl text-white">Fourth Block Content</h1>
       </div>
     </div>
