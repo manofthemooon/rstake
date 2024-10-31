@@ -42,7 +42,7 @@ const AboutPage: React.FC = () => {
 
   return (
     <div ref={pageRef} className="about-snap-container overflow-hidden relative">
-      <div className="fixed inset-0 -z-10 pointer-events-none">
+      <div className="fixed inset-0 w-full h-full -z-10 pointer-events-none">
         <Particles quantity={100} />
       </div>
       <Navigation />
