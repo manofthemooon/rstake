@@ -128,34 +128,43 @@ const AboutPage: React.FC = () => {
       </div>
 
       <div className="about-snap-block flex flex-col items-center justify-center h-screen relative">
-        <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
-        
-        <div className="w-full px-8">
-          <h2 className="text-4xl text-white mb-8">Top Articles</h2>
-          <Swiper spaceBetween={30} slidesPerView={1} className="w-full">
-            {articles.map((article, index) => (
-              <SwiperSlide key={index}>
-                <a href={article.link} target="_blank" rel="noopener noreferrer" className="block">
-                  <img src={article.image} alt={article.title} className="w-full h-64 object-cover mb-4" />
-                  <h3 className="text-2xl text-white">{article.title}</h3>
-                </a>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+  <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
+  
+  <div className="w-full px-8">
+    <h2 className="text-4xl text-white mb-8">Top Articles</h2>
+    <Swiper 
+      spaceBetween={20} 
+      slidesPerView={3} 
+      className="w-full"
+    >
+      {articles.map((article, index) => (
+        <SwiperSlide key={index} className="flex flex-col items-center">
+          <a href={article.link} target="_blank" rel="noopener noreferrer" className="block">
+            <img src={article.image} alt={article.title} className="w-[720px] h-[378px] object-cover mb-2" />
+            <h3 className="text-xl text-white text-center">{article.title}</h3>
+          </a>
+        </SwiperSlide>
+      ))}
+    </Swiper>
 
-          <h2 className="text-4xl text-white mt-16 mb-8">Top Threads</h2>
-          <Swiper spaceBetween={30} slidesPerView={1} className="w-full">
-            {threads.map((thread, index) => (
-              <SwiperSlide key={index}>
-                <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
-                  <img src={thread.image} alt={thread.title} className="w-full h-64 object-cover mb-4" />
-                  <h3 className="text-2xl text-white">{thread.title}</h3>
-                </a>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
+    <h2 className="text-4xl text-white mt-16 mb-8">Top Threads</h2>
+    <Swiper 
+      spaceBetween={20} 
+      slidesPerView={3} 
+      className="w-full"
+    >
+      {threads.map((thread, index) => (
+        <SwiperSlide key={index} className="flex flex-col items-center">
+          <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
+            <img src={thread.image} alt={thread.title} className="w-[720px] h-[378px] object-cover mb-2" />
+            <h3 className="text-xl text-white text-center">{thread.title}</h3>
+          </a>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+</div>
+
 
       <div className="about-snap-block flex items-center justify-center h-screen bg-black">
         <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
