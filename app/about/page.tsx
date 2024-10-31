@@ -59,54 +59,63 @@ const AboutPage: React.FC = () => {
       </div>
 
       <div className="about-snap-block flex flex-col justify-between h-screen p-8">
-  <div className="education-info text-left text-white">
-    <h3 className="text-2xl mt-12 font-bold glow-text">Education</h3>
-    <ul className="mt-4 space-y-2">
-      <li className="neon-card">Bachelor’s Degree in Infocommunication Technologies, MTUCI (2019-2023)</li>
-      <li className="neon-card">Master’s Degree in Quantum Communications, MTUCI (2023-2025)</li>
-    </ul>
-  </div>
+        <div className="flex justify-between w-full">
+          <div className="education-info text-left text-white ml-8">
+            <h3 className="text-2xl mt-12 font-bold glow-text">Education</h3>
+            <ul className="mt-4 space-y-2">
+              <li className="neon-card">Bachelor’s Degree in Infocommunication Technologies, MTUCI (2019-2023)</li>
+              <li className="neon-card">Master’s Degree in Quantum Communications, MTUCI (2023-2025)</li>
+            </ul>
+          </div>
 
-  <div className="tech-stack text-right text-white">
-    <h3 className="text-2xl font-bold glow-text">Tech Stack</h3>
-    <div className="flex flex-wrap justify-end gap-2 mt-4">
-      {['React', 'TypeScript', 'Python', 'Java Core', 'C#', 'HTML/CSS', 'DevTools', 'XPath', 'Git', 'Jira', 'ZennoPoster', 'YouGile', 'API', 'ChatGPT', 'Figma'].map((tool) => (
-        <span key={tool} className="holo-badge">{tool}</span>
-      ))}
-    </div>
-  </div>
+          <div className="languages-info text-left text-white mr-8">
+            <h3 className="text-2xl mt-12 font-bold glow-text">Languages</h3>
+            <ul className="mt-4 space-y-2">
+              <li className="neon-card">English - B2</li>
+              <li className="neon-card">Russian - C2</li>
+            </ul>
+          </div>
+        </div>
 
-  <div className="skills-info flex justify-between items-end text-white mt-12 w-full">
-    {[
-      {
-        title: 'Coding and Testing',
-        details: ['Installing nodes', 'Creating scripts and robots', 'Testing the product']
-      },
-      {
-        title: 'Marketing Strategies',
-        details: ['Discord communities', 'Twitter communities', 'Quest platforms']
-      },
-      {
-        title: 'Content Creation',
-        details: ['Infographics and banners', 'Articles, guides, blogs, educational videos', 'Translating the docs, etc.']
-      },
-      {
-        title: 'Community Organizing',
-        details: ['Holding events online, AMAs, etc.', 'Moderating, setting up chats and roles', 'Helping new members']
-      }
-    ].map((skill, index) => (
-      <Card key={index} className="w-1/4 m-2">
-        <h3 className="text-xl font-bold mb-2">{skill.title}</h3>
-        <ul className="text-sm space-y-1">
-          {skill.details.map((detail, idx) => (
-            <li key={idx}>• {detail}</li>
+        <div className="tech-stack text-center text-white mt-8">
+          <h3 className="text-2xl font-bold glow-text">Tech Stack</h3>
+          <div className="flex flex-wrap justify-center gap-2 mt-4">
+            {['React', 'TypeScript', 'Python', 'Java Core', 'C#', 'HTML/CSS', 'DevTools', 'XPath', 'Git', 'Jira', 'ZennoPoster', 'YouGile', 'API', 'ChatGPT', 'Figma'].map((tool) => (
+              <span key={tool} className="holo-badge">{tool}</span>
+            ))}
+          </div>
+        </div>
+
+        <div className="skills-info flex justify-between items-end text-white mt-12 w-full">
+          {[
+            {
+              title: 'Coding and Testing',
+              details: ['Installing nodes', 'Creating scripts and robots', 'Testing the product']
+            },
+            {
+              title: 'Marketing Strategies',
+              details: ['Discord communities', 'Twitter communities', 'Quest platforms']
+            },
+            {
+              title: 'Content Creation',
+              details: ['Infographics and banners', 'Articles, guides, blogs, educational videos', 'Translating the docs, etc.']
+            },
+            {
+              title: 'Community Organizing',
+              details: ['Holding events online, AMAs, etc.', 'Moderating, setting up chats and roles', 'Helping new members']
+            }
+          ].map((skill, index) => (
+            <Card key={index} className="w-1/4 m-2">
+              <h3 className="text-xl font-bold mb-2">{skill.title}</h3>
+              <ul className="text-sm space-y-1">
+                {skill.details.map((detail, idx) => (
+                  <li key={idx}>• {detail}</li>
+                ))}
+              </ul>
+            </Card>
           ))}
-        </ul>
-      </Card>
-    ))}
-  </div>
-</div>
-
+        </div>
+      </div>
 
       <div className="about-snap-block flex items-center justify-center h-screen">
         <Particles className="absolute inset-0 -z-10" quantity={100} />
