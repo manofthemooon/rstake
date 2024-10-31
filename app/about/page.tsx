@@ -132,17 +132,17 @@ const AboutPage: React.FC = () => {
 
   <div className="flex w-full px-8 justify-between">
     <div className="w-1/2 pr-4">
-      <h2 className="text-4xl text-white mb-8 mt-20 text-center">Top Articles</h2>
+      <h2 className="text-3xl text-white mb-6 text-center">Top Articles</h2>
       <Swiper
         spaceBetween={20}
-        slidesPerView={1}
-        className="w-full"
+        slidesPerView={3}
+        className="w-full flex justify-center"
       >
         {articles.map((article, index) => (
           <SwiperSlide key={index} className="flex flex-col items-center">
             <a href={article.link} target="_blank" rel="noopener noreferrer" className="block">
               <img src={article.image} alt={article.title} className="w-[360px] h-[190px] object-cover mb-2" />
-              <h3 className="text-xl text-white text-center">{article.title}</h3>
+              <h3 className="text-lg text-white text-center">{article.title}</h3>
             </a>
           </SwiperSlide>
         ))}
@@ -150,17 +150,17 @@ const AboutPage: React.FC = () => {
     </div>
 
     <div className="w-1/2 pl-4">
-      <h2 className="text-4xl text-white mb-8 text-center">Top Threads</h2>
+      <h2 className="text-3xl text-white mb-6 text-center">Top Threads</h2>
       <Swiper
         spaceBetween={20}
-        slidesPerView={1}
-        className="w-full"
+        slidesPerView={3}
+        className="w-full flex justify-center"
       >
         {threads.map((thread, index) => (
           <SwiperSlide key={index} className="flex flex-col items-center">
             <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
               <img src={thread.image} alt={thread.title} className="w-[360px] h-[190px] object-cover mb-2" />
-              <h3 className="text-xl text-white text-center">{thread.title}</h3>
+              <h3 className="text-lg text-white text-center">{thread.title}</h3>
             </a>
           </SwiperSlide>
         ))}
@@ -168,6 +168,7 @@ const AboutPage: React.FC = () => {
     </div>
   </div>
 </div>
+
 
 
 
