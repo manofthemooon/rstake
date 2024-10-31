@@ -7,6 +7,8 @@ import { Canvas } from '@react-three/fiber';
 import RotatingPoints from '../components/rotatingpoints';
 import { Card } from "../components/card";
 import ScrollIndicators from '../components/scrollindicators';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -39,6 +41,22 @@ const AboutPage: React.FC = () => {
       window.removeEventListener('wheel', handleScroll);
     };
   }, [activeBlock]);
+
+  const articles = [
+    { title: "Ocean Protocol: Empowering a Data-Driven Future", image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*nVi3EPJDYW4e_hG4LZBZJw.png", link: "https://manofthemooon.medium.com/ocean-protocol-empowering-a-data-driven-future-d590bab9d55d" },
+    { title: "Injective Protocol: Revolutionizing Decentralized Exchange", image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*yALEUr8OA5wClbRw2B1zjg.jpeg", link: "https://manofthemooon.medium.com/injective-protocol-revolutionizing-decentralized-exchange-c5bfa8ef54a" },
+    { title: "Introducing Uroboros Wallet", image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*BebjtIVw7tlLoFk1pmsfIA.png", link: "https://manofthemooon.medium.com/introducing-uroboros-wallet-the-solution-for-seamless-defi-experience-b3d3ead45281" },
+    { title: "Analyzing Injective (INJ) Crypto", image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*Ur7oRfnXtq2PhTF9gLO3qg.png", link: "https://manofthemooon.medium.com/analyzing-injective-inj-crypto-price-consolidation-and-future-potential-b3743854b71f" },
+    { title: "Hyperlane ISM", image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*off5F2vhlzvZeziKzVxGaw.png", link: "https://manofthemooon.medium.com/ru-hyperlane-isms-%D1%87%D1%82%D0%BE-%D1%8D%D1%82%D0%BE-748047675b89" },
+  ];
+
+  const threads = [
+    { title: "Ocean Protocol Toolset: Ocean.py", image: "https://pbs.twimg.com/media/FzESL7wX0AIKa2g?format=jpg&name=small", link: "https://x.com/manoofthemooon/status/1671136940140142592" },
+    { title: "Venom: A Blockchain Without Boundaries", image: "https://pbs.twimg.com/media/Fxjb8uyXwAA7cg-?format=jpg&name=small", link: "https://x.com/manoofthemooon/status/1664322123278565389" },
+    { title: "Ocean Protocol InvestorsObserver Analysis", image: "https://i.ibb.co/mCQNcL3/123333.png", link: "https://x.com/manoofthemooon/status/1679111462789234688" },
+    { title: "Injective SWOT Analysis ", image: "https://i.ibb.co/Qp7GjSj/123333.png", link: "https://x.com/manoofthemooon/status/1661490930304663553" },
+    { title: "Decentralized Music Data Marketplace with Ocean Protocol", image: "https://i.ibb.co/h9HSKHF/123333.png", link: "https://x.com/manoofthemooon/status/1676230380158844928" },
+  ];
 
   return (
     <div ref={pageRef} className="about-snap-container overflow-hidden relative">
@@ -92,23 +110,10 @@ const AboutPage: React.FC = () => {
         </div>
 
         <div className="skills-info flex justify-between items-end text-white mt-4 w-full">
-          {[
-            {
-              title: 'Coding and Testing',
-              details: ['Installing nodes', 'Creating scripts and robots', 'Testing the product']
-            },
-            {
-              title: 'Marketing Strategies',
-              details: ['Discord communities', 'Twitter communities', 'Quest platforms']
-            },
-            {
-              title: 'Content Creation',
-              details: ['Infographics and banners', 'Articles, guides, blogs, educational videos', 'Translating the docs, etc.']
-            },
-            {
-              title: 'Community Organizing',
-              details: ['Holding events online, AMAs, etc.', 'Moderating, setting up chats and roles', 'Helping new members']
-            }
+          {[{title: 'Coding and Testing', details: ['Installing nodes', 'Creating scripts and robots', 'Testing the product']},
+            {title: 'Marketing Strategies', details: ['Discord communities', 'Twitter communities', 'Quest platforms']},
+            {title: 'Content Creation', details: ['Infographics and banners', 'Articles, guides, blogs, educational videos', 'Translating the docs, etc.']},
+            {title: 'Community Organizing', details: ['Holding events online, AMAs, etc.', 'Moderating, setting up chats and roles', 'Helping new members']}
           ].map((skill, index) => (
             <Card key={index} className="w-1/4 m-2">
               <h3 className="text-2xl font-bold mb-4">{skill.title}</h3>
@@ -122,14 +127,39 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center h-screen relative">
+      <div className="about-snap-block flex flex-col items-center justify-center h-screen relative">
         <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
-        <h1 className="text-4xl text-white">Third Block Content</h1>
+        
+        <div className="w-full px-8">
+          <h2 className="text-4xl text-white mb-8">Top Articles</h2>
+          <Swiper spaceBetween={30} slidesPerView={1} className="w-full">
+            {articles.map((article, index) => (
+              <SwiperSlide key={index}>
+                <a href={article.link} target="_blank" rel="noopener noreferrer" className="block">
+                  <img src={article.image} alt={article.title} className="w-full h-64 object-cover mb-4" />
+                  <h3 className="text-2xl text-white">{article.title}</h3>
+                </a>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <h2 className="text-4xl text-white mt-16 mb-8">Top Threads</h2>
+          <Swiper spaceBetween={30} slidesPerView={1} className="w-full">
+            {threads.map((thread, index) => (
+              <SwiperSlide key={index}>
+                <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
+                  <img src={thread.image} alt={thread.title} className="w-full h-64 object-cover mb-4" />
+                  <h3 className="text-2xl text-white">{thread.title}</h3>
+                </a>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center h-screen relative">
+      <div className="about-snap-block flex items-center justify-center h-screen bg-black">
         <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
-        <h1 className="text-4xl text-white">Fourth Block Content</h1>
+        <h2 className="text-4xl font-bold text-white">Fourth Block Content</h2>
       </div>
     </div>
   );
