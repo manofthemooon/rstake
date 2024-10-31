@@ -127,43 +127,48 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="about-snap-block flex flex-col items-center justify-center h-screen relative">
+      <div className="about-snap-block flex items-center justify-center h-screen relative">
   <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
-  
-  <div className="w-full px-8">
-    <h2 className="text-4xl text-white mt-32 mb-8">Top Articles</h2>
-    <Swiper 
-      spaceBetween={20} 
-      slidesPerView={3} 
-      className="w-full"
-    >
-      {articles.map((article, index) => (
-        <SwiperSlide key={index} className="flex flex-col items-center">
-          <a href={article.link} target="_blank" rel="noopener noreferrer" className="block">
-            <img src={article.image} alt={article.title} className="w-[720px] h-[378px] object-cover mb-2" />
-            <h3 className="text-xl text-white text-center">{article.title}</h3>
-          </a>
-        </SwiperSlide>
-      ))}
-    </Swiper>
 
-    <h2 className="text-4xl text-white mt-16 mb-8">Top Threads</h2>
-    <Swiper 
-      spaceBetween={20} 
-      slidesPerView={3} 
-      className="w-full"
-    >
-      {threads.map((thread, index) => (
-        <SwiperSlide key={index} className="flex flex-col items-center">
-          <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
-            <img src={thread.image} alt={thread.title} className="w-[360px] h-[190px] object-cover mb-2" />
-            <h3 className="text-xl text-white text-center">{thread.title}</h3>
-          </a>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+  <div className="flex w-full px-8 justify-between">
+    <div className="w-1/2 pr-4">
+      <h2 className="text-4xl text-white mb-8 mt-20 text-center">Top Articles</h2>
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={1}
+        className="w-full"
+      >
+        {articles.map((article, index) => (
+          <SwiperSlide key={index} className="flex flex-col items-center">
+            <a href={article.link} target="_blank" rel="noopener noreferrer" className="block">
+              <img src={article.image} alt={article.title} className="w-[360px] h-[190px] object-cover mb-2" />
+              <h3 className="text-xl text-white text-center">{article.title}</h3>
+            </a>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+
+    <div className="w-1/2 pl-4">
+      <h2 className="text-4xl text-white mb-8 text-center">Top Threads</h2>
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={1}
+        className="w-full"
+      >
+        {threads.map((thread, index) => (
+          <SwiperSlide key={index} className="flex flex-col items-center">
+            <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
+              <img src={thread.image} alt={thread.title} className="w-[360px] h-[190px] object-cover mb-2" />
+              <h3 className="text-xl text-white text-center">{thread.title}</h3>
+            </a>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   </div>
 </div>
+
 
 
       <div className="about-snap-block flex items-center justify-center h-screen bg-black">
