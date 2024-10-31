@@ -111,8 +111,8 @@ const AboutPage: React.FC = () => {
             }
           ].map((skill, index) => (
             <Card key={index} className="w-1/4 m-2">
-              <h3 className="text-xxl font-bold mb-4">{skill.title}</h3>
-              <ul className="text-sm space-y-1">
+              <h3 className="text-2xl font-bold mb-4">{skill.title}</h3>
+              <ul className="text-xl space-y-2">
                 {skill.details.map((detail, idx) => (
                   <li key={idx}>• {detail}</li>
                 ))}
