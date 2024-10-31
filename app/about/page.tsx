@@ -68,19 +68,19 @@ const AboutPage: React.FC = () => {
             </ul>
           </div>
 
-          <div className="languages-info text-left text-white mr-12 mt-16"> {/* Увеличен отступ справа */}
+          <div className="languages-info text-left text-white mr-12 mt-16">
             <h3 className="text-2xl font-bold glow-text">Languages</h3>
-            <ul className="mt-4 space-y-2 pl-4"> {/* Увеличен отступ слева для текста языков */}
+            <ul className="mt-4 space-y-2 pl-4"> 
               <li className="neon-card">English - B2</li>
               <li className="neon-card">Russian - C2</li>
             </ul>
           </div>
         </div>
 
-        <div className="tech-stack text-center text-white mt-8 ml-8"> {/* Смещение заголовка Tech Stack вправо */}
+        <div className="tech-stack text-center text-white mt-8 ml-8"> 
           <h3 className="text-2xl font-bold glow-text">Tech Stack</h3>
           <div className="flex flex-wrap justify-center gap-2 mt-4">
-            {['React', 'TypeScript', 'Python', 'Java Core', 'C#', 'HTML/CSS', 'DevTools', 'XPath', 'Git', 'Jira', 'ZennoPoster', 'YouGile', 'API', 'ChatGPT', 'Figma'].map((tool) => (
+            {['React', 'TypeScript', 'Python', 'Java', 'C#', 'HTML/CSS', 'DevTools', 'XPath', 'Git', 'Jira', 'ZennoPoster', 'YouGile', 'API', 'ChatGPT', 'Figma'].map((tool) => (
               <span key={tool} className="holo-badge">{tool}</span>
             ))}
           </div>
