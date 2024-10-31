@@ -131,7 +131,7 @@ const AboutPage: React.FC = () => {
   <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
   
   <div className="w-full px-8">
-    <h2 className="text-4xl text-white mb-8">Top Articles</h2>
+    <h2 className="text-4xl text-white mt-32 mb-8">Top Articles</h2>
     <Swiper 
       spaceBetween={20} 
       slidesPerView={3} 
@@ -156,7 +156,7 @@ const AboutPage: React.FC = () => {
       {threads.map((thread, index) => (
         <SwiperSlide key={index} className="flex flex-col items-center">
           <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
-            <img src={thread.image} alt={thread.title} className="w-[720px] h-[378px] object-cover mb-2" />
+            <img src={thread.image} alt={thread.title} className="w-[360px] h-[190px] object-cover mb-2" />
             <h3 className="text-xl text-white text-center">{thread.title}</h3>
           </a>
         </SwiperSlide>
