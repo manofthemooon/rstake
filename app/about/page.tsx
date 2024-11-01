@@ -8,13 +8,14 @@ import RotatingPoints from '../components/rotatingpoints';
 import { Card } from "../components/card";
 import ScrollIndicators from '../components/scrollindicators';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
-
 
 const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
   const [activeBlock, setActiveBlock] = useState(0);
   const blockCount = 4;
+  const [activeSlide, setActiveSlide] = useState(0);
 
   const handleScroll = (event: WheelEvent) => {
     event.preventDefault();
@@ -113,66 +114,42 @@ const AboutPage: React.FC = () => {
         <div className="skills-info flex justify-between items-end text-white mt-4 w-full">
           {[{title: 'Coding and Testing', details: ['Installing nodes', 'Creating scripts and robots', 'Testing the product']},
             {title: 'Marketing Strategies', details: ['Discord communities', 'Twitter communities', 'Quest platforms']},
-            {title: 'Content Creation', details: ['Infographics and banners', 'Articles, guides, blogs, educational videos', 'Translating the docs, etc.']},
-            {title: 'Community Organizing', details: ['Holding events online, AMAs, etc.', 'Moderating, setting up chats and roles', 'Helping new members']}
-          ].map((skill, index) => (
-            <Card key={index} className="w-1/4 m-2">
-              <h3 className="text-2xl font-bold mb-4">{skill.title}</h3>
-              <ul className="text-sm space-y-2">
+            {title: 'Content Creation', details: ['Infographics and banners', 'Articles, threads', 'Presentations', 'Researches']},
+            {title: 'Organization and Control', details: ['Automated data gathering', 'Form filling', 'Statistics']}].map((skill, index) => (
+            <div key={index} className="skill-card neon-card">
+              <h4 className="text-lg font-semibold mb-2">{skill.title}</h4>
+              <ul className="space-y-1">
                 {skill.details.map((detail, idx) => (
-                  <li key={idx}>• {detail}</li>
+                  <li key={idx}>{detail}</li>
                 ))}
               </ul>
-            </Card>
+            </div>
           ))}
         </div>
       </div>
 
-      <div className="about-snap-block flex items-center justify-center h-screen relative">
-  <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
+      <div className="about-snap-block flex flex-col items-center justify-center h-screen p-4 bg-black text-white">
+        <h2 className="text-3xl font-bold mb-6">Articles</h2>
+        <Swiper modules={[Autoplay]} autoplay={{ delay: 2500 }} loop>
+          {articles.map((article, index) => (
+            <SwiperSlide key={index}>
+              <Card title={article.title} image={article.image} link={article.link} active={index === activeSlide} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
 
-  <div className="flex w-full px-8 justify-between">
-    <div className="w-1/2 pr-4">
-      <h2 className="text-3xl text-white mb-6 text-center">Top Articles</h2>
-      <Swiper
-        spaceBetween={20}
-        slidesPerView={3}
-        className="w-full flex justify-center"
-      >
-        {articles.map((article, index) => (
-          <SwiperSlide key={index} className="flex flex-col items-center">
-            <a href={article.link} target="_blank" rel="noopener noreferrer" className="block">
-              <img src={article.image} alt={article.title} className="w-[360px] h-[190px] object-cover mb-2" />
-              <h3 className="text-lg text-white text-center">{article.title}</h3>
-            </a>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-
-    <div className="w-1/2 pl-4">
-      <h2 className="text-3xl text-white mb-6 text-center">Top Threads</h2>
-      <Swiper
-        spaceBetween={20}
-        slidesPerView={3}
-        className="w-full flex justify-center"
-      >
-        {threads.map((thread, index) => (
-          <SwiperSlide key={index} className="flex flex-col items-center">
-            <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
-              <img src={thread.image} alt={thread.title} className="w-[360px] h-[190px] object-cover mb-2" />
-              <h3 className="text-lg text-white text-center">{thread.title}</h3>
-            </a>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  </div>
-</div>
-
-
-
-
+      <div className="about-snap-block flex flex-col items-center justify-center h-screen p-4 bg-black text-white">
+        <h2 className="text-3xl font-bold mb-6">Threads</h2>
+        <Swiper modules={[Autoplay]} autoplay={{ delay: 2500 }} loop>
+          {threads.map((thread, index) => (
+            <SwiperSlide key={index}>
+              <Card title={thread.title} image={thread.image} link={thread.link} active={index === activeSlide} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      
       <div className="about-snap-block flex items-center justify-center h-screen bg-black">
         <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
         <h2 className="text-4xl font-bold text-white">Fourth Block Content</h2>
@@ -182,3 +159,5 @@ const AboutPage: React.FC = () => {
 };
 
 export default AboutPage;
+
+
