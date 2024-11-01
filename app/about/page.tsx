@@ -9,6 +9,7 @@ import { Card } from "../components/card";
 import ScrollIndicators from '../components/scrollindicators';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import CustomCard from '../components/customcard';
 import 'swiper/css';
 
 const AboutPage: React.FC = () => {
@@ -129,27 +130,37 @@ const AboutPage: React.FC = () => {
       </div>
 
       <div className="about-snap-block flex flex-col items-center justify-center h-screen p-4 bg-black text-white">
-        <h2 className="text-3xl font-bold mb-6">Articles</h2>
-        <Swiper modules={[Autoplay]} autoplay={{ delay: 2500 }} loop>
-          {articles.map((article, index) => (
-            <SwiperSlide key={index}>
-              <Card title={article.title} image={article.image} link={article.link} active={index === activeSlide} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
+  <h2 className="text-3xl font-bold mb-6">Top Articles</h2>
+  <Swiper modules={[Autoplay]} autoplay={{ delay: 2500 }} loop>
+    {articles.map((article, index) => (
+      <SwiperSlide key={index}>
+        <CustomCard
+          title={article.title}
+          image={article.image}
+          link={article.link}
+          active={index === activeSlide}
+        />
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
 
-      <div className="about-snap-block flex flex-col items-center justify-center h-screen p-4 bg-black text-white">
-        <h2 className="text-3xl font-bold mb-6">Threads</h2>
-        <Swiper modules={[Autoplay]} autoplay={{ delay: 2500 }} loop>
-          {threads.map((thread, index) => (
-            <SwiperSlide key={index}>
-              <Card title={thread.title} image={thread.image} link={thread.link} active={index === activeSlide} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-      
+<div className="about-snap-block flex flex-col items-center justify-center h-screen p-4 bg-black text-white">
+  <h2 className="text-3xl font-bold mb-6">Top Threads</h2>
+  <Swiper modules={[Autoplay]} autoplay={{ delay: 2500 }} loop>
+    {threads.map((thread, index) => (
+      <SwiperSlide key={index}>
+        <CustomCard
+          title={thread.title}
+          image={thread.image}
+          link={thread.link}
+          active={index === activeSlide}
+        />
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
+
       <div className="about-snap-block flex items-center justify-center h-screen bg-black">
         <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
         <h2 className="text-4xl font-bold text-white">Fourth Block Content</h2>
