@@ -131,43 +131,55 @@ const AboutPage: React.FC = () => {
       <div className="about-snap-block flex items-center justify-center h-screen relative">
   <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
 
-  <div className="flex w-full px-8 justify-between">
-    <div className="w-1/2 pr-4">
-      <h2 className="text-3xl text-white mb-6 text-center">Top Articles</h2>
-      <Swiper
-        spaceBetween={20}
-        slidesPerView={3}
-        className="w-full flex justify-center"
-      >
-        {articles.map((article, index) => (
-          <SwiperSlide key={index} className="flex flex-col items-center">
-            <a href={article.link} target="_blank" rel="noopener noreferrer" className="block">
-              <img src={article.image} alt={article.title} className="w-[360px] h-[190px] object-cover mb-2" />
-              <h3 className="text-lg text-white text-center">{article.title}</h3>
-            </a>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+  <div className="about-snap-block flex justify-center h-screen relative">
+        <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
+        <div className="text-white flex flex-col items-center mt-20">
+          <h3 className="text-2xl font-bold glow-text">Top Articles</h3>
+          <Swiper
+            slidesPerView={3}
+            spaceBetween={30}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            className="mt-10"
+          >
+            {articles.map((article, index) => (
+              <SwiperSlide key={index} className="flex flex-col items-center">
+                <a href={article.link} target="_blank" rel="noopener noreferrer" className="relative group">
+                  <img src={article.image} alt={article.title} className="rounded-lg hover:scale-105 transition-transform duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-2 text-center text-white bg-black bg-opacity-50 rounded-b-lg">
+                    {article.title}
+                  </div>
+                </a>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
 
-    <div className="w-1/2 pl-4">
-      <h2 className="text-3xl text-white mb-6 text-center">Top Threads</h2>
-      <Swiper
-        spaceBetween={20}
-        slidesPerView={3}
-        className="w-full flex justify-center"
-      >
-        {threads.map((thread, index) => (
-          <SwiperSlide key={index} className="flex flex-col items-center">
-            <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
-              <img src={thread.image} alt={thread.title} className="w-[360px] h-[190px] object-cover mb-2" />
-              <h3 className="text-lg text-white text-center">{thread.title}</h3>
-            </a>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  </div>
+      <div className="about-snap-block flex justify-center h-screen relative">
+        <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
+        <div className="text-white flex flex-col items-center mt-20">
+          <h3 className="text-2xl font-bold glow-text">Top Threads</h3>
+          <Swiper
+            slidesPerView={3}
+            spaceBetween={30}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            className="mt-10"
+          >
+            {threads.map((thread, index) => (
+              <SwiperSlide key={index} className="flex flex-col items-center">
+                <a href={thread.link} target="_blank" rel="noopener noreferrer" className="relative group">
+                  <img src={thread.image} alt={thread.title} className="rounded-lg hover:scale-105 transition-transform duration-300" />
+                  <div className="absolute bottom-0 left-0 right-0 p-2 text-center text-white bg-black bg-opacity-50 rounded-b-lg">
+                    {thread.title}
+                  </div>
+                </a>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
 </div>
 <div className="about-snap-block flex items-center justify-center h-screen bg-black">
         <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
