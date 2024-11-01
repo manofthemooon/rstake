@@ -7,12 +7,8 @@ import { Canvas } from '@react-three/fiber';
 import RotatingPoints from '../components/rotatingpoints';
 import { Card } from "../components/card";
 import ScrollIndicators from '../components/scrollindicators';
-import CustomCard from '../components/customcard';
-import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import type { Swiper as SwiperType } from 'swiper';
-
+import 'swiper/css';
 
 
 const AboutPage: React.FC = () => {
@@ -132,69 +128,47 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="about-snap-block flex flex-col items-center justify-center h-screen relative">
-        <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
+      <div className="about-snap-block flex items-center justify-center h-screen relative">
+  <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
 
-        <div className="flex flex-col items-center w-full px-8 justify-center space-y-12">
-          <h2 className="text-3xl text-white mb-6 text-center">Top Articles</h2>
-          <Swiper
-            spaceBetween={20}
-            slidesPerView={3}
-            loop={true}
-            autoplay={{ delay: 3000 }}
-            onSlideChange={(swiper) => setActiveArticleIndex(swiper.activeIndex)}
-            className="w-full"
-          >
-            {articles.map((article, index) => (
-              <SwiperSlide key={index} className="flex flex-col items-center">
-                <CustomCard
-                  title={article.title}
-                  image={article.image}
-                  link={article.link}
-                  isActive={index === activeArticleIndex}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div className="dots flex space-x-2 mt-4">
-            {articles.map((_, index) => (
-              <div
-                key={index}
-                className={`h-2 w-2 rounded-full ${index === activeArticleIndex ? 'bg-white' : 'bg-gray-500'}`}
-              />
-            ))}
-          </div>
-
-          <h2 className="text-3xl text-white mt-12 mb-6 text-center">Top Threads</h2>
-          <Swiper
-            spaceBetween={20}
-            slidesPerView={3}
-            loop={true}
-            autoplay={{ delay: 3000 }}
-            onSlideChange={(swiper) => setActiveThreadIndex(swiper.activeIndex)}
-            className="w-full"
-          >
-            {threads.map((thread, index) => (
-              <SwiperSlide key={index} className="flex flex-col items-center">
-                <CustomCard
-                  title={thread.title}
-                  image={thread.image}
-                  link={thread.link}
-                  isActive={index === activeThreadIndex}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div className="dots flex space-x-2 mt-4">
-            {threads.map((_, index) => (
-              <div
-                key={index}
-                className={`h-2 w-2 rounded-full ${index === activeThreadIndex ? 'bg-white' : 'bg-gray-500'}`}
-              />
-            ))}
-          </div>
-        </div>
+  <div className="flex w-full px-8 justify-between">
+    <div className="w-1/2 pr-4">
+      <h2 className="text-3xl text-white mb-6 text-center">Top Articles</h2>
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={3}
+        className="w-full flex justify-center"
+      >
+        {articles.map((article, index) => (
+          <SwiperSlide key={index} className="flex flex-col items-center">
+            <a href={article.link} target="_blank" rel="noopener noreferrer" className="block">
+              <img src={article.image} alt={article.title} className="w-[360px] h-[190px] object-cover mb-2" />
+              <h3 className="text-lg text-white text-center">{article.title}</h3>
+            </a>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
+
+    <div className="w-1/2 pl-4">
+      <h2 className="text-3xl text-white mb-6 text-center">Top Threads</h2>
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={3}
+        className="w-full flex justify-center"
+      >
+        {threads.map((thread, index) => (
+          <SwiperSlide key={index} className="flex flex-col items-center">
+            <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
+              <img src={thread.image} alt={thread.title} className="w-[360px] h-[190px] object-cover mb-2" />
+              <h3 className="text-lg text-white text-center">{thread.title}</h3>
+            </a>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  </div>
+</div>
 <div className="about-snap-block flex items-center justify-center h-screen bg-black">
         <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
         <h2 className="text-4xl font-bold text-white">Fourth Block Content</h2>
