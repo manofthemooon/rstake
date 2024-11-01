@@ -137,12 +137,22 @@ const AboutPage: React.FC = () => {
       <Swiper
         spaceBetween={20}
         slidesPerView={3}
+        autoplay={{
+          delay: 5000, 
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true, 
+          renderBullet: (index, className) => {
+            return `<span class="${className} w-2 h-2 bg-white rounded-full mx-1"></span>`; 
+          },
+        }}
         className="w-full flex justify-center"
       >
         {articles.map((article, index) => (
           <SwiperSlide key={index} className="flex flex-col items-center">
-            <a href={article.link} target="_blank" rel="noopener noreferrer" className="block">
-              <img src={article.image} alt={article.title} className="w-[360px] h-[190px] object-cover mb-2" />
+            <a href={article.link} target="_blank" rel="noopener noreferrer" className="block relative group">
+              <img src={article.image} alt={article.title} className="w-[360px] h-[190px] object-cover mb-2 transition-transform duration-300 transform group-hover:scale-105" />
               <h3 className="text-lg text-white text-center">{article.title}</h3>
             </a>
           </SwiperSlide>
@@ -155,12 +165,22 @@ const AboutPage: React.FC = () => {
       <Swiper
         spaceBetween={20}
         slidesPerView={3}
+        autoplay={{
+          delay: 5000, 
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+          renderBullet: (index, className) => {
+            return `<span class="${className} w-2 h-2 bg-white rounded-full mx-1"></span>`;
+          },
+        }}
         className="w-full flex justify-center"
       >
         {threads.map((thread, index) => (
           <SwiperSlide key={index} className="flex flex-col items-center">
-            <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
-              <img src={thread.image} alt={thread.title} className="w-[360px] h-[190px] object-cover mb-2" />
+            <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block relative group">
+              <img src={thread.image} alt={thread.title} className="w-[360px] h-[190px] object-cover mb-2 transition-transform duration-300 transform group-hover:scale-105" />
               <h3 className="text-lg text-white text-center">{thread.title}</h3>
             </a>
           </SwiperSlide>
