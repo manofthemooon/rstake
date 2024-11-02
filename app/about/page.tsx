@@ -8,7 +8,8 @@ import RotatingPoints from '../components/rotatingpoints';
 import { Card } from "../components/card";
 import ScrollIndicators from '../components/scrollindicators';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import { Autoplay, Pagination } from 'swiper';
+import 'swiper/swiper-bundle.min.css';
 
 
 const AboutPage: React.FC = () => {
@@ -135,6 +136,7 @@ const AboutPage: React.FC = () => {
     <div className="w-1/2 pr-4">
       <h2 className="text-3xl text-white mb-6 text-center">Top Articles</h2>
       <Swiper
+        modules={[Autoplay, Pagination]} 
         spaceBetween={20}
         slidesPerView={3}
         autoplay={{
@@ -143,9 +145,7 @@ const AboutPage: React.FC = () => {
         }}
         pagination={{
           clickable: true, 
-          renderBullet: (index, className) => {
-            return `<span class="${className} w-2 h-2 bg-white rounded-full mx-1"></span>`; 
-          },
+          dynamicBullets: true,
         }}
         className="w-full flex justify-center"
       >
@@ -163,6 +163,7 @@ const AboutPage: React.FC = () => {
     <div className="w-1/2 pl-4">
       <h2 className="text-3xl text-white mb-6 text-center">Top Threads</h2>
       <Swiper
+        modules={[Autoplay, Pagination]} 
         spaceBetween={20}
         slidesPerView={3}
         autoplay={{
@@ -170,10 +171,8 @@ const AboutPage: React.FC = () => {
           disableOnInteraction: false,
         }}
         pagination={{
-          clickable: true,
-          renderBullet: (index, className) => {
-            return `<span class="${className} w-2 h-2 bg-white rounded-full mx-1"></span>`;
-          },
+          clickable: true, 
+          dynamicBullets: true,
         }}
         className="w-full flex justify-center"
       >

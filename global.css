@@ -160,3 +160,12 @@
   font-size: inherit;
   color: #fff;
 }
+
+.swiper-pagination-bullet {
+  background-color: white; 
+  opacity: 0.5; 
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1; 
+}
