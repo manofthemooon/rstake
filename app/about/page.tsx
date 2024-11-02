@@ -9,7 +9,7 @@ import { Card } from "../components/card";
 import ScrollIndicators from '../components/scrollindicators';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper';
-import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.css';;
 
 
 const AboutPage: React.FC = () => {
