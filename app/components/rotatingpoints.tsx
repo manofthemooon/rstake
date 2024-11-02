@@ -39,7 +39,7 @@ const RotatingPoints = () => {
           data: data,
           width: canvas.width,
           height: canvas.height,
-          density: 0.002,
+          density: 0.0002,
           scale: 9
         });
       });
@@ -82,7 +82,7 @@ const RotatingPoints = () => {
         color="#ffffff"
         sizeAttenuation={true}
         transparent={true}
-        opacity={0.5}
+        opacity={0.8}
       />
     </points>
   );
