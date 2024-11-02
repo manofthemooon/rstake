@@ -162,10 +162,13 @@
 }
 
 .swiper-pagination-bullet {
-  background-color: white; 
-  opacity: 0.5; 
+  background-color: white !important;
+  opacity: 1; 
+  width: 12px; 
+  height: 12px; 
+  border-radius: 50%; 
 }
 
 .swiper-pagination-bullet-active {
-  opacity: 1; 
+  background-color: #ccc !important; 
 }

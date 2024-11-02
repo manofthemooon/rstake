@@ -8,10 +8,10 @@ import RotatingPoints from '../components/rotatingpoints';
 import { Card } from "../components/card";
 import ScrollIndicators from '../components/scrollindicators';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Autoplay, Pagination } from 'swiper';
-import 'swiper/swiper-bundle.css';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/swiper.css';
+import 'swiper/modules/pagination/pagination.css';
 
-SwiperCore.use([Autoplay, Pagination]);
 
 const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -131,64 +131,54 @@ const AboutPage: React.FC = () => {
       </div>
 
       <div className="about-snap-block flex items-center justify-center h-screen relative">
-  <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
+      <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
 
-  <div className="flex w-full px-8 justify-between">
-    <div className="w-1/2 pr-4">
-      <h2 className="text-3xl text-white mb-6 text-center">Top Articles</h2>
-      <Swiper
-        modules={[Autoplay, Pagination]} 
-        spaceBetween={20}
-        slidesPerView={3}
-        autoplay={{
-          delay: 5000, 
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true, 
-          dynamicBullets: true,
-        }}
-        className="w-full flex justify-center"
-      >
-        {articles.map((article, index) => (
-          <SwiperSlide key={index} className="flex flex-col items-center">
-            <a href={article.link} target="_blank" rel="noopener noreferrer" className="block relative group">
-              <img src={article.image} alt={article.title} className="w-[360px] h-[190px] object-cover mb-2 transition-transform duration-300 transform group-hover:scale-105" />
-              <h3 className="text-lg text-white text-center">{article.title}</h3>
-            </a>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+      <div className="flex w-full px-8 justify-between">
+        <div className="w-1/2 pr-4">
+          <h2 className="text-3xl text-white mb-6 text-center">Top Articles</h2>
+          <Swiper
+            spaceBetween={20}
+            slidesPerView={3}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            pagination={{ clickable: true, el: '.swiper-pagination' }}
+            modules={[Autoplay, Pagination]}
+            className="w-full flex justify-center"
+          >
+            {articles.map((article, index) => (
+              <SwiperSlide key={index} className="flex flex-col items-center">
+                <a href={article.link} target="_blank" rel="noopener noreferrer" className="block">
+                  <img src={article.image} alt={article.title} className="w-[360px] h-[190px] object-cover mb-2" />
+                  <h3 className="text-lg text-white text-center">{article.title}</h3>
+                </a>
+              </SwiperSlide>
+            ))}
+            <div className="swiper-pagination" />
+          </Swiper>
+        </div>
 
-    <div className="w-1/2 pl-4">
-      <h2 className="text-3xl text-white mb-6 text-center">Top Threads</h2>
-      <Swiper
-        modules={[Autoplay, Pagination]} 
-        spaceBetween={20}
-        slidesPerView={3}
-        autoplay={{
-          delay: 5000, 
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true, 
-          dynamicBullets: true,
-        }}
-        className="w-full flex justify-center"
-      >
-        {threads.map((thread, index) => (
-          <SwiperSlide key={index} className="flex flex-col items-center">
-            <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block relative group">
-              <img src={thread.image} alt={thread.title} className="w-[360px] h-[190px] object-cover mb-2 transition-transform duration-300 transform group-hover:scale-105" />
-              <h3 className="text-lg text-white text-center">{thread.title}</h3>
-            </a>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        <div className="w-1/2 pl-4">
+          <h2 className="text-3xl text-white mb-6 text-center">Top Threads</h2>
+          <Swiper
+            spaceBetween={20}
+            slidesPerView={3}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            pagination={{ clickable: true, el: '.swiper-pagination' }}
+            modules={[Autoplay, Pagination]}
+            className="w-full flex justify-center"
+          >
+            {threads.map((thread, index) => (
+              <SwiperSlide key={index} className="flex flex-col items-center">
+                <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
+                  <img src={thread.image} alt={thread.title} className="w-[360px] h-[190px] object-cover mb-2" />
+                  <h3 className="text-lg text-white text-center">{thread.title}</h3>
+                </a>
+              </SwiperSlide>
+            ))}
+            <div className="swiper-pagination" />
+          </Swiper>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 <div className="about-snap-block flex items-center justify-center h-screen bg-black">
         <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
         <h2 className="text-4xl font-bold text-white">Fourth Block Content</h2>
