@@ -1,22 +1,35 @@
 self.onmessage = (e) => {
-  const { data, width, height, density, scale } = e.data;
+  const { data, width, height, scale } = e.data;
   const points: number[] = [];
+  const threshold = 128;
 
-  const step = 0.1;
-  
-  for (let y = 0; y < height; y += step) {
-    for (let x = 0; x < width; x += step) {
-      const i = (Math.floor(y) * width + Math.floor(x)) * 4;
-      const alpha = data[i + 3];
+  for (let y = 0; y < height; y += 2) {
+    let linePoints: number[] = [];
+    let isDrawing = false;
+
+    for (let x = 0; x < width; x++) {
+      const i = (y * width + x) * 4;
       const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
-      
-      if (alpha > 100 && brightness < 150) {
-        const xPos = ((x - width / 2) / width) * scale;
-        const yPos = ((height / 2 - y) / height) * scale;
-        const zPos = (Math.random() - 0.5) * 0.02;
-        
-        points.push(xPos, yPos, zPos);
+
+      if (brightness < threshold) {
+        linePoints.push(
+          (x - width / 2) * scale / width,
+          -(y - height / 2) * scale / height,
+          0
+        );
+        isDrawing = true;
+      } else if (isDrawing) {
+        if (linePoints.length > 0) {
+          points.push(...linePoints);
+          points.push(...linePoints.slice(-3));
+        }
+        linePoints = [];
+        isDrawing = false;
       }
+    }
+
+    if (linePoints.length > 0) {
+      points.push(...linePoints);
     }
   }
 
