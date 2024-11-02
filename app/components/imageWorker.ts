@@ -3,7 +3,7 @@ self.onmessage = (e) => {
   const points: number[] = [];
   const threshold = 128;
 
-  for (let y = 0; y < height; y += 2) {
+  for (let y = 0; y < height; y += 1) {
     let linePoints: number[] = [];
     let isDrawing = false;
 
@@ -12,8 +12,10 @@ self.onmessage = (e) => {
       if (data[i + 3] < 10) continue;
       
       const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
+      const isBlack = brightness < threshold;
+      const isWhite = brightness >= threshold;
 
-      if (brightness < threshold) {
+      if (isBlack || isWhite) {
         linePoints.push(
           (x - width / 2) * scale / width,
           -(y - height / 2) * scale / height,
