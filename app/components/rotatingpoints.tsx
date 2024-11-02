@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -10,7 +10,7 @@ const RotatingPoints = () => {
     const img = new Image();
     img.src = '/favicon.png';
     
-    img.onload = () => {
+    const processImage = async () => {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
@@ -19,31 +19,51 @@ const RotatingPoints = () => {
       canvas.height = img.height;
       ctx.drawImage(img, 0, 0);
       
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const offscreen = new OffscreenCanvas(canvas.width, canvas.height);
+      const offscreenCtx = offscreen.getContext('2d');
+      if (!offscreenCtx) return;
+
+      offscreenCtx.drawImage(canvas, 0, 0);
+      const imageData = offscreenCtx.getImageData(0, 0, canvas.width, canvas.height);
       const data = imageData.data;
-      const points: number[] = [];
-      const density = 0.25;
-      const scale = 9;
       
-      for (let y = 0; y < canvas.height; y += density) {
-        for (let x = 0; x < canvas.width; x += density) {
-          const i = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
-          const alpha = data[i + 3];
-          const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
-          
-          if (alpha > 128 && brightness < 128) {
-            const xPos = ((x - canvas.width / 2) / canvas.width) * scale;
-            const yPos = ((canvas.height / 2 - y) / canvas.height) * scale;
-            const zPos = (Math.random() - 0.5) * 0.03;
-            
-            points.push(xPos, yPos, zPos);
-          }
-        }
-      }
-      
+      const points = await new Promise<number[]>((resolve) => {
+        const worker = new Worker(new URL('./imageWorker.ts', import.meta.url));
+        
+        worker.onmessage = (e) => {
+          resolve(e.data);
+          worker.terminate();
+        };
+
+        worker.postMessage({
+          data: data,
+          width: canvas.width,
+          height: canvas.height,
+          density: 0.1,
+          scale: 9
+        });
+      });
+
       setLogoPoints(points);
     };
+
+    img.onload = () => {
+      requestIdleCallback(() => {
+        processImage();
+      });
+    };
   }, []);
+
+  const geometry = useMemo(() => {
+    if (logoPoints.length === 0) return null;
+    
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute(
+      'position',
+      new THREE.Float32BufferAttribute(logoPoints, 3)
+    );
+    return geometry;
+  }, [logoPoints]);
 
   useFrame((state) => {
     if (pointsRef.current) {
@@ -52,27 +72,20 @@ const RotatingPoints = () => {
     }
   });
 
-  if (logoPoints.length === 0) return null;
+  if (!geometry) return null;
 
   return (
     <points ref={pointsRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={logoPoints.length / 3}
-          array={new Float32Array(logoPoints)}
-          itemSize={3}
-        />
-      </bufferGeometry>
+      <primitive object={geometry} />
       <pointsMaterial
-        size={0.015}
+        size={0.008} 
         color="#ffffff"
         sizeAttenuation={true}
         transparent={true}
-        opacity={0.8}
+        opacity={0.7} 
       />
     </points>
   );
-};
+}
 
-export default RotatingPoints; 
+export default RotatingPoints;
