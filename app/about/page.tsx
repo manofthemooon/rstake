@@ -132,54 +132,76 @@ const AboutPage: React.FC = () => {
       </div>
 
       <div className="about-snap-block flex items-center justify-center h-screen relative">
-      <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
+  <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
 
-      <div className="flex w-full px-8 justify-between">
-        <div className="w-1/2 pr-4">
-          <h2 className="text-3xl text-white mb-6 text-center">Top Articles</h2>
-          <Swiper
-            spaceBetween={20}
-            slidesPerView={3}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            pagination={{ clickable: true, el: '.swiper-pagination' }}
-            modules={[Autoplay, Pagination]}
-            className="w-full flex justify-center"
-          >
-            {articles.map((article, index) => (
-              <SwiperSlide key={index} className="flex flex-col items-center">
+  <div className="flex w-full px-8 justify-between">
+    <div className="w-1/2 pr-4">
+      <h2 className="text-3xl text-white mb-6 text-center">Top Articles</h2>
+      <Swiper
+        spaceBetween={30}
+        slidesPerView={3}
+        centeredSlides={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        pagination={{ clickable: true, el: '.swiper-pagination' }}
+        modules={[Autoplay, Pagination]}
+        className="w-full flex justify-center"
+      >
+        {articles.map((article, index) => (
+          <SwiperSlide key={index} className="flex flex-col items-center transition-all duration-300">
+            {({ isActive }) => (
+              <>
                 <a href={article.link} target="_blank" rel="noopener noreferrer" className="block">
-                  <img src={article.image} alt={article.title} className="w-[360px] h-[190px] object-cover mb-2" />
-                  <h3 className="text-lg text-white text-center">{article.title}</h3>
+                  <img 
+                    src={article.image} 
+                    alt={article.title} 
+                    className={`w-[360px] h-[190px] object-cover mb-2 transition-transform duration-300 ${isActive ? 'scale-110' : 'scale-90 opacity-50'}`} 
+                  />
+                  {isActive && (
+                    <h3 className="text-lg text-white text-center animate-fade-in">{article.title}</h3>
+                  )}
                 </a>
-              </SwiperSlide>
-            ))}
-            <div className="swiper-pagination" />
-          </Swiper>
-        </div>
-
-        <div className="w-1/2 pl-4">
-          <h2 className="text-3xl text-white mb-6 text-center">Top Threads</h2>
-          <Swiper
-            spaceBetween={20}
-            slidesPerView={3}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            pagination={{ clickable: true, el: '.swiper-pagination' }}
-            modules={[Autoplay, Pagination]}
-            className="w-full flex justify-center"
-          >
-            {threads.map((thread, index) => (
-              <SwiperSlide key={index} className="flex flex-col items-center">
-                <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
-                  <img src={thread.image} alt={thread.title} className="w-[360px] h-[190px] object-cover mb-2" />
-                  <h3 className="text-lg text-white text-center">{thread.title}</h3>
-                </a>
-              </SwiperSlide>
-            ))}
-            <div className="swiper-pagination" />
-          </Swiper>
-        </div>
-      </div>
+              </>
+            )}
+          </SwiperSlide>
+        ))}
+        <div className="swiper-pagination" />
+      </Swiper>
     </div>
+
+    <div className="w-1/2 pl-4">
+      <h2 className="text-3xl text-white mb-6 text-center">Top Threads</h2>
+      <Swiper
+        spaceBetween={30}
+        slidesPerView={3}
+        centeredSlides={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        pagination={{ clickable: true, el: '.swiper-pagination' }}
+        modules={[Autoplay, Pagination]}
+        className="w-full flex justify-center"
+      >
+        {threads.map((thread, index) => (
+          <SwiperSlide key={index} className="flex flex-col items-center transition-all duration-300">
+            {({ isActive }) => (
+              <>
+                <a href={thread.link} target="_blank" rel="noopener noreferrer" className="block">
+                  <img 
+                    src={thread.image} 
+                    alt={thread.title} 
+                    className={`w-[360px] h-[190px] object-cover mb-2 transition-transform duration-300 ${isActive ? 'scale-110' : 'scale-90 opacity-50'}`} 
+                  />
+                  {isActive && (
+                    <h3 className="text-lg text-white text-center animate-fade-in">{thread.title}</h3>
+                  )}
+                </a>
+              </>
+            )}
+          </SwiperSlide>
+        ))}
+        <div className="swiper-pagination" />
+      </Swiper>
+    </div>
+  </div>
+</div>
 <div className="about-snap-block flex items-center justify-center h-screen bg-black">
         <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
         <h2 className="text-4xl font-bold text-white">Fourth Block Content</h2>
