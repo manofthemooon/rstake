@@ -8,9 +8,11 @@ import RotatingPoints from '../components/rotatingpoints';
 import ScrollIndicators from '../components/scrollindicators';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
+import { articles, threads } from 'content/articles-data';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
+
 
 
 const AboutPage: React.FC = () => {
@@ -44,22 +46,6 @@ const AboutPage: React.FC = () => {
       window.removeEventListener('wheel', handleScroll);
     };
   }, [activeBlock]);
-
-  const articles = [
-    { title: "Ocean Protocol: Empowering a Data-Driven Future", image: "https://miro.medium.com/v2/resize:fit:360/format:webp/1*nVi3EPJDYW4e_hG4LZBZJw.png", link: "https://manofthemooon.medium.com/ocean-protocol-empowering-a-data-driven-future-d590bab9d55d" },
-    { title: "Injective Protocol: Revolutionizing Decentralized Exchange", image: "https://miro.medium.com/v2/resize:fit:360/format:webp/1*yALEUr8OA5wClbRw2B1zjg.jpeg", link: "https://manofthemooon.medium.com/injective-protocol-revolutionizing-decentralized-exchange-c5bfa8ef54a" },
-    { title: "Introducing Uroboros Wallet", image: "https://miro.medium.com/v2/resize:fit:360/format:webp/1*BebjtIVw7tlLoFk1pmsfIA.png", link: "https://manofthemooon.medium.com/introducing-uroboros-wallet-the-solution-for-seamless-defi-experience-b3d3ead45281" },
-    { title: "Analyzing Injective (INJ) Crypto", image: "https://miro.medium.com/v2/resize:fit:360/format:webp/1*Ur7oRfnXtq2PhTF9gLO3qg.png", link: "https://manofthemooon.medium.com/analyzing-injective-inj-crypto-price-consolidation-and-future-potential-b3743854b71f" },
-    { title: "Hyperlane ISM", image: "https://miro.medium.com/v2/resize:fit:360/format:webp/1*off5F2vhlzvZeziKzVxGaw.png", link: "https://manofthemooon.medium.com/ru-hyperlane-isms-%D1%87%D1%82%D0%BE-%D1%8D%D1%82%D0%BE-748047675b89" },
-  ];
-
-  const threads = [
-    { title: "Ocean Protocol Toolset: Ocean.py", image: "https://pbs.twimg.com/media/FzESL7wX0AIKa2g?format=jpg&name=small", link: "https://x.com/manoofthemooon/status/1671136940140142592" },
-    { title: "Venom: A Blockchain Without Boundaries", image: "https://pbs.twimg.com/media/Fxjb8uyXwAA7cg-?format=jpg&name=small", link: "https://x.com/manoofthemooon/status/1664322123278565389" },
-    { title: "Ocean Protocol InvestorsObserver Analysis", image: "https://i.ibb.co/mCQNcL3/123333.png", link: "https://x.com/manoofthemooon/status/1679111462789234688" },
-    { title: "Injective SWOT Analysis ", image: "https://i.ibb.co/Qp7GjSj/123333.png", link: "https://x.com/manoofthemooon/status/1661490930304663553" },
-    { title: "Decentralized Music Data Marketplace with Ocean Protocol", image: "https://i.ibb.co/h9HSKHF/123333.png", link: "https://x.com/manoofthemooon/status/1676230380158844928" },
-  ];
 
   return (
     <div ref={pageRef} className="about-snap-container overflow-hidden relative">
