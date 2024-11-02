@@ -141,8 +141,13 @@ const AboutPage: React.FC = () => {
         spaceBetween={30}
         slidesPerView={3}
         centeredSlides={true}
+        initialSlide={1}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
-        pagination={{ clickable: true, el: '.swiper-pagination' }}
+        pagination={{ 
+          clickable: true, 
+          el: '.swiper-pagination',
+          dynamicBullets: true,
+        }}
         modules={[Autoplay, Pagination]}
         className="w-full flex justify-center"
       >
@@ -157,14 +162,14 @@ const AboutPage: React.FC = () => {
                     className={`w-[360px] h-[190px] object-cover mb-2 transition-transform duration-300 ${isActive ? 'scale-110' : 'scale-90 opacity-50'}`} 
                   />
                   {isActive && (
-                    <h3 className="text-lg text-white text-center animate-fade-in">{article.title}</h3>
+                    <h3 className="text-lg text-white text-center animate-fade-in mb-8">{article.title}</h3>
                   )}
                 </a>
               </>
             )}
           </SwiperSlide>
         ))}
-        <div className="swiper-pagination" />
+        <div className="swiper-pagination !bottom-0" />
       </Swiper>
     </div>
 
@@ -174,8 +179,13 @@ const AboutPage: React.FC = () => {
         spaceBetween={30}
         slidesPerView={3}
         centeredSlides={true}
+        initialSlide={1}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
-        pagination={{ clickable: true, el: '.swiper-pagination' }}
+        pagination={{ 
+          clickable: true, 
+          el: '.swiper-pagination',
+          dynamicBullets: true,
+        }}
         modules={[Autoplay, Pagination]}
         className="w-full flex justify-center"
       >
@@ -190,14 +200,14 @@ const AboutPage: React.FC = () => {
                     className={`w-[360px] h-[190px] object-cover mb-2 transition-transform duration-300 ${isActive ? 'scale-110' : 'scale-90 opacity-50'}`} 
                   />
                   {isActive && (
-                    <h3 className="text-lg text-white text-center animate-fade-in">{thread.title}</h3>
+                    <h3 className="text-lg text-white text-center animate-fade-in mb-8">{thread.title}</h3>
                   )}
                 </a>
               </>
             )}
           </SwiperSlide>
         ))}
-        <div className="swiper-pagination" />
+        <div className="swiper-pagination !bottom-0" />
       </Swiper>
     </div>
   </div>
