@@ -80,53 +80,87 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="about-snap-block flex flex-col justify-between h-screen p-8 relative">
+      <div className="about-snap-block flex flex-col justify-between h-screen p-8 relative bg-gradient-to-b from-black to-gray-900">
         <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
-        <div className="flex justify-between w-full">
-          <div className="education-info text-left text-white ml-8 mt-16">
-            <h3 className="text-2xl font-bold glow-text">Education</h3>
-            <ul className="mt-4 space-y-2">
-              <li className="neon-card">Bachelor’s Degree in Infocommunication Technologies, MTUCI (2019-2023)</li>
-              <li className="neon-card">Master’s Degree in Quantum Communications, MTUCI (2023-2025)</li>
+        
+        {/* Верхняя секция с Education и Languages */}
+        <div className="flex justify-between w-full mt-16">
+          <div className="education-info text-left text-white ml-8">
+            <h3 className="text-2xl font-bold glow-text mb-6">Education</h3>
+            <ul className="space-y-4">
+              <li className="glass-card p-4 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300">
+                <p className="font-semibold">Bachelor's Degree</p>
+                <p className="text-gray-300">Infocommunication Technologies</p>
+                <p className="text-sm text-gray-400">MTUCI (2019-2023)</p>
+              </li>
+              <li className="glass-card p-4 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300">
+                <p className="font-semibold">Master's Degree</p>
+                <p className="text-gray-300">Quantum Communications</p>
+                <p className="text-sm text-gray-400">MTUCI (2023-2025)</p>
+              </li>
             </ul>
           </div>
 
-          <div className="languages-info text-left text-white mr-12 mt-16">
-            <h3 className="text-2xl font-bold glow-text">Languages</h3>
-            <ul className="mt-4 ml-4 space-y-2 pl-4">
-              <li className="neon-card">English - B2</li>
-              <li className="neon-card">Russian - C2</li>
+          <div className="languages-info text-left text-white mr-12">
+            <h3 className="text-2xl font-bold glow-text mb-6">Languages</h3>
+            <ul className="space-y-4">
+              <li className="glass-card p-4 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300">
+                <p className="font-semibold">English</p>
+                <div className="mt-2 bg-gray-700 h-2 rounded-full">
+                  <div className="bg-blue-500 h-full rounded-full w-4/5"></div>
+                </div>
+                <p className="text-sm text-gray-400 mt-1">B2 Level</p>
+              </li>
+              <li className="glass-card p-4 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300">
+                <p className="font-semibold">Russian</p>
+                <div className="mt-2 bg-gray-700 h-2 rounded-full">
+                  <div className="bg-blue-500 h-full rounded-full w-full"></div>
+                </div>
+                <p className="text-sm text-gray-400 mt-1">C2 Level</p>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="tech-stack text-center text-white mt-8 ml-8">
-          <h3 className="text-2xl font-bold glow-text">Tech Stack</h3>
-          <div className="flex flex-wrap justify-center gap-2 mt-4">
+        {/* Центральная секция с Tech Stack */}
+        <div className="tech-stack text-center text-white mt-8">
+          <h3 className="text-2xl font-bold glow-text mb-6">Tech Stack</h3>
+          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
             {['React', 'TypeScript', 'Python', 'Java', 'C#', 'HTML/CSS', 'DevTools', 'XPath', 'Git', 'Jira', 'ZennoPoster', 'YouGile', 'API', 'ChatGPT', 'Figma'].map((tool) => (
-              <span key={tool} className="holo-badge">{tool}</span>
+              <span 
+                key={tool} 
+                className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm 
+                           border border-white/10 hover:border-white/30 transition-all duration-300 cursor-default"
+              >
+                {tool}
+              </span>
             ))}
           </div>
         </div>
 
-        <div className="skills-section text-center text-white mt-8">
-          <h3 className="text-2xl font-bold glow-text">Skills</h3>
-        </div>
-
-        <div className="skills-info flex justify-between items-end text-white mt-4 w-full">
-          {[{title: 'Coding and Testing', details: ['Installing nodes', 'Creating scripts and robots', 'Testing the product']},
+        {/* Нижняя секция со Skills */}
+        <div className="skills-info grid grid-cols-4 gap-4 mt-8 mb-8 px-8">
+          {[
+            {title: 'Coding and Testing', details: ['Installing nodes', 'Creating scripts and robots', 'Testing the product']},
             {title: 'Marketing Strategies', details: ['Discord communities', 'Twitter communities', 'Quest platforms']},
             {title: 'Content Creation', details: ['Infographics and banners', 'Articles, guides, blogs, educational videos', 'Translating the docs, etc.']},
             {title: 'Community Organizing', details: ['Holding events online, AMAs, etc.', 'Moderating, setting up chats and roles', 'Helping new members']}
           ].map((skill, index) => (
-            <Card key={index} className="w-1/4 m-2">
-              <h3 className="text-2xl font-bold mb-4">{skill.title}</h3>
-              <ul className="text-sm space-y-2">
+            <div 
+              key={index} 
+              className="glass-card p-6 rounded-xl backdrop-blur-sm bg-white/5 hover:bg-white/10 
+                         transition-all duration-300 border border-white/10 hover:border-white/20"
+            >
+              <h3 className="text-xl font-bold text-white mb-4">{skill.title}</h3>
+              <ul className="space-y-2">
                 {skill.details.map((detail, idx) => (
-                  <li key={idx}>• {detail}</li>
+                  <li key={idx} className="text-gray-300 flex items-center">
+                    <span className="mr-2 text-blue-400">•</span>
+                    {detail}
+                  </li>
                 ))}
               </ul>
-            </Card>
+            </div>
           ))}
         </div>
       </div>
