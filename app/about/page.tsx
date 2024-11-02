@@ -99,7 +99,7 @@ const AboutPage: React.FC = () => {
             </ul>
           </div>
 
-          <div className="tech-stack text-center text-white w-2/4">
+          <div className="tech-stack text-center text-white w-2/4 mx-12">
             <h3 className="text-2xl font-bold glow-text mb-6">Tech Stack</h3>
             <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
               {['React', 'TypeScript', 'Python', 'Java', 'C#', 'HTML/CSS', 'DevTools', 'XPath', 'Git', 'Jira', 'ZennoPoster', 'YouGile', 'API', 'ChatGPT', 'Figma'].map((tool) => (
