@@ -150,6 +150,26 @@ const AboutPage: React.FC = () => {
         }}
         modules={[Autoplay, Pagination]}
         className="w-full flex justify-center"
+        slideToClickedSlide={true}
+        watchSlidesProgress={true}
+        preventInteractionOnTransition={true}
+        allowTouchMove={true}
+        loop={false}
+        slidesOffsetBefore={0}
+        slidesOffsetAfter={0}
+        breakpoints={{
+          0: {
+            slidesPerView: 3,
+          }
+        }}
+        onSlideChange={(swiper) => {
+          if (swiper.activeIndex === 0) {
+            swiper.slideTo(1);
+          }
+          if (swiper.activeIndex === 4) {
+            swiper.slideTo(3);
+          }
+        }}
       >
         {articles.map((article, index) => (
           <SwiperSlide key={index} className="flex flex-col items-center transition-all duration-300">
@@ -188,6 +208,26 @@ const AboutPage: React.FC = () => {
         }}
         modules={[Autoplay, Pagination]}
         className="w-full flex justify-center"
+        slideToClickedSlide={true}
+        watchSlidesProgress={true}
+        preventInteractionOnTransition={true}
+        allowTouchMove={true}
+        loop={false}
+        slidesOffsetBefore={0}
+        slidesOffsetAfter={0}
+        breakpoints={{
+          0: {
+            slidesPerView: 3,
+          }
+        }}
+        onSlideChange={(swiper) => {
+          if (swiper.activeIndex === 0) {
+            swiper.slideTo(1);
+          }
+          if (swiper.activeIndex === 4) {
+            swiper.slideTo(3);
+          }
+        }}
       >
         {threads.map((thread, index) => (
           <SwiperSlide key={index} className="flex flex-col items-center transition-all duration-300">
