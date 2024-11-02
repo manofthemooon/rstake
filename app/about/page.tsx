@@ -142,7 +142,10 @@ const AboutPage: React.FC = () => {
         slidesPerView={3}
         centeredSlides={true}
         initialSlide={1}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{
+          delay: 10000,
+          disableOnInteraction: false
+        }}
         pagination={{ 
           clickable: true, 
           el: '.swiper-pagination',
@@ -152,23 +155,23 @@ const AboutPage: React.FC = () => {
         className="w-full flex justify-center"
         slideToClickedSlide={true}
         watchSlidesProgress={true}
-        preventInteractionOnTransition={true}
+        preventInteractionOnTransition={false}
         allowTouchMove={true}
-        loop={false}
-        slidesOffsetBefore={0}
-        slidesOffsetAfter={0}
+        loop={true}
         breakpoints={{
           0: {
             slidesPerView: 3,
           }
         }}
-        onSlideChange={(swiper) => {
-          if (swiper.activeIndex === 0) {
-            swiper.slideTo(1);
-          }
-          if (swiper.activeIndex === 4) {
-            swiper.slideTo(3);
-          }
+        onTouchEnd={(swiper) => {
+          setTimeout(() => {
+            const currentIndex = swiper.activeIndex;
+            if (currentIndex < 1) {
+              swiper.slideTo(1);
+            } else if (currentIndex > 3) {
+              swiper.slideTo(3);
+            }
+          }, 1000);
         }}
       >
         {articles.map((article, index) => (
@@ -200,7 +203,10 @@ const AboutPage: React.FC = () => {
         slidesPerView={3}
         centeredSlides={true}
         initialSlide={1}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{
+          delay: 10000,
+          disableOnInteraction: false
+        }}
         pagination={{ 
           clickable: true, 
           el: '.swiper-pagination',
@@ -210,23 +216,23 @@ const AboutPage: React.FC = () => {
         className="w-full flex justify-center"
         slideToClickedSlide={true}
         watchSlidesProgress={true}
-        preventInteractionOnTransition={true}
+        preventInteractionOnTransition={false}
         allowTouchMove={true}
-        loop={false}
-        slidesOffsetBefore={0}
-        slidesOffsetAfter={0}
+        loop={true}
         breakpoints={{
           0: {
             slidesPerView: 3,
           }
         }}
-        onSlideChange={(swiper) => {
-          if (swiper.activeIndex === 0) {
-            swiper.slideTo(1);
-          }
-          if (swiper.activeIndex === 4) {
-            swiper.slideTo(3);
-          }
+        onTouchEnd={(swiper) => {
+          setTimeout(() => {
+            const currentIndex = swiper.activeIndex;
+            if (currentIndex < 1) {
+              swiper.slideTo(1);
+            } else if (currentIndex > 3) {
+              swiper.slideTo(3);
+            }
+          }, 1000);
         }}
       >
         {threads.map((thread, index) => (
