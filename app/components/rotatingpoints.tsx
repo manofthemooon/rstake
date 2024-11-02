@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import { Points } from '@react-three/drei';
 
 const RotatingPoints = () => {
   const pointsRef = useRef<THREE.Points>(null);
@@ -10,7 +9,7 @@ const RotatingPoints = () => {
   useEffect(() => {
     const img = new Image();
     img.src = '/favicon.png';
-    
+
     const processImage = async () => {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
@@ -19,7 +18,7 @@ const RotatingPoints = () => {
       canvas.width = img.width;
       canvas.height = img.height;
       ctx.drawImage(img, 0, 0);
-      
+
       const offscreen = new OffscreenCanvas(canvas.width, canvas.height);
       const offscreenCtx = offscreen.getContext('2d');
       if (!offscreenCtx) return;
@@ -27,10 +26,10 @@ const RotatingPoints = () => {
       offscreenCtx.drawImage(canvas, 0, 0);
       const imageData = offscreenCtx.getImageData(0, 0, canvas.width, canvas.height);
       const data = imageData.data;
-      
+
       const points = await new Promise<number[]>((resolve) => {
         const worker = new Worker(new URL('./imageWorker.ts', import.meta.url));
-        
+
         worker.onmessage = (e) => {
           resolve(e.data);
           worker.terminate();
@@ -57,7 +56,7 @@ const RotatingPoints = () => {
 
   const geometry = useMemo(() => {
     if (logoPoints.length === 0) return null;
-    
+
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute(
       'position',
@@ -76,25 +75,15 @@ const RotatingPoints = () => {
   if (!geometry) return null;
 
   return (
-    <Points ref={pointsRef}>
-      <bufferGeometry attach="geometry">
-        <bufferAttribute
-          attach="attributes-position"
-          count={logoPoints.length / 3}
-          array={new Float32Array(logoPoints)}
-          itemSize={3}
-        />
-      </bufferGeometry>
+    <points ref={pointsRef}>
+      <primitive object={geometry} />
       <pointsMaterial
-        attach="material"
+        size={0.004}
         color="#ffffff"
-        size={0.015}
-        sizeAttenuation
-        transparent
-        opacity={0.8}
+        sizeAttenuation={true}
+        transparent={true}
+        opacity={0.5}
       />
-    </Points>
+    </points>
   );
 }
-
-export default RotatingPoints;
