@@ -87,3 +87,5 @@ const RotatingPoints = () => {
     </points>
   );
 }
+
+export default RotatingPoints;
