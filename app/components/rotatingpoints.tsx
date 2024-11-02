@@ -39,7 +39,7 @@ const RotatingPoints = () => {
           data: data,
           width: canvas.width,
           height: canvas.height,
-          density: 0.1,
+          density: 0.02,
           scale: 9
         });
       });
@@ -78,11 +78,11 @@ const RotatingPoints = () => {
     <points ref={pointsRef}>
       <primitive object={geometry} />
       <pointsMaterial
-        size={0.008} 
+        size={0.004}
         color="#ffffff"
         sizeAttenuation={true}
         transparent={true}
-        opacity={0.7} 
+        opacity={0.7}
       />
     </points>
   );
