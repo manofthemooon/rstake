@@ -8,9 +8,10 @@ import RotatingPoints from '../components/rotatingpoints';
 import { Card } from "../components/card";
 import ScrollIndicators from '../components/scrollindicators';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper';
+import SwiperCore, { Autoplay, Pagination } from 'swiper';
 import 'swiper/swiper-bundle.css';
 
+SwiperCore.use([Autoplay, Pagination]);
 
 const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
