@@ -5,7 +5,6 @@ import { Navigation } from "../components/nav";
 import React, { useRef, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import RotatingPoints from '../components/rotatingpoints';
-import { Card } from "../components/card";
 import ScrollIndicators from '../components/scrollindicators';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -80,12 +79,11 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="about-snap-block flex flex-col justify-between h-screen p-8 relative bg-gradient-to-b from-black to-gray-900">
+      <div className="about-snap-block flex flex-col justify-between h-screen p-8 relative">
         <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
         
-        {/* Верхняя секция с Education и Languages */}
         <div className="flex justify-between w-full mt-16">
-          <div className="education-info text-left text-white ml-8">
+          <div className="education-info text-left text-white w-1/4 ml-8">
             <h3 className="text-2xl font-bold glow-text mb-6">Education</h3>
             <ul className="space-y-4">
               <li className="glass-card p-4 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300">
@@ -101,20 +99,35 @@ const AboutPage: React.FC = () => {
             </ul>
           </div>
 
-          <div className="languages-info text-left text-white mr-12">
+          <div className="tech-stack text-center text-white w-2/4">
+            <h3 className="text-2xl font-bold glow-text mb-6">Tech Stack</h3>
+            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+              {['React', 'TypeScript', 'Python', 'Java', 'C#', 'HTML/CSS', 'DevTools', 'XPath', 'Git', 'Jira', 'ZennoPoster', 'YouGile', 'API', 'ChatGPT', 'Figma'].map((tool) => (
+                <span 
+                  key={tool} 
+                  className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm 
+                           border border-white/10 hover:border-white/30 transition-all duration-300 cursor-default"
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="languages-info text-left text-white w-1/4 mr-8">
             <h3 className="text-2xl font-bold glow-text mb-6">Languages</h3>
             <ul className="space-y-4">
               <li className="glass-card p-4 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300">
                 <p className="font-semibold">English</p>
                 <div className="mt-2 bg-gray-700 h-2 rounded-full">
-                  <div className="bg-blue-500 h-full rounded-full w-4/5"></div>
+                  <div className="bg-white h-full rounded-full w-4/5"></div>
                 </div>
                 <p className="text-sm text-gray-400 mt-1">B2 Level</p>
               </li>
               <li className="glass-card p-4 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300">
                 <p className="font-semibold">Russian</p>
                 <div className="mt-2 bg-gray-700 h-2 rounded-full">
-                  <div className="bg-blue-500 h-full rounded-full w-full"></div>
+                  <div className="bg-white h-full rounded-full w-full"></div>
                 </div>
                 <p className="text-sm text-gray-400 mt-1">C2 Level</p>
               </li>
@@ -122,46 +135,32 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Центральная секция с Tech Stack */}
-        <div className="tech-stack text-center text-white mt-8">
-          <h3 className="text-2xl font-bold glow-text mb-6">Tech Stack</h3>
-          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-            {['React', 'TypeScript', 'Python', 'Java', 'C#', 'HTML/CSS', 'DevTools', 'XPath', 'Git', 'Jira', 'ZennoPoster', 'YouGile', 'API', 'ChatGPT', 'Figma'].map((tool) => (
-              <span 
-                key={tool} 
-                className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm 
-                           border border-white/10 hover:border-white/30 transition-all duration-300 cursor-default"
+        <div className="mt-8 mb-8 px-8">
+          <h3 className="text-2xl font-bold text-white glow-text mb-6 text-center">Skills</h3>
+          <div className="skills-info grid grid-cols-4 gap-4">
+            {[
+              {title: 'Coding and Testing', details: ['Installing nodes', 'Creating scripts and robots', 'Testing the product']},
+              {title: 'Marketing Strategies', details: ['Discord communities', 'Twitter communities', 'Quest platforms']},
+              {title: 'Content Creation', details: ['Infographics and banners', 'Articles, guides, blogs, educational videos', 'Translating the docs, etc.']},
+              {title: 'Community Organizing', details: ['Holding events online, AMAs, etc.', 'Moderating, setting up chats and roles', 'Helping new members']}
+            ].map((skill, index) => (
+              <div 
+                key={index} 
+                className="glass-card p-6 rounded-xl backdrop-blur-sm bg-white/5 hover:bg-white/10 
+                           transition-all duration-300 border border-white/10 hover:border-white/20"
               >
-                {tool}
-              </span>
+                <h3 className="text-xl font-bold text-white mb-4">{skill.title}</h3>
+                <ul className="space-y-2">
+                  {skill.details.map((detail, idx) => (
+                    <li key={idx} className="text-gray-300 flex items-center">
+                      <span className="mr-2 text-white">•</span>
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
-        </div>
-
-        {/* Нижняя секция со Skills */}
-        <div className="skills-info grid grid-cols-4 gap-4 mt-8 mb-8 px-8">
-          {[
-            {title: 'Coding and Testing', details: ['Installing nodes', 'Creating scripts and robots', 'Testing the product']},
-            {title: 'Marketing Strategies', details: ['Discord communities', 'Twitter communities', 'Quest platforms']},
-            {title: 'Content Creation', details: ['Infographics and banners', 'Articles, guides, blogs, educational videos', 'Translating the docs, etc.']},
-            {title: 'Community Organizing', details: ['Holding events online, AMAs, etc.', 'Moderating, setting up chats and roles', 'Helping new members']}
-          ].map((skill, index) => (
-            <div 
-              key={index} 
-              className="glass-card p-6 rounded-xl backdrop-blur-sm bg-white/5 hover:bg-white/10 
-                         transition-all duration-300 border border-white/10 hover:border-white/20"
-            >
-              <h3 className="text-xl font-bold text-white mb-4">{skill.title}</h3>
-              <ul className="space-y-2">
-                {skill.details.map((detail, idx) => (
-                  <li key={idx} className="text-gray-300 flex items-center">
-                    <span className="mr-2 text-blue-400">•</span>
-                    {detail}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
         </div>
       </div>
 
