@@ -27,14 +27,14 @@ const RotatingPoints = () => {
       
       for (let y = 0; y < canvas.height; y += density) {
         for (let x = 0; x < canvas.width; x += density) {
-          const i = (y * canvas.width + x) * 4;
+          const i = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
           const alpha = data[i + 3];
           const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
           
           if (alpha > 128 && brightness < 128) {
             const xPos = ((x - canvas.width / 2) / canvas.width) * scale;
             const yPos = ((canvas.height / 2 - y) / canvas.height) * scale;
-            const zPos = (Math.random() - 0.5) * 0.1;
+            const zPos = (Math.random() - 0.5) * 0.05;
             
             points.push(xPos, yPos, zPos);
           }
@@ -48,7 +48,7 @@ const RotatingPoints = () => {
   useFrame((state) => {
     if (pointsRef.current) {
       pointsRef.current.rotation.y += 0.005;
-      pointsRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
+      pointsRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.05;
     }
   });
 
