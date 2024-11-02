@@ -1,9 +1,10 @@
 import { useRef, useState, useEffect, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+import { LineSegments as ThreeLineSegments } from 'three';
 
 const RotatingPoints = () => {
-  const pointsRef = useRef<THREE.Line>(null);
+  const pointsRef = useRef<ThreeLineSegments>(null);
   const [logoPoints, setLogoPoints] = useState<number[]>([]);
 
   useEffect(() => {
@@ -75,15 +76,13 @@ const RotatingPoints = () => {
   if (!geometry) return null;
 
   return (
-    <line ref={pointsRef}>
-      <primitive object={geometry} />
-      <lineBasicMaterial
-        color="#ffffff"
-        linewidth={1}
-        transparent={true}
-        opacity={0.8}
-      />
-    </line>
+    <primitive object={new ThreeLineSegments(geometry, 
+      new THREE.LineBasicMaterial({
+        color: "#ffffff",
+        transparent: true,
+        opacity: 0.8
+      })
+    )} ref={pointsRef} />
   );
 }
 
