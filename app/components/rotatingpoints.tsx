@@ -22,8 +22,8 @@ const RotatingPoints = () => {
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
       const data = imageData.data;
       const points: number[] = [];
-      const density = 1;
-      const scale = 1.5;
+      const density = 0.5;
+      const scale = 9;
       
       for (let y = 0; y < canvas.height; y += density) {
         for (let x = 0; x < canvas.width; x += density) {
@@ -65,7 +65,7 @@ const RotatingPoints = () => {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.005}
+        size={0.02}
         color="#ffffff"
         sizeAttenuation={true}
         transparent={true}
