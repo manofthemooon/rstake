@@ -6,22 +6,22 @@ export const articles = [
   },
   { 
     title: "Injective Protocol: Revolutionizing Decentralized Exchange", 
-    image: "../../content/articles/article2.png", 
+    image: "https://i.postimg.cc/DynzKHQD/article2.png", 
     link: "https://manofthemooon.medium.com/injective-protocol-revolutionizing-decentralized-exchange-c5bfa8ef54a" 
   },
   { 
     title: "Introducing Uroboros Wallet", 
-    image: "../../content/articles/article3.png", 
+    image: "https://i.postimg.cc/2S581WK7/article3.png", 
     link: "https://manofthemooon.medium.com/introducing-uroboros-wallet-the-solution-for-seamless-defi-experience-b3d3ead45281" 
   },
   { 
     title: "Analyzing Injective (INJ) Crypto", 
-    image: "../../content/articles/article4.png", 
+    image: "https://i.postimg.cc/XYDNdJMS/article4.png", 
     link: "https://manofthemooon.medium.com/analyzing-injective-inj-crypto-price-consolidation-and-future-potential-b3743854b71f" 
   },
   { 
     title: "Hyperlane ISM", 
-    image: "../../content/articles/article5.png", 
+    image: "https://i.postimg.cc/Wb81p8X4/article5.png", 
     link: "https://manofthemooon.medium.com/ru-hyperlane-isms-%D1%87%D1%82%D0%BE-%D1%8D%D1%82%D0%BE-748047675b89" 
   },
 ];
