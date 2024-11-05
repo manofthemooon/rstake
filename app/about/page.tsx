@@ -201,7 +201,7 @@ const AboutPage: React.FC = () => {
                   <img 
                     src={article.image} 
                     alt={article.title} 
-                    className={`w-[360px] h-[190px] object-cover mb-2 transition-transform duration-300 ${isActive ? 'scale-110' : 'scale-90 opacity-50'}`} 
+                    className={`w-[300px] h-[250px] object-cover mb-2 transition-transform duration-300 ${isActive ? 'scale-110' : 'scale-90 opacity-50'}`} 
                   />
                   {isActive && (
                     <h3 className="text-lg text-white text-center animate-fade-in mb-8">{article.title}</h3>
@@ -262,7 +262,7 @@ const AboutPage: React.FC = () => {
                   <img 
                     src={thread.image} 
                     alt={thread.title} 
-                    className={`w-[360px] h-[190px] object-cover mb-2 transition-transform duration-300 ${isActive ? 'scale-110' : 'scale-90 opacity-50'}`} 
+                    className={`w-[300px] h-[250px] object-cover mb-2 transition-transform duration-300 ${isActive ? 'scale-110' : 'scale-90 opacity-50'}`} 
                   />
                   {isActive && (
                     <h3 className="text-lg text-white text-center animate-fade-in mb-8">{thread.title}</h3>
