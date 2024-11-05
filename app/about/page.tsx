@@ -8,7 +8,7 @@ import RotatingPoints from '../components/rotatingpoints';
 import ScrollIndicators from '../components/scrollindicators';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
-import { articles, threads } from 'content/articles-data';
+import { articles, threads } from '@/content/articles-data';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
