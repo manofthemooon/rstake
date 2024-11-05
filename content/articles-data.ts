@@ -1,7 +1,7 @@
 export const articles = [
   { 
     title: "Ocean Protocol: Empowering a Data-Driven Future", 
-    image: "https://i.ibb.co/VB4R5fS/article1.png", 
+    image: "https://i.postimg.cc/BbDPwF0K/article1.pngg", 
     link: "https://manofthemooon.medium.com/ocean-protocol-empowering-a-data-driven-future-d590bab9d55d" 
   },
   { 
