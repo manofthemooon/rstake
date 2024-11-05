@@ -28,28 +28,30 @@ export const articles = [
 
 export const threads = [
   { 
-    title: "Ocean Protocol Toolset: Ocean.py", 
-    image: "../../content/threads/thread1.png", 
-    link: "https://x.com/manoofthemooon/status/1671136940140142592" 
+    title: "Decentralized Music Data Marketplace with Ocean Protocol", 
+    image: "https://i.postimg.cc/1zPB09DB/thread1.png", 
+    link: "https://x.com/manoofthemooon/status/1676230380158844928"
   },
   { 
     title: "Venom: A Blockchain Without Boundaries", 
-    image: "../../content/threads/thread2.png", 
+    image: "https://i.postimg.cc/G2mjNq7s/thread2.png", 
     link: "https://x.com/manoofthemooon/status/1664322123278565389" 
   },
   { 
     title: "Ocean Protocol InvestorsObserver Analysis", 
-    image: "../../content/threads/thread3.png", 
+    image: "https://i.postimg.cc/wMtQx3dq/thread3.png", 
     link: "https://x.com/manoofthemooon/status/1679111462789234688" 
   },
   { 
     title: "Injective SWOT Analysis", 
-    image: "../../content/threads/thread4.png", 
+    image: "https://i.postimg.cc/g0DDNfDW/thread4.png", 
     link: "https://x.com/manoofthemooon/status/1661490930304663553" 
   },
   { 
-    title: "Decentralized Music Data Marketplace with Ocean Protocol", 
-    image: "../../content/threads/thread5.png", 
-    link: "https://x.com/manoofthemooon/status/1676230380158844928" 
+    title: "Ocean Protocol Toolset: Ocean.py", 
+    image: "https://i.postimg.cc/wv4kdLZ4/thread5.png", 
+    link: "https://x.com/manoofthemooon/status/1671136940140142592" 
   },
 ]; 
+
+    
