@@ -13,7 +13,7 @@ import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
 import dynamic from 'next/dynamic';
 
-const Model = dynamic(() => import('../components/model'), { ssr: false });
+const Logo = dynamic(() => import('../components/model'), { ssr: false });
 
 const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -59,11 +59,11 @@ const AboutPage: React.FC = () => {
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
         </div>
         <div className="canvas-container w-full md:w-[37.5%] h-full">
-        <Canvas camera={{ position: [0, 1, 5], fov: 50 }}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={1} />
-          <Model /> 
-        </Canvas>
+          <Canvas camera={{ position: [0, 1, 5], fov: 50 }}>
+            <ambientLight intensity={0.5} />
+            <pointLight position={[10, 10, 10]} intensity={1} />
+            <Logo /> 
+          </Canvas>
         </div>
       </div>
 

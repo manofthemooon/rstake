@@ -1,26 +1,25 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
+import { useRef, useEffect } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from '@react-three/drei';
 
-const Model: React.FC = () => {
-  const [model, setModel] = useState<THREE.Group | null>(null);
+const Logo = () => {
+  const meshRef = useRef<THREE.Mesh>(null);
+  const texture = new THREE.TextureLoader().load('/alien.png'); 
 
-  useEffect(() => {
-    const loader = new GLTFLoader();
-    loader.load('/alien.glb', (gltf) => {
-      setModel(gltf.scene);
-    });
-
-  }, []);
-
-  if (!model) return null; 
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.01; 
+    }
+  });
 
   return (
-    <primitive object={model} scale={0.5} />
+    <mesh ref={meshRef}>
+      <planeGeometry args={[3, 3]} /> 
+      <meshBasicMaterial map={texture} transparent={true} /> 
+    </mesh>
   );
 };
 
@@ -31,7 +30,7 @@ const AboutPage: React.FC = () => {
         <Canvas camera={{ position: [0, 1, 5], fov: 50 }}>
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} intensity={1} />
-          <Model />
+          <Logo />
           <OrbitControls /> 
         </Canvas>
       </div>
