@@ -18,7 +18,7 @@ const Logo = dynamic(() => import('../components/model'), { ssr: false });
 const AboutPage: React.FC = () => {
   const pageRef = useRef<HTMLDivElement>(null);
   const [activeBlock, setActiveBlock] = useState(0);
-  const blockCount = 4;
+  const blockCount = 3;
 
   const handleScroll = (event: WheelEvent) => {
     event.preventDefault();
@@ -62,7 +62,10 @@ const AboutPage: React.FC = () => {
         <Canvas camera={{ position: [0, 1, 5], fov: 50 }}>
             <ambientLight intensity={0.5} />
             <pointLight position={[10, 10, 10]} intensity={1} />
-            <Logo /> 
+            <div className="nft-card">
+                <Logo />
+                <div className="nft-caption">NFT</div>
+            </div>
           </Canvas>
         </div>
       </div>
@@ -279,10 +282,6 @@ const AboutPage: React.FC = () => {
     </div>
   </div>
 </div>
-<div className="about-snap-block flex items-center justify-center h-screen bg-black">
-        <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
-        <h2 className="text-4xl font-bold text-white">Fourth Block Content</h2>
-      </div>
     </div>
   );
 };
