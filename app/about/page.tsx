@@ -12,6 +12,7 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
 import dynamic from 'next/dynamic';
+import { Html } from '@react-three/drei';
 
 const Logo = dynamic(() => import('../components/model'), { ssr: false });
 
@@ -62,10 +63,14 @@ const AboutPage: React.FC = () => {
         <Canvas camera={{ position: [0, 1, 5], fov: 50 }}>
             <ambientLight intensity={0.5} />
             <pointLight position={[10, 10, 10]} intensity={1} />
-            <div className="nft-card">
+            <group>
                 <Logo />
-                <div className="nft-caption">NFT</div>
-            </div>
+                <Html>
+                    <div className="nft-card">
+                        <div className="nft-caption">NFT</div>
+                    </div>
+                </Html>
+            </group>
           </Canvas>
         </div>
       </div>
