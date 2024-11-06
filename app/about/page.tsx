@@ -59,9 +59,14 @@ const AboutPage: React.FC = () => {
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
         </div>
         <div className="canvas-container w-full md:w-[37.5%] h-full">
-          <Canvas className="w-full h-full">
-            <Model />
-          </Canvas>
+          <iframe 
+            title="Alien Spaceship - Fighter" 
+            src="https://sketchfab.com/models/c6a160cc2e1b42bd928902c023b70f05/embed" 
+            frameBorder="0" 
+            allowFullScreen
+            allow="autoplay; fullscreen; xr-spatial-tracking"
+            className="w-full h-full"
+          />
         </div>
       </div>
 
