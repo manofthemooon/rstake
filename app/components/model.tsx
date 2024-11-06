@@ -11,7 +11,7 @@ const Logo: React.FC = () => {
 
     const animate = () => {
       if (meshRef.current) {
-        meshRef.current.rotation.y += 0.0025;
+        meshRef.current.rotation.y += 0.0035;
       }
       animationFrameId = requestAnimationFrame(animate);
     };
