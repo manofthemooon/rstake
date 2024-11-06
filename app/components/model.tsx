@@ -17,9 +17,10 @@ const Logo: React.FC = () => {
   }, []);
 
   return (
-    <mesh ref={meshRef} position={[0, 0, 0]}>
-      <planeGeometry args={[5, 5]} />  
+    <mesh ref={meshRef} position={[0, 0, 0]} scale={[0.5, 0.5, 0.5]}>
+      <planeGeometry args={[5, 5]} />
       <meshBasicMaterial map={new THREE.TextureLoader().load('/alien.png')} transparent={true} />
+      <meshBasicMaterial map={new THREE.TextureLoader().load('/alien.png')} transparent={true} side={THREE.BackSide} />
     </mesh>
   );
 };
