@@ -199,27 +199,71 @@
   display: inline-block;
 }
 
-.nft-card {
+
+.nftCard {
   position: relative;
-  display: inline-block;
+  width: 320px;
+  height: 400px;
+  background: #fff;
+  border: 4px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
-  border-radius: 15px;
-  background: linear-gradient(45deg, rgba(255, 0, 150, 0.5), rgba(0, 204, 255, 0.5));
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s;
 }
 
-.nft-card:hover {
-  transform: scale(1.05);
+.nftCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #9b6bff, #00eaff, #ff4d6d);
+  opacity: 0.15;
+  z-index: 0;
 }
 
-.nft-caption {
-  margin-top: 10px;
-  text-align: center;
-  font-size: 1.2rem;
-  color: white;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+.glimmerEffect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.05));
+  opacity: 0.8;
+  animation: glimmer 3s infinite linear;
+  z-index: 1;
 }
 
+@keyframes glimmer {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.nftCard-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nftText {
+  position: absolute;
+  bottom: 16px;
+  background: #fff;
+  color: #333;
+  padding: 4px 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
 

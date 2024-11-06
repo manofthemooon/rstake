@@ -4,6 +4,7 @@ import Particles from '../components/particles';
 import { Navigation } from '../components/nav';
 import React, { useRef, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 import ScrollIndicators from '../components/scrollindicators';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -12,7 +13,6 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
 import dynamic from 'next/dynamic';
-import { Html } from '@react-three/drei';
 
 const Logo = dynamic(() => import('../components/model'), { ssr: false });
 
@@ -59,19 +59,17 @@ const AboutPage: React.FC = () => {
           <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
         </div>
-        <div className="canvas-container w-full md:w-[37.5%] h-full">
-        <Canvas camera={{ position: [0, 1, 5], fov: 50 }}>
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} intensity={1} />
-            <group>
-                <Logo />
-                <Html>
-                    <div className="nft-card">
-                        <div className="nft-caption">NFT</div>
-                    </div>
-                </Html>
-            </group>
-          </Canvas>
+        <div className="nftCard">
+          <div className="glimmerEffect"></div>
+          <div className="nftCard-content">
+            <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+              <ambientLight intensity={0.5} />
+              <pointLight position={[10, 10, 10]} intensity={1} />
+              <OrbitControls enableZoom={false} />
+              <Logo />
+            </Canvas>
+            <p className="nftText">NFT</p>
+          </div>
         </div>
       </div>
 
