@@ -52,20 +52,20 @@ const AboutPage: React.FC = () => {
       <Navigation />
       <ScrollIndicators activeBlock={activeBlock} onClick={handleClick} blockCount={blockCount} />
 
-      <div className="about-snap-block flex flex-col items-center justify-center h-screen relative">
-        <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
-        <div className="text-container text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
-          <h2 className="text-2xl md:text-4xl font-sans mt-2">I'm Making Crypto Projects Better</h2>
-        </div>
-        <div className="canvas-container-logo w-full md:w-[37.5%] h-full">
-          <Canvas camera={{ position: [0, 1, 5], fov: 50 }}>
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} intensity={1} />
-            <Logo />
-          </Canvas>
-        </div>
-      </div>
+      <div className="about-snap-block specific-block flex items-center justify-center h-screen relative">
+  <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
+  <div className="text-container text-left text-white">
+    <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
+    <h2 className="text-2xl md:text-4xl font-sans mt-2">I'm Making Crypto Projects Better</h2>
+  </div>
+  <div className="canvas-container w-full md:w-[37.5%] h-full">
+    <Canvas camera={{ position: [0, 1, 5], fov: 50 }}>
+      <ambientLight intensity={0.5} />
+      <pointLight position={[10, 10, 10]} intensity={1} />
+      <Logo /> 
+    </Canvas>
+  </div>
+</div>
 
       <div className="about-snap-block flex flex-col justify-between h-screen p-8 relative">
         <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
