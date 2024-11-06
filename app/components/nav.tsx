@@ -39,7 +39,7 @@ export const Navigation: React.FC = () => {
 							<img
 								src="https://i.ibb.co/f0kTqbx/web3ali3n.png"
 								alt="Web3 Ali3n Logo"
-								className="h-8 w-8 object-contain md:hidden" // логотип скрыт на больших экранах
+								className="h-8 w-8 object-contain md:hidden" 
 							/>
 						</Link>
 					</div>

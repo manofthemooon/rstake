@@ -57,9 +57,7 @@ const AboutPage: React.FC = () => {
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
         </div>
         <div className="canvas-container w-full md:w-[37.5%] h-full">
-          <Canvas className="w-full h-full">
             <Model />
-          </Canvas>
         </div>
       </div>
 
