@@ -201,6 +201,35 @@
 
 
 @media (max-width: 768px) {
+  .specific-block {
+    flex-direction: column;
+  }
+
+  .specific-block .text-container {
+    order: 1;
+    text-align: center;
+  }
+
+  .specific-block h1 {
+    font-size: 2.5rem; 
+    margin-top: 5rem;
+  }
+
+  .specific-block h2 {
+    font-size: 1.5rem; 
+    margin-top: 0.5rem;
+  }
+
+  .specific-block .canvas-container {
+    order: 2;
+    width: 80%;
+    margin-top: 1rem;
+    margin-left: 5rem;
+    transform: scale(0.8); 
+  }
+}
+
+@media (max-width: 768px) {
   .second-block-mobile .tech-stack,
   .second-block-mobile .languages-info {
     display: none;
@@ -208,23 +237,24 @@
 
   .second-block-mobile .education-info,
   .second-block-mobile .skills-info {
-    font-size: 0.7rem; 
+    font-size: 0.75rem; 
   }
 
 
   .second-block-mobile .education-info ul {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: nowrap; 
+    overflow-x: auto;
     gap: 8px;
+    justify-content: center;
   }
 
   .second-block-mobile .education-info ul li {
-    width: 500%; 
+    width: auto; 
+    flex-shrink: 0; 
     text-align: center;
     margin: 4px 0;
-  }
 
 
   .second-block-mobile .skills-info {
@@ -235,9 +265,9 @@
   }
 
   .second-block-mobile .skills-info div {
-    width: 200%;
+    width: 200%; 
     text-align: center;
     margin: 4px 0;
   }
 }
-
+}
