@@ -1,33 +1,57 @@
-<div align="center">
-    <a href="https://chronark.com"><h1 align="center">chronark.com</h1></a>
+# About Me
 
-My personal website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Upstash](https://upstash.com?ref=chronark.com), [Contentlayer](https://www.contentlayer.dev/) and deployed to [Vercel](https://vercel.com/).
+Welcome to my personal portfolio! I'm **Andrey**, and I specialize in improving crypto projects. Here you can learn more about my education, skills, tech stack, and the projects I've been working on.
 
-</div>
+---
 
-<br/>
+## Overview
 
+This site is built with the latest technologies, showcasing my projects and skills, including:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/upstash/clone?demo-title=Next.js%20Portfolio%20with%20Pageview%20Counter&demo-description=Portfolio%20site%20with%20pageview%20counter%2C%20built%20with%20Next.js%2013%20App%20Router%2C%20Contentlayer%2C%20and%20Upstash%20Redis.&demo-url=https%3A%2F%2Fchronark.com%2F&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F1DA8n5a6WaP9p1FXf9LmUY%2Fc6264fa2732355787bf657df92dda8a1%2FCleanShot_2023-04-17_at_14.17.37.png&project-name=Next.js%20Portfolio%20with%20Pageview%20Counter&repository-name=nextjs-portfolio-pageview-counter&repository-url=https%3A%2F%2Fgithub.com%2Fchronark%2Fchronark.com&from=templates&integration-ids=oac_V3R1GIpkoJorr6fqyiwdhl17)
+- **Tech Stack:** React, TypeScript, Python, Java, C#, HTML/CSS, and many more
+- **Languages:** English (B2), Russian (C2)
+- **Skills:** Coding & Testing, Marketing Strategies, Content Creation, Community Organizing
 
-## Running Locally
+---
 
+## Features
 
-```sh-session
-git clone https://github.com/chronark/chronark.com.git
-cd chronark.com
-```
+### 🏫 Education
 
+I have a **Bachelor's degree** in **Infocommunication Technologies** from MTUCI (2019-2023) and currently pursuing a **Master's degree** in **Quantum Communications** (2023-2025).
 
-Create a `.env` file similar to [`.env.example`](https://github.com/chronark/chronark.com/blob/main/.env.example).
+---
 
-Then install dependencies and run the development server:
-```sh-session
-pnpm install
-pnpm dev
-```
+### 💻 Tech Stack
 
+I work with a variety of technologies, including:
 
-## Cloning / Forking
+- **Frontend:** React, TypeScript, HTML/CSS
+- **Backend:** Python, Java, C#
+- **Tools & Platforms:** Git, Jira, ZennoPoster, YouGile, ChatGPT, Figma
 
-Please remove all of my personal information (projects, images, etc.) before deploying your own version of this site.
+---
+
+### 🛠️ Skills
+
+I have experience in several key areas:
+
+- **Coding & Testing:** Node installation, script creation, product testing
+- **Marketing Strategies:** Managing Discord and Twitter communities, quest platforms
+- **Content Creation:** Designing infographics, articles, and educational videos
+- **Community Organizing:** Organizing events, moderating chats, and onboarding new members
+
+---
+
+### 📚 Top Articles and Threads
+
+I actively contribute to the community and share my insights through articles and threads.
+
+---
+
+## 📬 Contact
+
+You can reach me via [email](mailto:manofthemoonwork@gmail.com) or follow me on my social media:
+
+- [Twitter](https://x.com/manoofthemooon)  
+- [Telegram](https://t.me/manofthemoon)
