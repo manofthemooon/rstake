@@ -200,3 +200,8 @@
 }
 
 
+@media (max-width: 768px) {
+  .canvas-container-logo {
+    margin-top: 20px; 
+  }
+}
