@@ -67,27 +67,27 @@ const AboutPage: React.FC = () => {
   </div>
 </div>
 
-      <div className="about-snap-block flex flex-col justify-between h-screen p-8 relative">
-        <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
-        
-        <div className="flex justify-between w-full mt-16">
-          <div className="education-info text-left text-white w-1/4 ml-8">
-            <h3 className="text-2xl font-bold glow-text mb-6">Education</h3>
-            <ul className="space-y-4">
-              <li className="glass-card p-4 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300">
-                <p className="font-semibold">Bachelor's Degree</p>
-                <p className="text-gray-300">Infocommunication Technologies</p>
-                <p className="text-sm text-gray-400">MTUCI (2019-2023)</p>
-              </li>
-              <li className="glass-card p-4 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300">
-                <p className="font-semibold">Master's Degree</p>
-                <p className="text-gray-300">Quantum Communications</p>
-                <p className="text-sm text-gray-400">MTUCI (2023-2025)</p>
-              </li>
-            </ul>
-          </div>
+<div className="about-snap-block second-block-mobile flex flex-col justify-between h-screen p-8 relative">
+  <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
+  
+  <div className="flex justify-between w-full mt-16">
+    <div className="education-info text-left text-white w-1/4 ml-8">
+      <h3 className="text-2xl font-bold glow-text mb-6">Education</h3>
+      <ul className="space-y-4">
+        <li className="glass-card p-4 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300">
+          <p className="font-semibold">Bachelor's Degree</p>
+          <p className="text-gray-300">Infocommunication Technologies</p>
+          <p className="text-sm text-gray-400">MTUCI (2019-2023)</p>
+        </li>
+        <li className="glass-card p-4 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300">
+          <p className="font-semibold">Master's Degree</p>
+          <p className="text-gray-300">Quantum Communications</p>
+          <p className="text-sm text-gray-400">MTUCI (2023-2025)</p>
+        </li>
+      </ul>
+    </div>
 
-          <div className="tech-stack text-center text-white w-2/4 mx-12">
+          <div className="tech-stack text-center text-white w-2/4 mx-12 hidden md:block">
             <h3 className="text-2xl font-bold glow-text mb-6">Tech Stack</h3>
             <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
               {['React', 'TypeScript', 'Python', 'Java', 'C#', 'HTML/CSS', 'DevTools', 'XPath', 'Git', 'Jira', 'ZennoPoster', 'YouGile', 'API', 'ChatGPT', 'Figma'].map((tool) => (
@@ -102,7 +102,7 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="languages-info text-left text-white w-1/4 mr-8">
+          <div className="languages-info text-left text-white w-1/4 mr-8 hidden md:block">
             <h3 className="text-2xl font-bold glow-text mb-6">Languages</h3>
             <ul className="space-y-4">
               <li className="glass-card p-4 rounded-lg backdrop-blur-sm bg-white/10 hover:bg-white/20 transition-all duration-300">
@@ -124,8 +124,8 @@ const AboutPage: React.FC = () => {
         </div>
 
         <div className="mt-8 mb-8 px-8">
-          <h3 className="text-2xl font-bold text-white glow-text mb-6 text-center">Skills</h3>
-          <div className="skills-info grid grid-cols-4 gap-4">
+    <h3 className="text-2xl font-bold text-white glow-text mb-6 text-center">Skills</h3>
+    <div className="skills-info grid grid-cols-4 gap-4">
             {[
               {title: 'Coding and Testing', details: ['Installing nodes', 'Creating scripts and robots', 'Testing the product']},
               {title: 'Marketing Strategies', details: ['Discord communities', 'Twitter communities', 'Quest platforms']},

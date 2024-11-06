@@ -228,3 +228,31 @@
     transform: scale(0.8); 
   }
 }
+
+@media (max-width: 768px) {
+  .second-block-mobile .tech-stack,
+  .second-block-mobile .languages-info {
+    display: none;
+  }
+
+  .second-block-mobile .education-info,
+  .second-block-mobile .skills-info {
+    font-size: 0.875rem; 
+  }
+
+  .second-block-mobile .education-info ul,
+  .second-block-mobile .skills-info ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .second-block-mobile .education-info ul li,
+  .second-block-mobile .skills-info div {
+    width: 45%;
+    margin: 4px 0;
+    text-align: center;
+  }
+}
