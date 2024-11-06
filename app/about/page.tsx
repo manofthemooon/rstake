@@ -3,8 +3,6 @@
 import Particles from '../components/particles';
 import { Navigation } from "../components/nav";
 import React, { useRef, useEffect, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import RotatingPoints from '../components/rotatingpoints';
 import ScrollIndicators from '../components/scrollindicators';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -12,6 +10,7 @@ import { articles, threads } from '@/content/articles-data';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
+import AlienEmbed from '../components/AlienEmbed';
 
 
 
@@ -54,14 +53,8 @@ const AboutPage: React.FC = () => {
 
       <div className="about-snap-block flex items-center justify-center h-screen relative">
         <Particles className="absolute inset-0 w-full h-full -z-10" quantity={100} />
-        <div className="text-container text-left text-white">
-          <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
-          <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
-        </div>
         <div className="canvas-container w-full md:w-[37.5%] h-full">
-          <Canvas className="w-full h-full">
-            <RotatingPoints />
-          </Canvas>
+          <AlienEmbed />
         </div>
       </div>
 
