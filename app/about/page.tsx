@@ -4,7 +4,6 @@ import Particles from '../components/particles';
 import { Navigation } from '../components/nav';
 import React, { useRef, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 import ScrollIndicators from '../components/scrollindicators';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -59,17 +58,12 @@ const AboutPage: React.FC = () => {
           <h1 className="text-4xl md:text-6xl font-display mt-4">My name is Andrey.</h1>
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
         </div>
-        <div className="nftCard">
-          <div className="glimmerEffect"></div>
-          <div className="nftCard-content">
-            <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} intensity={1} />
-              <OrbitControls enableZoom={false} />
-              <Logo />
-            </Canvas>
-            <p className="nftText">NFT</p>
-          </div>
+        <div className="canvas-container w-full md:w-[37.5%] h-full">
+        <Canvas camera={{ position: [0, 1, 5], fov: 50 }}>
+            <ambientLight intensity={0.5} />
+            <pointLight position={[10, 10, 10]} intensity={1} />
+            <Logo /> 
+          </Canvas>
         </div>
       </div>
 
