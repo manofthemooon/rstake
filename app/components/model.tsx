@@ -9,7 +9,7 @@ const Model: React.FC = () => {
 
   useEffect(() => {
     const loader = new GLTFLoader();
-    loader.load('/components/alien.glb', (gltf) => {
+    loader.load('/app/components/alien.glb', (gltf) => {
       const model = gltf.scene;
       model.traverse((child) => {
         if ((child as THREE.Mesh).isMesh) {
@@ -37,7 +37,7 @@ const Model: React.FC = () => {
 
   if (!modelLoaded) return null;
 
-  return <primitive object={modelRef.current || new THREE.Group()} />;
+  return <primitive ref={modelRef} object={modelRef.current || new THREE.Group()} />;
 };
 
 export default Model;
