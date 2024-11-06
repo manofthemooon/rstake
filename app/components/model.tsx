@@ -2,14 +2,20 @@ import { useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 
 const Model: React.FC = () => {
   const modelRef = useRef<THREE.Group>(null);
 
   useEffect(() => {
     const loader = new GLTFLoader();
+    const dracoLoader = new DRACOLoader();
+
+    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/'); 
+    loader.setDRACOLoader(dracoLoader);
+
     loader.load(
-      '/alien.glb', 
+      '/alien.glb',
       (gltf) => {
         const model = gltf.scene;
         model.traverse((child) => {
@@ -31,6 +37,10 @@ const Model: React.FC = () => {
         console.error('Ошибка при загрузке модели:', error);
       }
     );
+
+    return () => {
+      dracoLoader.dispose();
+    };
   }, []);
 
   useFrame((state) => {
