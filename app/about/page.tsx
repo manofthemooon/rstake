@@ -59,14 +59,11 @@ const AboutPage: React.FC = () => {
           <h2 className="text-2xl md:text-4xl font-sans mt-2">I am a Web3 enjoyer from Russia.</h2>
         </div>
         <div className="canvas-container w-full md:w-[37.5%] h-full">
-          <iframe 
-            title="Alien Spaceship - Fighter" 
-            src="https://sketchfab.com/models/c6a160cc2e1b42bd928902c023b70f05/embed" 
-            frameBorder="0" 
-            allowFullScreen
-            allow="autoplay; fullscreen; xr-spatial-tracking"
-            className="w-full h-full"
-          />
+        <Canvas camera={{ position: [0, 1, 5], fov: 50 }}>
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <Model /> 
+        </Canvas>
         </div>
       </div>
 

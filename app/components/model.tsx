@@ -1,66 +1,42 @@
-import { useRef, useEffect } from 'react';
-import { useFrame } from '@react-three/fiber';
+'use client';
+
+import { useRef, useEffect, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
+import { OrbitControls } from '@react-three/drei';
 
 const Model: React.FC = () => {
-  const modelRef = useRef<THREE.Group>(null);  
+  const [model, setModel] = useState<THREE.Group | null>(null);
 
   useEffect(() => {
-    const loader = new GLTFLoader();  
-    const dracoLoader = new DRACOLoader();  
+    const loader = new GLTFLoader();
+    loader.load('/alien.glb', (gltf) => {
+      setModel(gltf.scene);
+    });
 
-    
-    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
-    loader.setDRACOLoader(dracoLoader); 
-    
-    loader.load(
-      '/alien.glb',  
-      (gltf) => {
-        const model = gltf.scene;  
-        model.traverse((child) => {
-          
-          if ((child as THREE.Mesh).isMesh) {
-            const mesh = child as THREE.Mesh;
-            mesh.material = new THREE.MeshStandardMaterial({
-              color: 0x7f7f7f,  
-              metalness: 1.0,  
-              roughness: 0.2,  
-            });
-          }
-        });
-       
-        if (modelRef.current) {
-          modelRef.current.add(model);
-        }
-      },
-      undefined,  
-      (error) => {
-        console.error('Ошибка при загрузке модели:', error);  
-      }
-    );
+  }, []);
 
-    return () => {
-     
-      dracoLoader.dispose();
-    };
-  }, []);  
-
-  useFrame((state) => {
-    if (modelRef.current) {
-      modelRef.current.rotation.y += 0.005; 
-      modelRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.05;  
-    }
-  });
+  if (!model) return null; 
 
   return (
-    <>
-      <ambientLight intensity={0.5} />  
-      <pointLight position={[10, 10, 10]} intensity={1} /> 
-      <primitive ref={modelRef} object={modelRef.current || new THREE.Group()} />  d
-    </>
+    <primitive object={model} scale={0.5} />
   );
 };
 
-export default Model;
+const AboutPage: React.FC = () => {
+  return (
+    <div className="about-snap-container overflow-hidden relative">
+      <div className="about-snap-block flex items-center justify-center h-screen relative">
+        <Canvas camera={{ position: [0, 1, 5], fov: 50 }}>
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <Model />
+          <OrbitControls /> 
+        </Canvas>
+      </div>
+    </div>
+  );
+};
+
+export default AboutPage;
