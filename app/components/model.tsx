@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { useFrame, Canvas } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
@@ -9,7 +9,7 @@ const Model: React.FC = () => {
 
   useEffect(() => {
     const loader = new GLTFLoader();
-    loader.load('./alien.glb', (gltf) => {
+    loader.load('/alien.glb', (gltf) => {  
       const model = gltf.scene;
       model.traverse((child) => {
         if ((child as THREE.Mesh).isMesh) {
@@ -38,11 +38,11 @@ const Model: React.FC = () => {
   if (!modelLoaded) return null;
 
   return (
-    <Canvas>
+    <>
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={1} />
       <primitive ref={modelRef} object={modelRef.current || new THREE.Group()} />
-    </Canvas>
+    </>
   );
 };
 
