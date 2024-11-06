@@ -1,41 +1,27 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import { OrbitControls } from '@react-three/drei';
 
-const Logo = () => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const texture = new THREE.TextureLoader().load('/alien.png'); 
+const Logo: React.FC = () => {
+  const meshRef = useRef<any>(null);
 
-  useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += 0.01; 
-    }
-  });
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (meshRef.current) {
+        meshRef.current.rotation.y += 0.01;  
+      }
+    }, 16);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <mesh ref={meshRef}>
-      <planeGeometry args={[3, 3]} /> 
-      <meshBasicMaterial map={texture} transparent={true} /> 
+    <mesh ref={meshRef} position={[0, 0, 0]}>
+      <planeGeometry args={[5, 5]} />  
+      <meshBasicMaterial map={new THREE.TextureLoader().load('/alien.png')} transparent={true} />
     </mesh>
   );
 };
 
-const AboutPage: React.FC = () => {
-  return (
-    <div className="about-snap-container overflow-hidden relative">
-      <div className="about-snap-block flex items-center justify-center h-screen relative">
-        <Canvas camera={{ position: [0, 1, 5], fov: 50 }}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={1} />
-          <Logo />
-          <OrbitControls /> 
-        </Canvas>
-      </div>
-    </div>
-  );
-};
-
-export default AboutPage;
+export default Logo;
