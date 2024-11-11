@@ -14,9 +14,9 @@ const socials = [
         height={20}
       />
     ),
-    href: "https://x.com/manoofthemooon",
+    href: "https://x.com/web3ali3n",
     label: "Twitter",
-    handle: "@manoofthemooon",
+    handle: "@web3ali3n",
   },
   {
     icon: (
