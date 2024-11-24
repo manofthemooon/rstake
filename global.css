@@ -1,6 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .text-edge-outline {
+    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+  } 
+} 
+
+
 @font-face {
-  font-family: 'GTWALSHEIMPRO';
+  font-family: 'GTWALSHEIMPROLIGHT';
   src: url('/public/fonts/GTWALSHEIMPRO-LIGHT.TTF') format('truetype');
   font-weight: 300;
-  font-style: light;
+  font-style: normal;
 }
