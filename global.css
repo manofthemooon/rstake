@@ -271,3 +271,10 @@
   }
 }
 }
+
+@font-face {
+  font-family: 'GTWALSHEIMPROLIGHT';
+  src: url('/public/fonts/GTWALSHEIMPRO-LIGHT.TTF') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
